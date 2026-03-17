@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kayros AI Technologies — Intelligent Operational Software</title>
+  <meta name="description"
+    content="Kayros is an AI technology company building intelligent operational systems for modern organizations." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+
+<body class="home-transparent-header">
+  <!-- ═══════════════════════════════════════════════════════════
+     HEADER GLOBAL — editá components/header.html
+═══════════════════════════════════════════════════════════ -->
+  <div id="site-header"></div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+     VIEWPORT FILL: hero + Who We Are + Core Capabilities only
+═══════════════════════════════════════════════════════════ -->
+  <div class="viewport-sections">
+    <!-- HERO BANNER -->
+    <section class="hero-banner">
+      <video class="hero-bg-video" autoplay muted loop playsinline aria-hidden="true">
+        <source
+          src="https://uc26da92be11a33c937589c4573b.dl.dropboxusercontent.com/cd/0/inline/C8yuwuX13MpMz8oKuaZ2kug-semTYOC8PYOV0YOa4Kx1bXlpaa1ZI-om3DGWGnvt0vh64Qq_LXupajoPMHR-KRfwIigg0_JF4Wvu1qNS-Q0IRrpdZubWiPfp7kLS8V1QjNg/file"
+          type="video/mp4">
+      </video>
+      <div class="hero-bg-overlay" aria-hidden="true"></div>
+      <div class="hero-banner-inner">
+        <div class="hero-banner-text">
+          <h1>
+            Intelligent Operational Infrastructure<br />
+            Transforming Business Through Smarter Software
+          </h1>
+          <p>
+            AI-driven technology that enhances coordination, reduces
+            friction,<br />
+            and brings intelligence to everyday operations.
+          </p>
+          <div class="hero-banner-btns">
+            <a href="contact.html" class="btn-hero-pill btn-hero-talk">
+              <span class="hero-pill-badge">TALK</span>
+              Contact us
+              <span class="hero-pill-arrow" aria-hidden="true">→</span>
+            </a>
+            <a onclick="openModal()" class="btn-hero-pill btn-hero-mail" style="cursor: pointer">
+              <span class="hero-pill-badge">MAIL</span>
+              Sign me up for emails
+              <span class="hero-pill-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+        <div class="hero-banner-visual">
+          <div class="logo-system-container">
+            <div class="logo-system" id="logoSystem">
+              <!-- Anillos de pulso -->
+              <div class="pulse-ring pulse-1"></div>
+              <div class="pulse-ring pulse-2"></div>
+
+              <!-- Anillos de órbita -->
+              <div class="orbit-ring orbit-ring-1"></div>
+              <div class="orbit-ring orbit-ring-2"></div>
+              <div class="orbit-ring orbit-ring-3"></div>
+
+              <!-- Satélites -->
+              <div class="satellite sat-1" id="sat1"></div>
+              <div class="satellite sat-2" id="sat2"></div>
+              <div class="satellite sat-3" id="sat3"></div>
+
+              <div class="logo-pulse-wrapper">
+                <img src="assets/iso_k/svg/k_iso_circular_w_bg_blue.svg" class="main-visual-logo" id="homeMainLogo"
+                  alt="Kayros — Intelligent Operational Infrastructure" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+     WHO WE ARE + CORE CAPABILITIES
+═══════════════════════════════════════════════════════════ -->
+    <section class="who-capabilities-section">
+      <div class="who-capabilities-inner">
+        <!-- Left: Who We Are -->
+        <div class="who-col">
+          <h2>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary-red)" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            Who We Are
+          </h2>
+          <p>
+            Kayros is an AI technology company building intelligent operational systems for modern organizations. We
+            develop scalable platforms that combine artificial intelligence and human coordination to optimize
+            communication, workflows, and real-time decision-making — beginning with our flagship healthcare platform,
+            Kayros Assist.
+          </p>
+
+          <button class="expand-trigger" onclick="openWhoModal()">
+            <span class="expand-label">Learn More</span>
+            <span class="expand-arrow">&rarr;</span>
+          </button>
+
+
+        </div>
+
+        <!-- Right: Core Capabilities -->
+        <div class="cap-col">
+          <h2><span style="color: var(--primary-red); font-size: 0.9em; margin-right: 8px;">&gt;</span>Core Capabilities</h2>
+          <ul class="capability-checklist">
+            <li>
+              <div class="cap-item-title">
+                <span class="cap-check">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </span>
+                AI Workflow Orchestration
+              </div>
+              <div class="cap-item-desc">Intelligent automation that structures and optimizes operational processes.</div>
+            </li>
+            <li>
+              <div class="cap-item-title">
+                <span class="cap-check">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </span>
+                Real-Time Operational Visibility
+              </div>
+              <div class="cap-item-desc">Live dashboards and monitoring for informed, immediate decision-making.</div>
+            </li>
+            <li>
+              <div class="cap-item-title">
+                <span class="cap-check">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </span>
+                Omnichannel Communication Infrastructure
+              </div>
+              <div class="cap-item-desc">Unified voice, messaging, and digital coordination systems.</div>
+            </li>
+            <li>
+              <div class="cap-item-title">
+                <span class="cap-check">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </span>
+                Intelligent Case & Task Management
+              </div>
+              <div class="cap-item-desc">Structured tracking, prioritization, and resolution of operational workflows.</div>
+            </li>
+            <li>
+              <div class="cap-item-title">
+                <span class="cap-check">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </span>
+                Data-Driven Insights
+              </div>
+              <div class="cap-item-desc">Actionable analytics that improve performance and operational outcomes.</div>
+            </li>
+          </ul>
+          <button class="expand-trigger" onclick="openCapModal()" style="margin-top: 20px;">
+            <span class="expand-label">Learn More</span>
+            <span class="expand-arrow">&rarr;</span>
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- /.viewport-sections -->
+
+  <!-- ═══════════════════════════════════════════════════════════
+     MAIN PRODUCT BANNER (CTA)
+ ═══════════════════════════════════════════════════════════ -->
+  <section class="cta-section" id="demo"
+    style="border-radius: var(--radius-card); margin: 40px auto; max-width: 1200px; padding: 60px;">
+    <div class="cta-content" style="grid-template-columns: 1fr 1fr; gap: 40px; display: grid;">
+      <div class="cta-text"
+        style="order: 1; align-items: flex-start; text-align: left; display: flex; flex-direction: column; justify-content: center;">
+        <div class="section-eyebrow" style="margin-bottom: 20px;">Our Main Product: Kayros Assist</div>
+        <h2 class="section-title"
+          style="font-size: 2rem; line-height: 1.2; margin-bottom: 20px; background: none; -webkit-text-fill-color: var(--text-main);">
+          Intelligent Patient Operations Platform</h2>
+        <p style="color: var(--text-muted); margin-bottom: 30px; max-width: 100%;">Built specifically for healthcare
+          organizations, Kayros Assist combines AI triage, live desk, messaging, and intelligent case management.
+        </p>
+        <a onclick="openModal()" class="btn btn-primary">
+          Learn More &rarr;
+        </a>
+      </div>
+      <div class="cta-image" style="order: 2;">
+        <img src="https://f7n.edf.myftpupload.com/wp-content/uploads/2026/02/Ejm_Software.png" alt="Software Example"
+          style="width: 100%; border-radius: 12px; opacity: 0.95; box-shadow: 0 20px 40px rgba(0,0,0,0.3);" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+     FEATURES / CORE VALUES
+ ═══════════════════════════════════════════════════════════ -->
+  <section class="features-section" id="features">
+    <div class="section-header" id="featuresHeader">
+      <div class="section-eyebrow">Core Values</div>
+      <h2 class="section-title">AI the right way</h2>
+      <p style="color:var(--text-muted);max-width:700px;margin:16px auto 0;font-size:0.95rem;line-height:1.8;">
+        <strong style="color:white;">KAYROS</strong> <strong style="color:var(--primary-red);">AI
+          Technology</strong> is the core intelligence layer that powers all KAYROS products, enabling real-time
+        decision support, workflow orchestration, predictive insights, and operational continuous optimization.
+      </p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="card-num">01</div>
+        <div class="feature-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+            <path
+              d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2.11 2.11 0 1 1-2.98 2.98l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2.11 2.11 0 1 1-2.98-2.98l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0 .33-1.82l-.06-.06a2.11 2.11 0 1 1 2.98-2.98l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2.11 2.11 0 1 1 2.98 2.98l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+          </svg>
+        </div>
+        <h3>Efficiency</h3>
+        <p>Smart, fast results</p>
+      </div>
+      <div class="feature-card">
+        <div class="card-num">02</div>
+        <div class="feature-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+            <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+            <path d="M9 12H4s.5-1 1-4c1.5 0 3 .5 3 .5L9 12z" />
+            <path d="M15 11l-3 3s.5 1.5.5 3c3 1.5 4 1 4 1l-1.5-4z" />
+          </svg>
+        </div>
+        <h3>Innovation</h3>
+        <p>Advancing intelligence</p>
+      </div>
+      <div class="feature-card">
+        <div class="card-num">03</div>
+        <div class="feature-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            <path d="m9 12 2 2 4-4" />
+          </svg>
+        </div>
+        <h3>Quality</h3>
+        <p>Built for excellence</p>
+      </div>
+      <div class="feature-card">
+        <div class="card-num">04</div>
+        <div class="feature-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <circle cx="12" cy="12" r="6" />
+            <circle cx="12" cy="12" r="2" />
+          </svg>
+        </div>
+        <h3>Accuracy</h3>
+        <p>Precision delivered</p>
+      </div>
+      <div class="feature-card">
+        <div class="card-num">05</div>
+        <div class="feature-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+            <polyline points="7.5 4.21 12 6.81 16.5 4.21" />
+            <polyline points="7.5 19.79 7.5 14.6 3 12" />
+            <polyline points="21 12 16.5 14.6 16.5 19.79" />
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+            <line x1="12" y1="22.08" x2="12" y2="12" />
+          </svg>
+        </div>
+        <h3>Adaptability</h3>
+        <p>Designed to evolve</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+     COUNTDOWN SECTION
+ ═══════════════════════════════════════════════════════════ -->
+  <section class="countdown-section" id="countdown">
+    <div class="section-header" id="countdownHeader" style="margin-bottom:0;">
+      <div class="section-eyebrow">Launching Soon</div>
+      <h2 class="section-title">AI-powered solutions are coming</h2>
+      <p style="color:var(--text-muted);max-width:580px;margin:16px auto 24px;font-size:0.95rem;line-height:1.7;">
+        We are building the next generation of intelligent software tools to help businesses scale and optimize
+        their operations. Stay tuned for our upcoming launch of Kayros Assist.</p>
+      <a onclick="openModal()" class="btn" style="margin-bottom:50px;">
+        <span class="btn-badge">JOIN</span> STAY CONNECTED! &rarr;
+      </a>
+    </div>
+    <div class="countdown-timer">
+      <div class="countdown-item" id="cdDays">
+        <div class="countdown-number" id="days">00</div>
+        <div class="countdown-label">Days</div>
+      </div>
+      <div class="countdown-item" id="cdHours">
+        <div class="countdown-number" id="hours">00</div>
+        <div class="countdown-label">Hours</div>
+      </div>
+      <div class="countdown-item" id="cdMinutes">
+        <div class="countdown-number" id="minutes">00</div>
+        <div class="countdown-label">Minutes</div>
+      </div>
+      <div class="countdown-item" id="cdSeconds">
+        <div class="countdown-number" id="seconds">00</div>
+        <div class="countdown-label">Seconds</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+     FOOTER GLOBAL — editá components/footer.html
+═══════════════════════════════════════════════════════════ -->
+  <div id="site-footer"></div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+     CONTACT MODAL
+═══════════════════════════════════════════════════════════ -->
+  <div class="modal-overlay" id="capModal">
+    <div class="modal-box" style="position: relative; max-width: 800px; padding: 40px; display: flex; flex-direction: column;">
+      <div class="modal-mosaic-bg"></div>
+      <button class="modal-close" onclick="closeCapModal()">&#215;</button>
+      <div class="info-modal-content">
+        <h2 style="color: var(--primary-red); margin-bottom: 20px;">Core Capabilities Extended</h2>
+        <div class="who-extended-content" style="color: #444; line-height: 1.6; max-height: 70vh; overflow-y: auto; padding-right: 15px;">
+          <p style="margin-bottom: 25px; font-weight: 600;">
+            At Kayros, our capabilities are built around one objective: structuring complex operations through intelligent systems that combine AI, automation, and human coordination.
+          </p>
+
+          <div style="margin-bottom: 25px;">
+            <h3 style="color: #111; margin-bottom: 10px;">1. AI-Powered Operational Orchestration</h3>
+            <p>We design intelligent orchestration engines that automate classification, routing, and prioritization across workflows. Our AI models analyze inputs in real time, determine intent, assign urgency levels, and trigger the appropriate operational pathway — whether automated or human-led.</p>
+            <p style="margin-top: 8px; font-style: italic;">This creates structured, scalable processes without removing human oversight where it matters most.</p>
+          </div>
+
+          <div style="margin-bottom: 25px;">
+            <h3 style="color: #111; margin-bottom: 10px;">2. Intelligent Workflow Architecture</h3>
+            <p>Our platforms transform fragmented processes into structured, trackable workflows. From task assignment to escalation logic, we build systems that reduce bottlenecks, eliminate redundancies, and improve operational continuity.</p>
+            <p style="margin-top: 8px; font-style: italic;">Every interaction becomes part of a managed process — not an isolated event.</p>
+          </div>
+
+          <div style="margin-bottom: 25px;">
+            <h3 style="color: #111; margin-bottom: 10px;">3. Real-Time Operational Visibility</h3>
+            <p>Kayros provides live operational dashboards that allow organizations to monitor performance, workloads, response times, and resolution metrics in real time.</p>
+            <p style="margin-top: 8px; font-style: italic;">This visibility enables informed decision-making, proactive intervention, and measurable accountability across teams.</p>
+          </div>
+
+          <div style="margin-bottom: 25px;">
+            <h3 style="color: #111; margin-bottom: 10px;">4. Omnichannel Communication Infrastructure</h3>
+            <p>We unify voice, messaging, and digital communication into a single operational framework. Instead of disconnected channels, our infrastructure ensures that every interaction is structured, documented, and integrated into the broader workflow ecosystem.</p>
+            <p style="margin-top: 8px; font-style: italic;">Communication becomes coordinated — not reactive.</p>
+          </div>
+
+          <div style="margin-bottom: 25px;">
+            <h3 style="color: #111; margin-bottom: 10px;">5. Structured Case & Escalation Management</h3>
+            <p>Our systems are built to manage complexity. We design case management frameworks that support prioritization, escalation protocols, human intervention, and resolution tracking.</p>
+            <p style="margin-top: 8px; font-style: italic;">This ensures continuity, traceability, and operational intelligence across every stage of the process.</p>
+          </div>
+
+          <div style="margin-bottom: 25px;">
+            <h3 style="color: #111; margin-bottom: 10px;">6. Data Intelligence & Performance Optimization</h3>
+            <p>Beyond automation, Kayros leverages operational data to generate actionable insights. By analyzing patterns, response behaviors, and performance metrics, our platforms continuously improve workflows and enable smarter operational strategies.</p>
+            <p style="margin-top: 15px; font-weight: 700; color: #111;">Kayros does not simply automate tasks — we engineer intelligent operational ecosystems designed for scalability, adaptability, and long-term growth.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="whoModal">
+    <div class="modal-box" style="position: relative; max-width: 600px; min-height: 400px; padding: 40px; display: flex; flex-direction: column; background: var(--primary-blue); border: 1px solid rgba(255,255,255,0.1);">
+      <div class="modal-mosaic-bg" style="opacity: 0.08;"></div>
+      <button class="modal-close" onclick="closeWhoModal()">&times;</button>
+      <div class="info-modal-content">
+        <h2 style="color: white; margin-bottom: 20px;">Who We Are</h2>
+        <div class="who-extended-content" style="color: rgba(255,255,255,0.85); line-height: 1.6; max-height: 70vh; overflow-y: auto; padding-right: 15px;">
+          <p style="margin-bottom: 15px;">
+            Kayros is an AI technology company building intelligent
+            operational infrastructure for modern organizations.
+          </p>
+          <p style="margin-bottom: 15px;">
+            We design systems that enhance how teams communicate,
+            coordinate, and execute — combining artificial intelligence,
+            automation, and human oversight into unified operational
+            frameworks.
+          </p>
+          <p style="margin-bottom: 15px;">
+            Our technology is built to structure complexity. To reduce
+            friction. To bring visibility to real-time operations.
+          </p>
+          <p style="margin-bottom: 15px;">
+            Rather than creating isolated tools, we engineer integrated
+            platforms that optimize workflows, decision-making, and
+            performance at scale.
+          </p>
+          <p style="margin-bottom: 15px;">
+            Our flagship platform, Kayros Assist, represents the
+            healthcare implementation of this vision — delivering
+            intelligent patient operations powered by AI and live
+            coordination.
+          </p>
+          <p>
+            At Kayros, we believe the future of operations is not fully
+            automated — it is <strong>intelligently orchestrated</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box" style="position: relative">
+      <button class="modal-close" onclick="closeModal()">&#215;</button>
+      <div class="modal-left">
+        <h2 style="
+              color: white;
+              font-size: 1.2rem;
+              font-weight: 800;
+              position: relative;
+              z-index: 2;
+              text-align: center;
+            ">
+          Experience KAYROS AI Technology
+        </h2>
+        <div class="modal-video-box">
+          <video autoplay loop muted playsinline>
+            <source
+              src="https://f7n.edf.myftpupload.com/wp-content/uploads/2026/02/WhatsApp-Video-2026-02-05-at-10.57.05-AM.mp4"
+              type="video/mp4" />
+          </video>
+        </div>
+        <img src="https://f7n.edf.myftpupload.com/wp-content/uploads/2026/02/qr-linktree-kayros-2.png" class="modal-qr"
+          alt="QR Code" />
+        <p class="modal-scan-label">Scan to Connect</p>
+      </div>
+      <div class="modal-right">
+        <h2><span>Contact Us</span></h2>
+        <p>
+          Fill in your details and our team will reach out within 24 hours.
+        </p>
+        <form class="demo-form" id="demoForm" onsubmit="handleFormSubmit(event)">
+          <div class="form-group">
+            <label>Name *</label>
+            <input type="text" placeholder="Your full name" required />
+          </div>
+          <div class="form-group">
+            <label>Email *</label>
+            <input type="email" placeholder="you@email.com" required />
+          </div>
+          <div class="form-group">
+            <label>Phone *</label>
+            <input type="tel" placeholder="+1 (787) 000-0000" required />
+          </div>
+          <div class="form-group">
+            <label>Message *</label>
+            <textarea rows="3" placeholder="How can we help you?" required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Message →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    /**
+     * Animación de Satélites en Órbita
+     */
+    function orbitSatellite(id, radius, duration, startAngle) {
+      const sat = document.getElementById(id);
+      if (!sat) return;
+      const startTime = Date.now();
+      function update() {
+        const elapsed = Date.now() - startTime;
+        const angle = startAngle + (elapsed / duration) * (Math.PI * 2);
+        const x = Math.cos(angle) * radius;
+        const y = Math.sin(angle) * radius;
+        sat.style.transform = `translate(${x}px, ${y}px)`;
+        requestAnimationFrame(update);
+      }
+      update();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Iniciar órbitas de satélites
+      orbitSatellite('sat1', 65, 4000, 0);
+      orbitSatellite('sat2', 90, 7000, Math.PI);
+      orbitSatellite('sat3', 120, 11000, Math.PI / 2);
+
+      // Logo continuous float
+      if (typeof anime !== 'undefined') {
+        anime({
+          targets: '#homeMainLogo',
+          translateY: [-10, 10],
+          easing: 'easeInOutSine',
+          duration: 3000,
+          loop: true,
+          direction: 'alternate'
+        });
+      }
+    });
+
+    /**
+     * Modal Who We Are
+     */
+    function openWhoModal() {
+      const modal = document.getElementById('whoModal');
+      modal.classList.add('active');
+      if (typeof anime !== 'undefined') {
+        anime({
+          targets: '#whoModal',
+          opacity: [0, 1],
+          duration: 400,
+          easing: 'easeOutQuad'
+        });
+        anime({
+          targets: '#whoModal .modal-box',
+          scale: [0.9, 1],
+          opacity: [0, 1],
+          duration: 500,
+          easing: 'easeOutExpo'
+        });
+      }
+    }
+
+    function closeWhoModal() {
+      const modal = document.getElementById('whoModal');
+      if (typeof anime !== 'undefined') {
+        anime({
+          targets: '#whoModal .modal-box',
+          scale: [1, 0.9],
+          opacity: [1, 0],
+          duration: 300,
+          easing: 'easeInExpo',
+          complete: () => {
+            modal.classList.remove('active');
+          }
+        });
+        anime({
+          targets: '#whoModal',
+          opacity: [1, 0],
+          duration: 300,
+          easing: 'easeOutQuad'
+        });
+      } else {
+        modal.classList.remove('active');
+      }
+    }
+
+    // Close modal on click outside
+    document.getElementById('whoModal').addEventListener('click', (e) => {
+      if (e.target.id === 'whoModal') closeWhoModal();
+    });
+
+    /**
+     * Modal Capabilities
+     */
+    function openCapModal() {
+      const modal = document.getElementById('capModal');
+      modal.classList.add('active');
+      if (typeof anime !== 'undefined') {
+        anime({ targets: '#capModal', opacity: [0, 1], duration: 400, easing: 'easeOutQuad' });
+        anime({ targets: '#capModal .modal-box', scale: [0.9, 1], opacity: [0, 1], duration: 500, easing: 'easeOutExpo' });
+      }
+    }
+
+    function closeCapModal() {
+      const modal = document.getElementById('capModal');
+      if (typeof anime !== 'undefined') {
+        anime({
+          targets: '#capModal .modal-box',
+          scale: [1, 0.9],
+          opacity: [1, 0],
+          duration: 300,
+          easing: 'easeInExpo',
+          complete: () => {
+            modal.classList.remove('active');
+          }
+        });
+        anime({ targets: '#capModal', opacity: [1, 0], duration: 300, easing: 'easeOutQuad' });
+      } else {
+        modal.classList.remove('active');
+      }
+    }
+
+    document.getElementById('capModal').addEventListener('click', (e) => {
+      if (e.target.id === 'capModal') closeCapModal();
+    });
+
+    // Toggle Capabilities descriptions
+    document.querySelectorAll('.capability-checklist li').forEach(item => {
+      item.addEventListener('click', () => {
+        item.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+
+</html>
