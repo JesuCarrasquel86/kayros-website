@@ -44,7 +44,6 @@ async function loadComponents() {
 /* ─── Active Nav Link ──────────────────────────────────────── */
 function setActiveNav() {
     const path = window.location.pathname;
-    // Si la ruta termina en / o está vacía, asumimos index.html
     const page = path.split('/').pop() || 'index.html';
 
     document.querySelectorAll('.nav-link').forEach(link => {
@@ -53,7 +52,7 @@ function setActiveNav() {
         
         const linkPage = href.split('/').pop() || 'index.html';
         
-        // Comparamos el nombre del archivo
+        // Comparamos el nombre del archivo de forma normalizada
         const isMatch = (page === linkPage);
         
         link.classList.toggle('active', isMatch);

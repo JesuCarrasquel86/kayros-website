@@ -284,14 +284,15 @@ body.home-transparent-header .site-header.scrolled .header-logo img {
 .nav-link::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -6px;
     left: 14px;
     right: 14px;
-    height: 2px;
+    height: 3px;
     background: var(--primary-red);
     transform: scaleX(0);
-    transition: transform 0.25s ease;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     border-radius: 2px;
+    opacity: 0;
 }
 
 .nav-link:hover {
@@ -307,7 +308,9 @@ body.home-transparent-header .site-header.scrolled .header-logo img {
 }
 
 .nav-link.active::after {
-    transform: scaleX(1);
+    transform: scaleX(1) !important;
+    opacity: 1 !important;
+    bottom: -6px !important;
 }
 
 /* Assist Badge */
@@ -417,11 +420,18 @@ body.home-transparent-header .site-header.scrolled .header-logo img {
     max-width: 1300px;
     margin: 0 auto;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    gap: 32px;
     padding-bottom: 40px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 30px;
 }
 
 /* Footer Logo */
@@ -461,13 +471,11 @@ body.home-transparent-header .site-header.scrolled .header-logo img {
 
 /* Footer Nav */
 .footer-nav {
-    list-style: none;
+    flex: 1;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 6px 20px;
-    align-items: center;
     justify-content: center;
+    list-style: none;
+    gap: 30px;
 }
 
 .footer-nav a {
@@ -495,8 +503,8 @@ body.home-transparent-header .site-header.scrolled .header-logo img {
 .footer-right {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 20px;
+    align-items: flex-end;
+    gap: 16px;
 }
 
 .footer-socials {
@@ -532,8 +540,8 @@ body.home-transparent-header .site-header.scrolled .header-logo img {
 .footer-contact-info {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    align-items: center;
+    gap: 6px;
+    align-items: flex-end;
 }
 
 .footer-contact-item {
@@ -2729,11 +2737,29 @@ body.home-transparent-header .site-header.scrolled .header-logo img {
    CTA BANNER (reusable)
    ============================================================ */
 .cta-banner {
-    padding: 64px 32px;
+    padding: 80px 32px;
+    background: transparent;
+    position: relative;
+}
+
+.cta-banner-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #0A0A1F 0%, #15153A 100%);
+    padding: 60px 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
-    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-2) 50%, #000 100%);
     position: relative;
     overflow: hidden;
+}
+
+.cta-banner-inner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(250, 66, 56, 0.15) 0%, transparent 70%);
+    pointer-events: none;
 }
 
 .cta-banner::before {
@@ -2935,11 +2961,18 @@ body.home-transparent-header .site-header.scrolled .header-logo img {
     }
 
     .footer-top {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         text-align: center;
+        gap: 32px;
     }
 
     .footer-right {
+        align-items: center;
+    }
+
+    .footer-contact-info {
         align-items: center;
     }
 
