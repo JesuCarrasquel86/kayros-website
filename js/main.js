@@ -34,18 +34,29 @@ async function loadComponents() {
     setActiveNav();
     initMobileMenu();
     initScrollEffects();
+
+    // Pequeño delay para asegurar que el layout se asiente antes de mostrarlo
+    setTimeout(() => {
+        document.body.classList.add('is-ready');
+    }, 100);
 }
 
 /* ─── Active Nav Link ──────────────────────────────────────── */
 function setActiveNav() {
-    const rawPath = window.location.pathname.split('/').pop();
-    const path = rawPath === '' ? 'index.html' : rawPath;
+    const path = window.location.pathname;
+    // Si la ruta termina en / o está vacía, asumimos index.html
+    const page = path.split('/').pop() || 'index.html';
 
     document.querySelectorAll('.nav-link').forEach(link => {
-        const href = (link.getAttribute('href') || '').split('/').pop();
-        const isHome = (path === 'index.html' || path === '') && (href === 'index.html' || href === '');
-        const isMatch = href === path;
-        link.classList.toggle('active', isHome || isMatch);
+        const href = link.getAttribute('href');
+        if (!href) return;
+        
+        const linkPage = href.split('/').pop() || 'index.html';
+        
+        // Comparamos el nombre del archivo
+        const isMatch = (page === linkPage);
+        
+        link.classList.toggle('active', isMatch);
     });
 }
 
