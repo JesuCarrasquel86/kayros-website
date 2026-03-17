@@ -2833,7 +2833,7 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
     }
 
     .hero-banner-visual {
-        display: none;
+        display: block;
     }
 
     .assist-banner-inner {
@@ -2945,7 +2945,9 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
     }
 
     .viewport-sections .hero-banner-visual {
-        display: none !important;
+        display: block !important;
+        order: -1; /* Place it above or below as needed, usually above text on mobile */
+        margin: -50px;
     }
 
     .viewport-sections .hero-banner-text {
