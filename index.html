@@ -13,6 +13,7 @@
     rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <link rel="icon" type="image/svg+xml" href="assets/iso_k/svg/k_iso_circular_w_bg_blue.svg" />
 </head>
 
 <body class="home-transparent-header">
@@ -21,30 +22,53 @@
 ═══════════════════════════════════════════════════════════ -->
   <style>
     @keyframes pulseHeartbeat {
-      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(250, 66, 56, 0.7); }
-      70% { transform: scale(1.1); box-shadow: 0 0 0 12px rgba(250, 66, 56, 0); }
-      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(250, 66, 56, 0); }
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(250, 66, 56, 0.7);
+      }
+
+      70% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 12px rgba(250, 66, 56, 0);
+      }
+
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(250, 66, 56, 0);
+      }
     }
+
     #introOverlay {
-      position: fixed; inset: 0; z-index: 999999; background: #04040A; 
-      display: flex; align-items: center; justify-content: center; overflow: hidden; 
+      position: fixed;
+      inset: 0;
+      z-index: 999999;
+      background: #04040A;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
       transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     }
   </style>
 
   <div id="introOverlay">
     <video id="introVideo" playsinline muted autoplay style="width: 100%; height: 100%; object-fit: cover;">
-      <source src="https://f7n.edf.myftpupload.com/wp-content/uploads/2026/02/WhatsApp-Video-2026-02-05-at-10.57.05-AM.mp4" type="video/mp4">
+      <source
+        src="https://f7n.edf.myftpupload.com/wp-content/uploads/2026/02/WhatsApp-Video-2026-02-05-at-10.57.05-AM.mp4"
+        type="video/mp4">
     </video>
-    <button id="introSoundBtn" style="position: absolute; bottom: 40px; right: 40px; background: var(--primary-red); color: white; border: none; border-radius: 50%; width: 56px; height: 56px; cursor: pointer; display: none; align-items: center; justify-content: center; z-index: 1000000; animation: pulseHeartbeat 1.5s infinite;">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <button id="introSoundBtn"
+      style="position: absolute; bottom: 40px; right: 40px; background: var(--primary-red); color: white; border: none; border-radius: 50%; width: 56px; height: 56px; cursor: pointer; display: none; align-items: center; justify-content: center; z-index: 1000000; animation: pulseHeartbeat 1.5s infinite;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
         <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
         <line x1="23" y1="9" x2="17" y2="15"></line>
         <line x1="17" y1="9" x2="23" y2="15"></line>
       </svg>
     </button>
   </div>
-  <audio id="kayros-sound" src="https://f7n.edf.myftpupload.com/wp-content/uploads/2026/02/kayros-sound.mp3" preload="auto"></audio>
+  <audio id="kayros-sound" src="https://f7n.edf.myftpupload.com/wp-content/uploads/2026/02/kayros-sound.mp3"
+    preload="auto"></audio>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -52,39 +76,39 @@
       const introAudio = document.getElementById('kayros-sound');
       const introVideo = document.getElementById('introVideo');
       const soundBtn = document.getElementById('introSoundBtn');
-      
+
       // Solo correr una vez por sesión
       if (sessionStorage.getItem('kayrosIntroPlayed')) {
         overlay.style.display = 'none';
         return;
       }
-      
+
       sessionStorage.setItem('kayrosIntroPlayed', 'true');
-      
+
       // Intentar reproducir audio con el video (la mayoría de navegadores bloquearán esto sin interacción)
       // Como el video tiene 'muted' y 'autoplay' en el HTML, ya está corriendo.
       const playPromise = introAudio.play();
-      
+
       if (playPromise !== undefined) {
         playPromise.then(() => {
-            // Autoplay de audio funcionó
-            introVideo.currentTime = 0;
+          // Autoplay de audio funcionó
+          introVideo.currentTime = 0;
         }).catch(error => {
-            // Audio bloqueado
-            soundBtn.style.display = 'flex';
+          // Audio bloqueado
+          soundBtn.style.display = 'flex';
         });
       } else {
-         // Fallback extra
-         soundBtn.style.display = 'flex';
+        // Fallback extra
+        soundBtn.style.display = 'flex';
       }
 
       // Al hacer clic en el botón de sonido
       soundBtn.addEventListener('click', () => {
         // Asegurar que tanto el audio como el video estén sincronizados y corriendo
-        introAudio.currentTime = introVideo.currentTime || 0; 
+        introAudio.currentTime = introVideo.currentTime || 0;
         introAudio.play().catch(e => console.error("Error reproduciendo audio:", e));
         introVideo.play().catch(e => console.error("Error reproduciendo video:", e)); // Forzar por si se pausó
-        
+
         // Cambiar el ícono a sonido activado
         soundBtn.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>';
         soundBtn.style.animation = 'none'; // Detener pulsación
@@ -92,7 +116,7 @@
           soundBtn.style.opacity = '0';
         }, 800);
       });
-      
+
       // Cerrar intro al terminar
       function endIntro() {
         overlay.style.opacity = '0';
@@ -101,14 +125,14 @@
           overlay.style.display = 'none';
         }, 850);
       }
-      
+
       introVideo.addEventListener('ended', endIntro);
-      
+
       // Respaldo por si el video falla en cargar
       setTimeout(() => {
-          if(overlay.style.display !== 'none' && introVideo.currentTime === 0) {
-              endIntro();
-          }
+        if (overlay.style.display !== 'none' && introVideo.currentTime === 0) {
+          endIntro();
+        }
       }, 5000);
     });
   </script>
@@ -125,7 +149,7 @@
     <section class="hero-banner">
       <video class="hero-bg-video" autoplay muted loop playsinline aria-hidden="true">
         <source
-          src="https://uc26da92be11a33c937589c4573b.dl.dropboxusercontent.com/cd/0/inline/C8yuwuX13MpMz8oKuaZ2kug-semTYOC8PYOV0YOa4Kx1bXlpaa1ZI-om3DGWGnvt0vh64Qq_LXupajoPMHR-KRfwIigg0_JF4Wvu1qNS-Q0IRrpdZubWiPfp7kLS8V1QjNg/file"
+          src="https://www.dropbox.com/scl/fo/inby9z6rqj8ljz831wl7k/ANzKPZgRG1OCco06OEQ6QlA/ai-in-healthcare-trendy-words-in-technology-2026-01-28-02-53-36-utc.mp4?rlkey=qgz8unbeiqtt9kelxwpa4xjbm&amp;st=hxdeoweb&amp;raw=1"
           type="video/mp4">
       </video>
       <div class="hero-bg-overlay" aria-hidden="true"></div>
@@ -201,11 +225,39 @@
             Kayros Assist.
           </p>
 
-          <button class="expand-trigger" onclick="openWhoModal()">
+          <button class="expand-trigger" onclick="openWhoModal()" style="margin-bottom: 10px;">
             <span class="expand-label">Learn More</span>
             <span class="expand-arrow">&rarr;</span>
           </button>
 
+          <!-- MAIN PRODUCT CTA (Moved into column to fill empty space) -->
+          <div class="cta-section scroll-reveal" id="demo"
+            style="border-radius: var(--radius-card); padding: 12px; margin: 0; display: flex;">
+            <div class="cta-content" style="display: flex; flex-direction: row; gap: 12px;">
+              <div class="cta-text"
+                style="order: 1; align-items: flex-start; text-align: left; display: flex; flex-direction: column; justify-content: center;">
+                <div class="section-eyebrow" style="margin-bottom: 12px; font-size: 0.5rem;">Our Main Product: Kayros
+                  Assist
+                </div>
+                <h2 class="section-title"
+                  style="font-size: 1.4rem; line-height: 1.25; margin-bottom: 12px; background: none; -webkit-text-fill-color: var(--text-main);">
+                  Intelligent Patient Operations Platform</h2>
+                <p style="color: var(--text-muted); margin-bottom: 12px; font-size: 0.78rem; line-height: 1.6;">
+                  Kayros Assist is an AI-driven patient engagement platform designed to optimize patient communication,
+                  reduce administrative burden, and improve operational efficiency in healthcare settings.
+                </p>
+                <a href="ai-solutions.html" class="btn btn-primary"
+                  style="padding: 5px 20px; font-size: 0.85rem; border-radius: 50px;">
+                  <span class="expand-label">Learn More</span>
+                </a>
+              </div>
+              <div class="cta-image" style="order: 2;">
+                <img src="https://f7n.edf.myftpupload.com/wp-content/uploads/2026/02/Ejm_Software.png"
+                  alt="Kayros Assist Interface"
+                  style="width: 100%; border-radius: 8px; opacity: 0.95; box-shadow: 0 10px 20px rgba(0,0,0,0.15);" />
+              </div>
+            </div>
+          </div>
 
         </div>
 
@@ -286,37 +338,6 @@
     </section>
   </div>
   <!-- /.viewport-sections -->
-
-  <!-- ═══════════════════════════════════════════════════════════
-     MAIN PRODUCT BANNER (CTA)
- ═══════════════════════════════════════════════════════════ -->
-  <section class="section scroll-reveal" id="demo" style="margin: 40px auto 0px; padding: 0;">
-    <div class="container">
-      <div class="cta-section" style="border-radius: var(--radius-card); padding: 60px; margin: 0;">
-        <div class="cta-content" style="grid-template-columns: 1fr 1fr; gap: 40px; display: grid;">
-          <div class="cta-text"
-            style="order: 1; align-items: flex-start; text-align: left; display: flex; flex-direction: column; justify-content: center;">
-            <div class="section-eyebrow" style="margin-bottom: 20px;">Our Main Product: Kayros Assist</div>
-            <h2 class="section-title"
-              style="font-size: 2rem; line-height: 1.2; margin-bottom: 20px; background: none; -webkit-text-fill-color: var(--text-main);">
-              Intelligent Patient Operations Platform</h2>
-            <p style="color: var(--text-muted); margin-bottom: 30px; max-width: 100%;">Kayros Assist is an AI-driven
-              patient engagement platform designed to optimize patient communication, reduce administrative burden, and
-              improve operational efficiency in healthcare settings.
-            </p>
-            <a href="ai-solutions.html" class="btn btn-primary">
-              Learn More &rarr;
-            </a>
-          </div>
-          <div class="cta-image" style="order: 2;">
-            <img src="https://f7n.edf.myftpupload.com/wp-content/uploads/2026/02/Ejm_Software.png"
-              alt="Software Example"
-              style="width: 100%; border-radius: 12px; opacity: 0.95; box-shadow: 0 20px 40px rgba(0,0,0,0.3);" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- ═══════════════════════════════════════════════════════════
      FEATURES / CORE VALUES
@@ -460,7 +481,7 @@
           </p>
 
           <div style="margin-bottom: 25px;">
-            <h3 style="color: #111; margin-bottom: 10px;">1. AI-Powered Operational Orchestration</h3>
+            <h3 style="color: #111; margin-bottom: 10px;">1. AI Workflow Orchestration</h3>
             <p>We design intelligent orchestration engines that automate classification, routing, and prioritization
               across workflows. Our AI models analyze inputs in real time, determine intent, assign urgency levels, and
               trigger the appropriate operational pathway — whether automated or human-led.</p>
@@ -469,16 +490,7 @@
           </div>
 
           <div style="margin-bottom: 25px;">
-            <h3 style="color: #111; margin-bottom: 10px;">2. Intelligent Workflow Architecture</h3>
-            <p>Our platforms transform fragmented processes into structured, trackable workflows. From task assignment
-              to escalation logic, we build systems that reduce bottlenecks, eliminate redundancies, and improve
-              operational continuity.</p>
-            <p style="margin-top: 8px; font-style: italic;">Every interaction becomes part of a managed process — not an
-              isolated event.</p>
-          </div>
-
-          <div style="margin-bottom: 25px;">
-            <h3 style="color: #111; margin-bottom: 10px;">3. Real-Time Operational Visibility</h3>
+            <h3 style="color: #111; margin-bottom: 10px;">2. Real-Time Operational Visibility</h3>
             <p>Kayros provides live operational dashboards that allow organizations to monitor performance, workloads,
               response times, and resolution metrics in real time.</p>
             <p style="margin-top: 8px; font-style: italic;">This visibility enables informed decision-making, proactive
@@ -486,7 +498,7 @@
           </div>
 
           <div style="margin-bottom: 25px;">
-            <h3 style="color: #111; margin-bottom: 10px;">4. Omnichannel Communication Infrastructure</h3>
+            <h3 style="color: #111; margin-bottom: 10px;">3. Omnichannel Communication Infrastructure</h3>
             <p>We unify voice, messaging, and digital communication into a single operational framework. Instead of
               disconnected channels, our infrastructure ensures that every interaction is structured, documented, and
               integrated into the broader workflow ecosystem.</p>
@@ -494,7 +506,7 @@
           </div>
 
           <div style="margin-bottom: 25px;">
-            <h3 style="color: #111; margin-bottom: 10px;">5. Structured Case & Escalation Management</h3>
+            <h3 style="color: #111; margin-bottom: 10px;">4. Intelligent Case &amp; Task Management</h3>
             <p>Our systems are built to manage complexity. We design case management frameworks that support
               prioritization, escalation protocols, human intervention, and resolution tracking.</p>
             <p style="margin-top: 8px; font-style: italic;">This ensures continuity, traceability, and operational
@@ -502,13 +514,12 @@
           </div>
 
           <div style="margin-bottom: 25px;">
-            <h3 style="color: #111; margin-bottom: 10px;">6. Data Intelligence & Performance Optimization</h3>
+            <h3 style="color: #111; margin-bottom: 10px;">5. Data-Driven Insights</h3>
             <p>Beyond automation, Kayros leverages operational data to generate actionable insights. By analyzing
               patterns, response behaviors, and performance metrics, our platforms continuously improve workflows and
               enable smarter operational strategies.</p>
             <p style="margin-top: 15px; font-weight: 700; color: #111;">Kayros does not simply automate tasks — we
-              engineer intelligent operational ecosystems designed for scalability, adaptability, and long-term growth.
-            </p>
+              engineer intelligent operational ecosystems designed for scalability, adaptability, and long-term growth.</p>
           </div>
         </div>
       </div>

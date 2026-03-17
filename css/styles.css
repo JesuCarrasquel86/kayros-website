@@ -1162,7 +1162,7 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
 .viewport-sections .hero-banner-inner {
     flex: 1;
     min-height: 0;
-    padding: 24px 32px 20px;
+    padding: 24px 32px 5px;
     gap: 32px;
 }
 
@@ -1213,9 +1213,9 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
 }
 
 .viewport-sections .capability-checklist {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
     list-style: none;
 }
 
@@ -1226,7 +1226,7 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
     gap: 4px;
     background: rgba(241, 245, 249, 0.5);
     border: 1px solid rgba(0, 0, 0, 0.05);
-    padding: 12px 20px;
+    padding: 6px 20px;
     border-radius: 12px;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -1244,7 +1244,7 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
 }
 
 .cap-item-title {
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     font-weight: 800;
     color: var(--text-main);
     text-transform: uppercase;
@@ -1367,7 +1367,7 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
 .hero-banner-inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 80px 32px;
+    padding: 20px 20px;
     width: 100%;
     display: grid;
     grid-template-columns: 1.35fr 0.65fr;
@@ -1502,7 +1502,7 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
     align-items: center;
     justify-content: center;
     position: relative;
-    padding: 40px;
+    padding: 20px 40px;
 }
 
 .logo-system-container {
