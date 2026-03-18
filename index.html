@@ -164,16 +164,21 @@
             friction,<br />
             and brings intelligence to everyday operations.
           </p>
+          <style>
+            @media (max-width: 768px) {
+              .hero-banner-btns .btn {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+              }
+            }
+          </style>
           <div class="hero-banner-btns">
-            <a href="contact.html" class="btn-hero-pill btn-hero-talk">
-              <span class="hero-pill-badge">TALK</span>
-              Contact us
-              <span class="hero-pill-arrow" aria-hidden="true">→</span>
+            <a href="contact.html" class="btn btn-primary">
+              Contact us →
             </a>
-            <a onclick="openModal()" class="btn-hero-pill btn-hero-mail" style="cursor: pointer">
-              <span class="hero-pill-badge">MAIL</span>
-              Sign me up for emails
-              <span class="hero-pill-arrow" aria-hidden="true">→</span>
+            <a onclick="openModal()" class="btn btn-outline-white" style="cursor: pointer">
+              Keep me informed — sign me up for emails
             </a>
           </div>
         </div>
@@ -237,9 +242,11 @@
                 flex-direction: column !important;
                 align-items: center;
               }
+
               .mobile-stack .cta-text {
                 width: 100% !important;
               }
+
               .mobile-stack .cta-image {
                 width: 100% !important;
                 margin-top: 15px;
@@ -250,8 +257,9 @@
             style="border-radius: var(--radius-card); padding: 12px; margin: 0; display: flex;">
             <div class="cta-content mobile-stack" style="display: flex; flex-direction: row; gap: 12px;">
               <div class="cta-text"
-                style="order: 1; align-items: flex-start; text-align: left; display: flex; flex-direction: column; justify-content: center;">
-                <div class="section-eyebrow" style="margin-bottom: 12px; font-size: 0.5rem;margin-right: -102px;">Our Main Product: Kayros
+                style="order: 1; flex: 1; min-width: 0; align-items: flex-start; text-align: left; display: flex; flex-direction: column; justify-content: center;">
+                <div class="section-eyebrow" style="margin-bottom: 12px; font-size: 0.5rem;margin-right: -102px;">Our
+                  Main Product: Kayros
                   Assist
                 </div>
                 <h2 class="section-title"
@@ -266,9 +274,8 @@
                   <span class="expand-label">Learn More</span>
                 </a>
               </div>
-              <div class="cta-image" style="order: 2;">
-                <img src="https://f7n.edf.myftpupload.com/wp-content/uploads/2026/02/Ejm_Software.png"
-                  alt="Kayros Assist Interface"
+              <div class="cta-image" style="order: 2; flex: 1; min-width: 0;">
+                <img src="assets/livedesk_screen.png" alt="Kayros Assist — Live Desk Interface"
                   style="width: 100%; border-radius: 8px; opacity: 0.95; box-shadow: 0 10px 20px rgba(0,0,0,0.15);" />
               </div>
             </div>
@@ -534,7 +541,8 @@
               patterns, response behaviors, and performance metrics, our platforms continuously improve workflows and
               enable smarter operational strategies.</p>
             <p style="margin-top: 15px; font-weight: 700; color: #111;">Kayros does not simply automate tasks — we
-              engineer intelligent operational ecosystems designed for scalability, adaptability, and long-term growth.</p>
+              engineer intelligent operational ecosystems designed for scalability, adaptability, and long-term growth.
+            </p>
           </div>
         </div>
       </div>
