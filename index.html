@@ -147,7 +147,7 @@
   <div class="viewport-sections">
     <!-- HERO BANNER -->
     <section class="hero-banner">
-      <video class="hero-bg-video" autoplay muted loop playsinline aria-hidden="true">
+      <video class="hero-bg-video" autoplay muted loop playsinline webkit-playsinline aria-hidden="true">
         <source
           src="https://www.dropbox.com/scl/fo/inby9z6rqj8ljz831wl7k/ANzKPZgRG1OCco06OEQ6QlA/ai-in-healthcare-trendy-words-in-technology-2026-01-28-02-53-36-utc.mp4?rlkey=qgz8unbeiqtt9kelxwpa4xjbm&amp;st=hxdeoweb&amp;raw=1"
           type="video/mp4">
@@ -767,6 +767,27 @@
     document.querySelectorAll('.capability-checklist li').forEach(item => {
       item.addEventListener('click', () => {
         item.classList.toggle('active');
+      });
+    });
+
+    // Force autoplay for background videos
+    document.addEventListener('DOMContentLoaded', () => {
+      const bgVideos = document.querySelectorAll('.hero-bg-video, .hero-bg-video-main');
+      bgVideos.forEach(video => {
+        video.muted = true;
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {
+            // If failed, try again on first move/click
+            const forcePlay = () => {
+              video.play();
+              document.removeEventListener('click', forcePlay);
+              document.removeEventListener('touchstart', forcePlay);
+            };
+            document.addEventListener('click', forcePlay);
+            document.addEventListener('touchstart', forcePlay);
+          });
+        }
       });
     });
   </script>
