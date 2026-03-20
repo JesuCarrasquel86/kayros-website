@@ -9,7 +9,7 @@
         --primary-red-2: #FF6B5B;
         --primary-blue: #100249;
         --primary-blue-2: #1A0580;
-        --accent-purple: #6C3BFF;
+        --accent-purple: #1A0580;
 
         --text-main: #FFFFFF;
         --text-muted: #8F90A6;
@@ -21,7 +21,7 @@
 
         --glow-red: rgba(250, 66, 56, 0.45);
         --glow-blue: rgba(16, 2, 73, 0.7);
-        --glow-purple: rgba(108, 59, 255, 0.35);
+        --glow-purple: rgba(26, 5, 128, 0.35);
 
         --radius-card: 24px;
         --radius-btn: 0px;
@@ -63,7 +63,7 @@
 
         --glow-red: rgba(250, 66, 56, 0.15);
         --glow-blue: rgba(16, 2, 73, 0.1);
-        --glow-purple: rgba(108, 59, 255, 0.15);
+        --glow-purple: rgba(26, 5, 128, 0.15);
     }
 
     body:not(.dark-mode) .btn-glass {
@@ -89,6 +89,7 @@
 
     body:not(.dark-mode) .countdown-number {
         background: var(--text-main);
+        background-clip: text;
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -223,7 +224,7 @@
     .ambient-right {
         width: 400px;
         height: 400px;
-        background: radial-gradient(circle, var(--glow-purple) 0%, transparent 70%);
+        background: radial-gradient(circle, var(--glow-blue) 0%, transparent 70%);
         top: 50%;
         right: -150px;
     }
@@ -358,7 +359,7 @@
     .orbit-ring-2 {
         width: 205px !important;
         height: 205px !important;
-        border-color: rgba(108, 59, 255, 0.22) !important;
+        border-color: rgba(26, 5, 128, 0.22) !important;
         border-width: 1.5px !important;
     }
 
@@ -388,8 +389,8 @@
     .sat-2 {
         width: 6px;
         height: 6px;
-        background: var(--accent-purple);
-        box-shadow: 0 0 10px var(--glow-purple);
+        background: var(--primary-blue-2);
+        box-shadow: 0 0 10px var(--glow-blue);
         margin: -3px 0 0 -3px;
         transform-origin: 0 0;
     }
@@ -439,13 +440,15 @@
     .hero-title .line-1 {
         display: block;
         background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.7) 100%);
+        background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
 
     .hero-title .line-2 {
         display: block;
-        background: linear-gradient(135deg, var(--primary-red) 0%, var(--accent-purple) 100%);
+        background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-blue-2) 100%);
+        background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
@@ -511,7 +514,7 @@
     }
 
     .btn-purple .btn-badge {
-        background: var(--accent-purple);
+        background: var(--primary-blue-2);
     }
 
     /* Scroll indicator */
@@ -573,6 +576,7 @@
         font-weight: 900;
         line-height: 1;
         background: linear-gradient(135deg, #fff 0%, var(--primary-red-2) 100%);
+        background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         letter-spacing: -1px;
@@ -634,6 +638,7 @@
         font-weight: 800;
         line-height: 1.15;
         background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.6) 100%);
+        background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
@@ -682,7 +687,7 @@
     .feature-icon {
         width: 46px !important;
         height: 46px !important;
-        background: linear-gradient(135deg, rgba(250, 66, 56, 0.2) 0%, rgba(108, 59, 255, 0.2) 100%) !important;
+        background: linear-gradient(135deg, rgba(250, 66, 56, 0.2) 0%, rgba(26, 5, 128, 0.2) 100%) !important;
         border: 1px solid rgba(250, 66, 56, 0.25) !important;
         border-radius: 14px !important;
         display: flex !important;
@@ -694,7 +699,7 @@
     }
 
     .feature-card:hover .feature-icon {
-        background: linear-gradient(135deg, var(--primary-red) 0%, var(--accent-purple) 100%);
+        background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-blue-2) 100%);
         border-color: transparent;
         color: white;
         box-shadow: 0 8px 24px -8px var(--glow-red);
@@ -777,17 +782,22 @@
         font-size: clamp(3.5rem, 8vw, 6rem);
         font-weight: 200;
         color: white;
-        line-height: 1;
-        letter-spacing: -3px;
+        line-height: 1.2;
+        letter-spacing: -1px;
+        padding: 0 10px;
         font-variant-numeric: tabular-nums;
         background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.6) 100%);
+        background-clip: text;
+        background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         transition: all 0.3s ease;
     }
 
     .countdown-item:hover .countdown-number {
-        background: linear-gradient(135deg, var(--primary-red-2) 0%, var(--accent-purple) 100%);
+        background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-blue-2) 100%);
+        background-clip: text;
+        background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
@@ -896,7 +906,7 @@
         position: absolute;
         width: 200px;
         height: 200px;
-        background: var(--accent-purple);
+        background: var(--primary-blue-2);
         filter: blur(80px);
         opacity: 0.12;
         bottom: 10%;
@@ -1247,7 +1257,8 @@
     }
 
     .cta-text h2 span {
-        background: linear-gradient(135deg, var(--primary-red) 0%, var(--accent-purple) 100%);
+        background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-blue-2) 100%);
+        background-clip: text;
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -1290,7 +1301,7 @@
         position: absolute;
         inset: -2px;
         border-radius: 22px;
-        background: linear-gradient(135deg, rgba(250, 66, 56, 0.35), rgba(108, 59, 255, 0.18), transparent);
+        background: linear-gradient(135deg, rgba(250, 66, 56, 0.35), rgba(26, 5, 128, 0.18), transparent);
         z-index: 0;
     }
 
@@ -1439,7 +1450,7 @@
             <div class="orbit-ring orbit-ring-1" style="width:120px;height:120px;border-color: rgba(250, 66, 56, 0.3);">
             </div>
             <div class="orbit-ring orbit-ring-2"
-                style="width:170px;height:170px;border-color: rgba(108, 59, 255, 0.3); border-width: 1.5px;"></div>
+                style="width:170px;height:170px;border-color: rgba(26, 5, 128, 0.3); border-width: 1.5px;"></div>
             <div class="orbit-ring orbit-ring-3"
                 style="width:230px;height:230px;border-color: rgba(255, 255, 255, 0.1);"></div>
 
@@ -1616,13 +1627,12 @@
     <div class="cta-content" style="grid-template-columns: 1fr 1fr; gap: 40px; display: grid;">
         <div class="cta-text"
             style="order: 1; align-items: flex-start; text-align: left; display: flex; flex-direction: column; justify-content: center;">
-            <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 8px;">Our Main Product: <strong
-                    style="color: white; font-size: 1.5rem;">Kayros Assist</strong></p>
+            <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 8px;">Our Main Product: <strong style="color: var(--primary-red);">Kayros Assist</strong></p>
             <h2 class="section-title"
                 style="font-size: 2rem; line-height: 1.2; margin-bottom: 20px; background: none; -webkit-text-fill-color: white;">
                 Intelligent Patient Operations Platform</h2>
             <p style="color: var(--text-muted); margin-bottom: 30px; max-width: 100%;">Built specifically for healthcare
-                organizations, Kayros Assist combines AI triage, live desk, messaging, and intelligent case management.
+                organizations, <strong style="color: var(--primary-red);">Kayros Assist</strong> combines AI triage, live desk, messaging, and intelligent case management.
             </p>
             <a onclick="openModal()" class="btn btn-purple">
                 <span class="btn-badge">INFO</span> Learn More &rarr;
@@ -1642,8 +1652,8 @@
         <div class="section-eyebrow">Core Values</div>
         <h2 class="section-title">AI the right way</h2>
         <p style="color:var(--text-muted);max-width:700px;margin:16px auto 0;font-size:0.95rem;line-height:1.8;">
-            <strong style="color:white;">KAYROS</strong> <strong style="color:var(--primary-red);">AI
-                Technology</strong> is the core intelligence layer that powers all KAYROS products, enabling real-time
+            <strong>KAYROS</strong> <strong style="color:var(--primary-red);">AI
+                Technology</strong> is the core intelligence layer that powers all <strong>KAYROS</strong> products, enabling real-time
             decision support, workflow orchestration, predictive insights, and operational continuous optimization.
         </p>
     </div>
@@ -1728,7 +1738,7 @@
         <h2 class="section-title">AI-powered solutions are coming</h2>
         <p style="color:var(--text-muted);max-width:580px;margin:16px auto 24px;font-size:0.95rem;line-height:1.7;">
             We are building the next generation of intelligent software tools to help businesses scale and optimize
-            their operations. Stay tuned for our upcoming launch of Kayros Assist.</p>
+            their operations. Stay tuned for our upcoming launch of <strong style="color: var(--primary-red);">Kayros Assist</strong>.</p>
         <a onclick="openModal()" class="btn" style="margin-bottom:50px;">
             <span class="btn-badge">JOIN</span> STAY CONNECTED! &rarr;
         </a>
@@ -1786,7 +1796,7 @@
         <button class="modal-close" onclick="closeModal()">×</button>
         <div class="modal-left">
             <h2 style="color:white;font-size:1.3rem;font-weight:800;margin-bottom:20px;position:relative;z-index:2;">
-                Experience KAYROS AI Technology</h2>
+                Experience <strong style="color: var(--primary-red);">KAYROS AI Technology</strong></h2>
             <div class="modal-video-box">
                 <video autoplay loop muted playsinline>
                     <source
@@ -1800,7 +1810,7 @@
         </div>
         <div class="modal-right">
             <h2><span>Contact Us</span></h2>
-            <p>Fill in your details and our team will reach out within 24 hours.</p>
+            <p>Fill in your details and our team will reach out as soon as possible.</p>
             <form class="demo-form" id="demoForm" onsubmit="handleFormSubmit(event)">
                 <div class="form-group">
                     <label>Name*</label>
@@ -1842,7 +1852,7 @@
 
         function rand(min, max) { return Math.random() * (max - min) + min; }
 
-        const COLORS = ['rgba(250,66,56,', 'rgba(108,59,255,', 'rgba(255,255,255,'];
+        const COLORS = ['rgba(250,66,56,', 'rgba(26, 5, 128,', 'rgba(255,255,255,'];
 
         for (let i = 0; i < 55; i++) {
             particles.push({

@@ -57,7 +57,6 @@
     --primary-red-2: #FF6B5B;
     --primary-blue: #100249;
     --primary-blue-2: #1A0580;
-    --accent-purple: #6C3BFF;
 
     /* Text */
     --text-main: #0B1120;
@@ -77,7 +76,6 @@
     /* Glows */
     --glow-red: rgba(250, 66, 56, 0.45);
     --glow-blue: rgba(16, 2, 73, 0.7);
-    --glow-purple: rgba(108, 59, 255, 0.35);
 
     /* Glass */
     --glass-border: rgba(255, 255, 255, 0.08);
@@ -1148,7 +1146,6 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
 }
 
 .viewport-sections .hero-banner {
@@ -1188,11 +1185,7 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
 }
 
 .viewport-sections .who-capabilities-section {
-    flex: 1;
-    min-height: 0;
     padding: 24px 32px;
-    overflow-y: auto;
-    overflow-x: hidden;
     display: flex;
     flex-direction: column;
 }
@@ -1229,7 +1222,9 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
     padding: 6px 20px;
     border-radius: 12px;
     transition: all 0.3s ease;
-    cursor: pointer;
+    cursor: default;
+    position: relative;
+    z-index: 1;
 }
 
 .viewport-sections .capability-checklist li::before {
@@ -1241,6 +1236,7 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
     border-color: var(--primary-red);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    z-index: 10;
 }
 
 .cap-item-title {
@@ -1272,24 +1268,109 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
     line-height: 1.4;
     color: var(--text-muted);
     font-weight: 500;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: all 0.3s ease;
-}
-
-.viewport-sections .capability-checklist li.active .cap-item-desc {
-    max-height: 100px;
-    opacity: 1;
     margin-top: 8px;
 }
 
-.viewport-sections .capability-checklist li.active .cap-item-title {
-    color: var(--primary-red);
+.cap-tooltip {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid var(--border-h);
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: var(--shadow-md);
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(0);
+    transition: all 0.3s ease;
 }
 
-/* Info Modal Mosaic Background */
-.modal-mosaic-bg {
+.viewport-sections .capability-checklist li:hover .cap-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(8px);
+}
+
+.cap-tooltip p {
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.cap-tooltip p:last-child {
+    margin-bottom: 0;
+}
+
+.cap-tooltip p.italic {
+    font-style: italic;
+    color: var(--text-muted);
+}
+
+/* Who We Are Card Hover */
+.who-card {
+    position: relative;
+    background: rgba(241, 245, 249, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 32px 28px;
+    border-radius: var(--radius-card);
+    transition: all 0.3s ease;
+    cursor: default;
+    z-index: 2;
+    margin-bottom: 24px;
+}
+
+.who-card h2 {
+    margin-bottom: 16px;
+}
+
+.who-card:hover {
+    background: #fff;
+    border-color: var(--primary-red);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    z-index: 10;
+}
+
+.who-tooltip {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--primary-blue);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: var(--shadow-lg);
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(0);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.who-card:hover .who-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(12px);
+}
+
+.who-tooltip p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 14px;
+}
+
+.who-tooltip p:last-child {
+    margin-bottom: 0;
+}
+
+/* Reusable Mosaic Backgrounds */
+.bg-mosaic-light {
     position: absolute;
     inset: 0;
     background-image: url('../assets/iso_k/svg/k_iso_circular_w_bg_blue.svg');
@@ -1298,6 +1379,23 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
     opacity: 0.04;
     pointer-events: none;
     z-index: 0;
+}
+
+.bg-mosaic-strong {
+    position: absolute;
+    inset: 0;
+    background-image: url('../assets/iso_k/svg/k_iso_circular_w_bg_blue.svg');
+    background-size: 60px;
+    background-repeat: repeat;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Brand Background Utilities */
+.bg-brand-gradient {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-2) 100%);
+    color: var(--text-white) !important;
 }
 
 .info-modal-content {
@@ -1332,15 +1430,19 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
     display: none !important;
     -webkit-appearance: none;
 }
+
 .hero-bg-video::-webkit-media-controls {
     display: none !important;
 }
+
 .hero-bg-video::--video-controls {
     display: none !important;
 }
+
 .hero-bg-video::-webkit-media-controls-panel {
     display: none !important;
 }
+
 .hero-bg-video::-webkit-media-controls-play-button {
     display: none !important;
 }
@@ -1579,7 +1681,7 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
 .orbit-ring-2 {
     width: 220px;
     height: 220px;
-    border-color: rgba(108, 59, 255, 0.2);
+    border-color: rgba(26, 5, 128, 0.2);
     border-width: 1.5px;
 }
 
@@ -1608,8 +1710,8 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
 .sat-2 {
     width: 8px;
     height: 8px;
-    background: var(--accent-purple);
-    box-shadow: 0 0 12px var(--accent-purple);
+    background: var(--primary-blue-2);
+    box-shadow: 0 0 12px var(--primary-blue-2);
 }
 
 .sat-3 {
@@ -1738,9 +1840,6 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
     border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-.page-hero .page-hero-eyebrow::before {
-    background: #FFFFFF;
-}
 
 .page-hero h1 {
     color: #fff;
@@ -1876,6 +1975,16 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
     flex-shrink: 0;
 }
 
+.modal-cap-list li {
+    padding: 0 !important;
+    border: none !important;
+    margin-bottom: 24px !important;
+}
+
+.modal-cap-list li::before {
+    content: none !important;
+}
+
 /* Expanded capabilities grid */
 .cap-extended-grid {
     display: grid;
@@ -1945,8 +2054,14 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
 .pill:hover {
     border-color: var(--primary-red);
     color: var(--primary-red);
-    transform: translateY(-2px);
     box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.pill.active {
+    background: var(--primary-red);
+    color: white;
+    border-color: var(--primary-red);
 }
 
 .pill svg {
@@ -2612,7 +2727,7 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
 
 .news-card-img {
     height: 180px;
-    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-purple) 100%);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-2) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2652,12 +2767,26 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
     gap: 8px;
 }
 
+.news-title-link {
+    text-decoration: none;
+}
+
 .news-card h3 {
     font-size: 0.95rem;
     font-weight: 700;
     color: var(--text-main);
     line-height: 1.4;
     margin-bottom: 10px;
+    transition: color 0.2s ease;
+}
+
+.news-card:hover h3 {
+    color: var(--primary-red);
+}
+
+.news-card-img-link {
+    display: block;
+    text-decoration: none;
 }
 
 .news-card p {
@@ -2957,6 +3086,22 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
         padding: 40px 16px;
     }
 
+    .mobile-only-btn {
+        display: inline-flex !important;
+        margin-top: 15px;
+    }
+
+    .who-card:hover .who-tooltip,
+    .viewport-sections .capability-checklist li:hover .cap-tooltip {
+        display: none !important;
+    }
+
+    .who-card:hover {
+        transform: none !important;
+        box-shadow: none !important;
+        border-color: var(--border) !important;
+    }
+
     .viewport-sections .hero-banner {
         min-height: auto;
         flex: none;
@@ -2964,7 +3109,8 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
 
     .viewport-sections .hero-banner-visual {
         display: block !important;
-        order: -1; /* Place it above or below as needed, usually above text on mobile */
+        order: -1;
+        /* Place it above or below as needed, usually above text on mobile */
         margin: -50px;
     }
 
@@ -3226,7 +3372,7 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
 .feature-icon {
     width: 46px !important;
     height: 46px !important;
-    background: linear-gradient(135deg, rgba(250, 66, 56, 0.2) 0%, rgba(108, 59, 255, 0.2) 100%) !important;
+    background: linear-gradient(135deg, rgba(250, 66, 56, 0.2) 0%, rgba(26, 5, 128, 0.2) 100%) !important;
     border: 1px solid rgba(250, 66, 56, 0.25) !important;
     border-radius: 14px !important;
     display: flex !important;
@@ -3238,7 +3384,7 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
 }
 
 .feature-card:hover .feature-icon {
-    background: linear-gradient(135deg, var(--primary-red) 0%, var(--accent-purple) 100%);
+    background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-blue-2) 100%);
     border-color: transparent;
     color: white;
     box-shadow: 0 8px 24px -8px var(--glow-red);
@@ -3320,8 +3466,9 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
     font-size: clamp(3.5rem, 8vw, 6rem);
     font-weight: 200;
     color: var(--text-main);
-    line-height: 1;
-    letter-spacing: -3px;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    padding: 0 10px;
     font-variant-numeric: tabular-nums;
     background: linear-gradient(180deg, var(--text-main) 0%, var(--text-muted) 100%);
     -webkit-background-clip: text;
@@ -3331,7 +3478,7 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
 }
 
 .countdown-item:hover .countdown-number {
-    background: linear-gradient(135deg, var(--primary-red-2) 0%, var(--accent-purple) 100%);
+    background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-blue) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
