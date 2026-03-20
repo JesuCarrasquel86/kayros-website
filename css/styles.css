@@ -3434,6 +3434,31 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
     font-variant-numeric: tabular-nums !important;
 }
 
+/* Dark Theme Adaptations for Features inside bg-dark-glow */
+.bg-dark-glow .feature-card {
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(20px) !important;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5) !important;
+}
+
+.bg-dark-glow .feature-card h3 {
+    color: white !important;
+}
+
+.bg-dark-glow .feature-card p {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.bg-dark-glow .card-num {
+    color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.bg-dark-glow .feature-card:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(250, 66, 56, 0.5) !important;
+}
+
 /* ─── Countdown Section ──────────────────────────────── */
 .countdown-section {
     padding: 120px 20px;
