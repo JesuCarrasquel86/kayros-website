@@ -43,16 +43,17 @@ async function loadComponents() {
 
 /* ─── Active Nav Link ──────────────────────────────────────── */
 function setActiveNav() {
-    const path = window.location.pathname;
-    const page = path.split('/').pop() || 'index.html';
+    const path = window.location.pathname.replace(/\/$/, '');
+    let page = path.split('/').pop() || 'index';
+    page = page.replace(/\.html$/, '');
 
     document.querySelectorAll('.nav-link').forEach(link => {
         const href = link.getAttribute('href');
         if (!href) return;
         
-        const linkPage = href.split('/').pop() || 'index.html';
+        let linkPage = href.split('/').pop() || 'index';
+        linkPage = linkPage.replace(/\.html$/, '');
         
-        // Comparamos el nombre del archivo de forma normalizada
         const isMatch = (page === linkPage);
         
         link.classList.toggle('active', isMatch);
@@ -240,14 +241,32 @@ function initScrollAnimations() {
 /* ─── Core Values Wheel ────────────────────────────────────── */
 function initValuesWheel() {
     const nodes = document.querySelectorAll('.value-node');
+    const lines = document.querySelectorAll('.connector-lines line');
     const detailTitle = document.getElementById('valueTitle');
     const detailText  = document.getElementById('valueText');
     if (!nodes.length || !detailTitle) return;
 
-    nodes.forEach(node => {
+    nodes.forEach((node, index) => {
         node.addEventListener('click', () => {
+            // Update Nodes
             nodes.forEach(n => n.classList.remove('active'));
             node.classList.add('active');
+
+            // Update Connector Lines
+            lines.forEach(l => l.classList.remove('active'));
+            if (lines[index]) lines[index].classList.add('active');
+
+            // Restart animation for smooth transitions
+            detailTitle.style.animation = 'none';
+            detailText.style.animation = 'none';
+            // Force reflow
+            void detailTitle.offsetWidth;
+            void detailText.offsetWidth;
+            // Restore animation
+            detailTitle.style.animation = 'valueFadeIn 0.5s ease both';
+            detailText.style.animation = 'valueFadeIn 0.5s ease 0.1s both';
+
+            // Update Text Detail
             detailTitle.textContent = node.getAttribute('data-title') || '';
             detailText.textContent  = node.getAttribute('data-desc') || '';
         });
