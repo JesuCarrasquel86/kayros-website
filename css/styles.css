@@ -307,6 +307,7 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
 
 .nav-link:hover::after {
     transform: scaleX(1);
+    opacity: 1;
 }
 
 .nav-link.active {
