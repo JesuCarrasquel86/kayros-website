@@ -3590,7 +3590,7 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
 
 /* ─── Features / Values ──────────────────────────────── */
 .features-section {
-    padding: 120px 20px !important;
+    padding: 60px 20px !important;
     max-width: 1400px !important;
     margin: 0 auto !important;
     width: 100% !important;
@@ -3710,7 +3710,7 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
 
 /* ─── Countdown Section ──────────────────────────────── */
 .countdown-section {
-    padding: 120px 20px;
+    padding: 60px 20px;
     text-align: center;
     position: relative;
     overflow: hidden;
