@@ -2966,8 +2966,8 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
     width: 44px;
     height: 44px;
     border-radius: 12px;
-    background: rgba(16, 2, 73, 0.06);
-    color: var(--primary-blue);
+    background: rgba(250, 66, 56, 0.08);
+    color: var(--primary-red);
     display: flex;
     align-items: center;
     justify-content: center;
