@@ -3115,16 +3115,27 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
     border-radius: 14px;
 }
 
+@media (min-width: 992px) {
+    .contact-info {
+        padding-top: 36px;
+    }
+}
+
 .contact-detail-item .ci-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
     background: rgba(250, 66, 56, 0.08);
     color: var(--primary-red);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+}
+
+.contact-detail-item .ci-icon svg {
+    width: 26px;
+    height: 26px;
 }
 
 .contact-detail-item .ci-label {
