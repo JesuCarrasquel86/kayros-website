@@ -693,7 +693,7 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
    SECTION LAYOUT
    ============================================================ */
 .section {
-    padding: 80px 32px;
+    padding: 40px 32px;
 }
 
 .section-sm {
@@ -718,7 +718,7 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
 
 .section-header {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 
 .section-eyebrow {
@@ -787,9 +787,9 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
     content: '';
     position: absolute;
     inset: 0;
-    background: 
-        radial-gradient(circle at 50% 100%, rgba(250,66,56,0.2) 0%, transparent 45%),
-        radial-gradient(circle at 0% 0%, rgba(80,100,220,0.1) 0%, transparent 50%);
+    background:
+        radial-gradient(circle at 50% 100%, rgba(250, 66, 56, 0.2) 0%, transparent 45%),
+        radial-gradient(circle at 0% 0%, rgba(80, 100, 220, 0.1) 0%, transparent 50%);
     pointer-events: none;
     z-index: 0;
 }
@@ -844,20 +844,24 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
     .tech-banner-dark {
         padding: 32px 20px;
     }
+
     .tech-banner-dark p {
         font-size: 0.95rem;
         line-height: 1.7;
     }
+
     .tech-banner-dark-decor-left {
         width: 80px;
         top: -90px;
         left: -10px;
     }
+
     .tech-banner-dark-decor-right {
         width: 80px;
         top: 25%;
         right: -10px;
     }
+
     .tech-banner-dark-decor-center {
         width: 240px;
         bottom: -20px;
@@ -1256,7 +1260,7 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
 .viewport-sections .hero-banner-inner {
     flex: 1;
     min-height: 0;
-    padding: 24px 32px 5px;
+    padding: 32px 24px 0px;
     gap: 32px;
 }
 
@@ -1383,6 +1387,7 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
     visibility: hidden;
     transform: translateY(0);
     transition: all 0.3s ease;
+    pointer-events: none;
 }
 
 .viewport-sections .capability-checklist li:hover .cap-tooltip {
@@ -2510,12 +2515,22 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
 }
 
 .mv-box {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-card);
+    background: var(--primary-red);
+    border: none;
+    border-radius: 32px 32px 0 32px;
     padding: 32px;
     position: relative;
+    z-index: 1;
     overflow: hidden;
+}
+
+.mv-box::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--primary-blue);
+    border-radius: 32px;
+    z-index: -2;
 }
 
 .mv-box::before {
@@ -2523,25 +2538,30 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
     position: absolute;
     top: 0;
     left: 0;
-    width: 4px;
+    width: 6px;
     height: 100%;
     background: var(--primary-red);
-    border-radius: 0 4px 4px 0;
+    border-radius: 0;
+    z-index: -1;
+}
+
+.mv-box .bg-mosaic-light {
+    border-radius: 32px;
+    z-index: -1;
 }
 
 .mv-box h3 {
-    font-size: 0.7rem;
+    font-size: 1.25rem;
     font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--primary-red);
+    color: white;
     margin-bottom: 12px;
 }
 
 .mv-box p {
-    font-size: 0.92rem;
-    color: var(--text-muted);
-    line-height: 1.8;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+    margin: 0;
 }
 
 /* Leadership */
@@ -2742,12 +2762,12 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
 }
 
 .value-detail {
-    padding: 48px;
+    padding: 32px;
     background: var(--bg-card);
     border: 2px solid var(--primary-red);
     border-radius: var(--radius-card);
     box-shadow: var(--shadow-md);
-    min-height: 280px;
+    min-height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -2773,6 +2793,7 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
         opacity: 0;
         transform: translateY(15px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -2793,7 +2814,7 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
 .premium-card-glow-red {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 50% 100%, rgba(250,66,56,0.2) 0%, transparent 45%);
+    background: radial-gradient(circle at 50% 100%, rgba(250, 66, 56, 0.2) 0%, transparent 45%);
     pointer-events: none;
     z-index: 0;
 }
@@ -2801,7 +2822,7 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
 .premium-card-glow-blue {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 0% 0%, rgba(80,100,220,0.1) 0%, transparent 50%);
+    background: radial-gradient(circle at 0% 0%, rgba(80, 100, 220, 0.1) 0%, transparent 50%);
     pointer-events: none;
     z-index: 0;
 }
@@ -2851,6 +2872,7 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
     .premium-dark-card {
         padding: 32px 20px;
     }
+
     .premium-dark-card p {
         font-size: 0.95rem;
     }
@@ -3145,7 +3167,7 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
    CTA BANNER (reusable)
    ============================================================ */
 .cta-banner {
-    padding: 80px 32px;
+    padding: 0 32px 40px 32px;
     background: transparent;
     position: relative;
 }
@@ -3838,6 +3860,7 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
         width: 40px !important;
         height: 40px !important;
     }
+
     .powered-by-kairos div[style*="display:flex"] {
         flex-direction: column !important;
         gap: 12px !important;
@@ -3849,29 +3872,35 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
         gap: 40px !important;
         padding: 0 16px !important;
     }
+
     .values-wheel {
         width: 300px !important;
         height: 300px !important;
         margin: 0 auto 30px !important;
     }
+
     .value-node {
         width: 100px !important;
         height: 100px !important;
         padding: 0 !important;
     }
+
     .value-node span {
         font-size: 0.6rem !important;
         line-height: 1.1 !important;
     }
+
     .values-center {
         width: 60px !important;
         height: 60px !important;
     }
+
     .value-detail {
         padding: 24px !important;
         min-height: auto !important;
         margin-top: 20px;
     }
+
     .value-detail h3 {
         font-size: 1.3rem !important;
     }
