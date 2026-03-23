@@ -1416,24 +1416,49 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
 /* Who We Are Card Hover */
 .who-card {
     position: relative;
-    background: rgba(241, 245, 249, 0.5);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    padding: 32px 28px;
-    border-radius: var(--radius-card);
-    transition: all 0.3s ease;
-    cursor: default;
-    z-index: 2;
+    background: transparent;
+    border: none;
+    padding: 0;
     margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    cursor: default;
+}
+
+.who-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--primary-blue);
+    border-radius: 42px;
+    border-bottom-right-radius: 0px;
+    z-index: 0;
+}
+
+.who-card-inner {
+    position: relative;
+    background: var(--bg-section);
+    border-radius: 36px;
+    border: 1px solid var(--border);
+    padding: 32px 28px;
+    overflow: hidden;
+    z-index: 1;
+    flex: 1;
+    height: 100%;
+    transition: all 0.3s ease;
 }
 
 .who-card h2 {
     margin-bottom: 16px;
 }
 
-.who-card:hover {
+.who-card:hover .who-card-inner {
     background: #fff;
     border-color: var(--primary-red);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+.who-card:hover {
     z-index: 10;
 }
 

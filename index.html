@@ -217,18 +217,26 @@
         <!-- Left: Who We Are -->
         <div class="who-col">
           <div class="who-card">
-            <h2>Who We Are</h2>
-            <p>
-              <strong>Kayros</strong> is an AI technology company building intelligent operational systems for modern
-              organizations. We
-              develop scalable platforms that combine artificial intelligence and human coordination to optimize
-              communication, workflows, and real-time decision-making — beginning with our flagship healthcare platform,
-              <strong style="color: var(--primary-red);">Kayros Assist</strong>.
-            </p>
-            <a onclick="openWhoModal()" class="btn btn-secondary mobile-only-btn"
-              style="padding: 6px 16px; font-size: 0.8rem; border-radius: 50px; cursor: pointer; display: none;">
-              Learn More &rarr;
-            </a>
+            <div class="who-card-inner">
+              <!-- Faint red logo bottom-right -->
+              <img src="assets/iso_k/svg/k_iso_circular_red.svg" alt=""
+                  style="position: absolute; bottom: -40px; right: -40px; width: 200px; opacity: 0.07; pointer-events: none; z-index: 0;">
+
+              <div style="position: relative; z-index: 1;">
+                <h2>Who We Are</h2>
+                <p>
+                  <strong>Kayros</strong> is an AI technology company building intelligent operational systems for modern
+                  organizations. We
+                  develop scalable platforms that combine artificial intelligence and human coordination to optimize
+                  communication, workflows, and real-time decision-making — beginning with our flagship healthcare platform,
+                  <strong style="color: var(--primary-red);">Kayros Assist</strong>.
+                </p>
+                <a onclick="openWhoModal()" class="btn btn-secondary mobile-only-btn"
+                  style="padding: 6px 16px; font-size: 0.8rem; border-radius: 50px; cursor: pointer; display: none;">
+                  Learn More &rarr;
+                </a>
+              </div>
+            </div>
             <div class="who-tooltip">
               <div class="bg-mosaic-strong" style="border-radius: 8px; z-index: 0;"></div>
               <div style="position: relative; z-index: 1;">
