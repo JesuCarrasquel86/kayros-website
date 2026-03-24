@@ -3265,6 +3265,10 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
    RESPONSIVE
    ============================================================ */
 @media (max-width: 1024px) {
+    .hero-banner {
+        align-items: flex-start;
+    }
+
     .grid-4 {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -3273,9 +3277,12 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
         grid-template-columns: 1fr;
     }
 
-    .hero-banner-inner {
+    .hero-banner-inner,
+    .viewport-sections .hero-banner-inner {
         grid-template-columns: 1fr;
         gap: 40px;
+        padding-top: 120px;
+        align-items: flex-start;
     }
 
     .hero-banner-visual {
