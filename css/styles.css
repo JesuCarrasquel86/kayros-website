@@ -3675,10 +3675,54 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
 
     .modal-box {
         grid-template-columns: 1fr;
+        max-height: 90vh;
+        background: #0c0245; /* var(--primary-blue) dark shade */
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
     }
 
     .modal-left {
-        display: none;
+        padding: 30px 20px 0 !important;
+        background: transparent !important;
+        text-align: left !important;
+        align-items: flex-start !important;
+        flex-shrink: 0;
+    }
+
+    .modal-left h2 {
+        font-size: 1.4rem !important;
+        text-align: left !important;
+        margin-bottom: 0;
+    }
+
+    .modal-right {
+        padding: 20px !important;
+        background: transparent !important;
+        color: rgba(255, 255, 255, 0.9) !important;
+        flex: 1;
+        overflow-y: auto;
+    }
+
+    .modal-right p,
+    .modal-right strong,
+    .modal-right span:not(.news-tag),
+    .modal-right li {
+        color: white !important;
+    }
+
+    .modal-right p {
+        font-size: 0.9rem !important;
+        line-height: 1.6 !important;
+        margin-bottom: 16px !important;
+    }
+
+    /* Keep mosaic background visible in the whole box */
+    .modal-box .bg-mosaic-strong {
+        opacity: 0.15 !important;
+        z-index: 0;
     }
 
     .fixed-socials {
