@@ -1,0 +1,237 @@
+/* ============================================================
+   CONTACT PAGE — css/contact.css
+   Extracted inline styles from contact.html
+   ============================================================ */
+
+/* ─── Contact Section ──────────────────────────────────────── */
+.contact-section--overflow {
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-bg-logo {
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 600px;
+    height: 600px;
+    background: url('../assets/iso_k/svg/k_iso_circular_gray.svg') center/contain no-repeat;
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.contact-container--z1 {
+    position: relative;
+    z-index: 1;
+}
+
+/* ─── Contact Info Links ───────────────────────────────────── */
+.ci-value--brand {
+    color: var(--primary-red);
+}
+
+.ci-value--address {
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+/* ─── Social Links Section ─────────────────────────────────── */
+.contact-social-section {
+    margin-top: 32px;
+}
+
+.contact-social-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 14px;
+}
+
+.contact-social-row {
+    display: flex;
+    gap: 10px;
+}
+
+.contact-social-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--bg-section);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-blue);
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.contact-social-link--instagram:hover {
+    background: #E1306C;
+    color: white;
+    border-color: #E1306C;
+}
+
+.contact-social-link--facebook:hover {
+    background: #1877F2;
+    color: white;
+    border-color: #1877F2;
+}
+
+.contact-social-link--linkedin:hover {
+    background: #0A66C2;
+    color: white;
+    border-color: #0A66C2;
+}
+
+/* ─── QR Code Box ──────────────────────────────────────────── */
+.contact-qr-box--styled {
+    margin-top: 32px;
+    padding: 24px;
+    background: var(--bg-section);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.contact-qr-img {
+    width: 100px;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto 12px;
+}
+
+.contact-qr-label {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin: 0;
+}
+
+/* ─── Contact Form Box ─────────────────────────────────────── */
+.contact-form-box--overflow {
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-form-bg-logo {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 200px;
+    height: 200px;
+    background: url('../assets/iso_k/svg/k_iso_circular_gray.svg') center/contain no-repeat;
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.contact-form-inner {
+    position: relative;
+    z-index: 1;
+}
+
+/* ─── Process Steps Section ────────────────────────────────── */
+.process-steps-section--styled {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 80px 0;
+}
+
+.section-header--center {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-eyebrow--red {
+    color: var(--primary-red);
+    opacity: 1;
+}
+
+.section-title--white {
+    color: white;
+    background: none;
+    -webkit-text-fill-color: white;
+}
+
+/* ─── Process Step Items ───────────────────────────────────── */
+.process-step {
+    text-align: center;
+    padding: 28px;
+}
+
+.process-step__num {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(250, 66, 56, 0.1);
+    border: 2px solid rgba(250, 66, 56, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--primary-red);
+}
+
+.process-step__title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 8px;
+}
+
+.process-step__text {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.7;
+}
+
+/* ─── Map Section ──────────────────────────────────────────── */
+.location-map-section--padded {
+    padding: 60px 0;
+}
+
+.map-card-wrapper {
+    width: 100%;
+    height: 450px;
+    background: #eee;
+    border-radius: 32px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-lg);
+    transition: all 0.5s ease;
+}
+
+.map-card-wrapper iframe {
+    filter: grayscale(1) contrast(1.1) opacity(0.85);
+    transition: all 0.5s ease;
+    pointer-events: none;
+}
+
+.map-card-wrapper:hover iframe {
+    filter: grayscale(0) contrast(1) opacity(1);
+    pointer-events: auto;
+}
+
+.map-iframe--borderless {
+    border: 0;
+}
+
+@media (max-width: 768px) {
+    .location-map-section--padded .container {
+        padding: 0 16px !important;
+    }
+
+    .map-card-wrapper {
+        height: 320px;
+        border-radius: 20px;
+    }
+}

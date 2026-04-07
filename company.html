@@ -12,16 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
-    <style>
-        .values-wheel svg.connector-lines {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-    </style>
+    <link rel="stylesheet" href="css/company.css">
+
     <link rel="icon" type="image/svg+xml" href="assets/iso_k/svg/k_iso_circular_w_bg_blue.svg">
 </head>
 
@@ -68,9 +60,9 @@
                 <div class="section-eyebrow">About Us</div>
                 <h2 class="section-title">Building the Future of<br><span>Intelligent Operations</span></h2>
             </div>
-            <div class="grid-2 scroll-reveal" style="gap:48px; align-items:stretch;">
+            <div class="grid-2 grid-2--about scroll-reveal">
                 <div>
-                    <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.9; margin-bottom:16px;">
+                    <p class="about-text-block">
                         <strong>Kayros</strong> is an AI-driven technology company dedicated to transforming business
                         operations through
                         intelligent, scalable software solutions. Founded on more than three decades of combined
@@ -79,13 +71,13 @@
                         a clear vision: to engineer smarter operational systems that empower organizations to perform at
                         their highest potential.
                     </p>
-                    <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.9; margin-bottom:16px;">
+                    <p class="about-text-block">
                         We specialize in building AI-integrated platforms that enhance communication, streamline
                         workflows, and improve real-time decision-making. Our approach goes beyond traditional software
                         development — we architect structured operational frameworks designed to reduce complexity,
                         increase visibility, and enable sustainable growth.
                     </p>
-                    <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.9;">
+                    <p class="about-text-block">
                         At <strong>Kayros</strong>, we believe intelligent technology should not replace human judgment,
                         but strengthen
                         it. That philosophy drives the development of our flagship platform, , an AI-powered patient
@@ -93,47 +85,40 @@
                         for healthcare organizations.
                     </p>
                 </div>
-                <div
-                    style="background: linear-gradient(135deg, #0A0A1F 0%, #15153A 100%); border-radius:24px; padding:48px; text-align:center; color:white; position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+                <div class="about-highlight-card">
                     <!-- Red glow bottom-right -->
-                    <div
-                        style="position:absolute; inset:0; background: radial-gradient(circle at 100% 100%, rgba(250,66,56,0.25) 0%, transparent 60%); pointer-events:none; z-index:0;">
-                    </div>
+                    <div class="about-highlight-card__glow-red"></div>
                     <!-- Decorative lines top-left -->
                     <img src="https://f7n.edf.myftpupload.com/wp-content/uploads/2026/02/ELEMENTO-AZUL.svg" alt=""
-                        style="position:absolute; top:-15px; left:-15px; width:90px; opacity:0.1; pointer-events:none; z-index:0; filter: brightness(0) invert(1); transform: scale(-1, -1);">
+                        class="about-highlight-card__decor-tl">
                     <!-- Subtle blue glow top-left -->
-                    <div
-                        style="position:absolute; inset:0; background: radial-gradient(circle at 0% 0%, rgba(80,100,220,0.12) 0%, transparent 50%); pointer-events:none; z-index:0;">
-                    </div>
+                    <div class="about-highlight-card__glow-blue"></div>
                     <!-- Decorative geometric pattern -->
                     <img src="https://f7n.edf.myftpupload.com/wp-content/uploads/2026/02/ELEMENTO-DECORATIVO-1.svg"
-                        alt=""
-                        style="position:absolute; bottom:-20px; right:-40px; width:320px; opacity:0.08; pointer-events:none; z-index:0;">
+                        alt="" class="about-highlight-card__decor-br">
                     <img src="assets/iso_k/svg/k_iso_circular_w_bg_blue.svg" alt="Kayros Logo"
-                        style="width:110px;height:110px;border-radius:50%;margin:0 auto 32px;border:3px solid rgba(255,255,255,0.2);position:relative;z-index:1;max-width:none;">
-                    <p style="font-size:1.4rem;font-weight:700;margin-bottom:12px;position:relative;z-index:1;">30+ Years
+                        class="about-highlight-card__logo">
+                    <p class="about-highlight-card__stat">30+ Years
                     </p>
-                    <p style="font-size:1rem;opacity:0.7;margin-bottom:32px;position:relative;z-index:1;">Combined
+                    <p class="about-highlight-card__stat-label">Combined
                         Industry Experience</p>
-                    <p
-                        style="font-size:1rem;font-style:italic;opacity:0.85;line-height:1.8;position:relative;z-index:1;max-width:360px;">
+                    <p class="about-highlight-card__quote">
                         "As we continue to expand, our mission remains constant: to deliver intelligent software
                         solutions that help organizations adapt, scale, and lead in an increasingly digital world."</p>
                 </div>
             </div>
 
             <!-- Mission & Vision -->
-            <div class="mission-vision-grid scroll-reveal" style="margin-top:48px;">
+            <div class="mission-vision-grid scroll-reveal mission-vision-grid--mt">
                 <div class="mv-box">
-                    <div class="bg-mosaic-light" style="opacity: 0.04;"></div>
+                    <div class="bg-mosaic-light bg-mosaic-light--faint"></div>
                     <h3>Mission</h3>
                     <p>To design and deliver intelligent AI-powered software platforms that structure complex
                         operations, enhance decision-making, and empower organizations to operate with clarity,
                         efficiency, and confidence.</p>
                 </div>
                 <div class="mv-box">
-                    <div class="bg-mosaic-light" style="opacity: 0.04;"></div>
+                    <div class="bg-mosaic-light bg-mosaic-light--faint"></div>
                     <h3>Vision</h3>
                     <p>To shape the future of intelligent operations by building scalable AI infrastructures that
                         redefine how organizations function, adapt, and lead.</p>
@@ -145,8 +130,7 @@
     <!-- ═══════════════════════════════════════════════════════════
      LEADERSHIP
 ═══════════════════════════════════════════════════════════ -->
-    <section class="section"
-        style="background:var(--bg-section); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+    <section class="section section--leadership">
         <div class="container">
             <div class="section-header scroll-reveal">
                 <div class="section-eyebrow">Our Team</div>
@@ -282,37 +266,37 @@
                     <!-- Center K -->
                     <div class="values-center">
                         <img src="assets/iso_k/svg/k_iso_circular_w_bg_blue.svg" alt="Kayros Logo"
-                            style="width: 100%; height: 100%; object-fit: contain;">
+                            class="values-center__logo">
                     </div>
 
                     <!-- 6 value nodes positioned around the center -->
                     <!-- Top -->
-                    <div class="value-node" style="left:50%; top:10.2%;" data-title="Intelligent Innovation"
+                    <div class="value-node value-node--top" data-title="Intelligent Innovation"
                         data-desc="We build technology with purpose. Our innovation is driven by solving real operational challenges through intelligent AI systems that create measurable efficiency, clarity, and performance improvements — not complexity.">
                         <span>Intelligent<br>Innovation</span>
                     </div>
                     <!-- Top Right -->
-                    <div class="value-node" style="left:84.3%; top:30%;" data-title="Structured Design"
+                    <div class="value-node value-node--top-right" data-title="Structured Design"
                         data-desc="We believe that intelligent systems require disciplined architecture. Every platform we develop is built with structured workflows, clear logic, and scalable frameworks that bring order to complex operational environments.">
                         <span>Structured<br>Design</span>
                     </div>
                     <!-- Bottom Right -->
-                    <div class="value-node" style="left:84.3%; top:70%;" data-title="Human-Centered AI"
+                    <div class="value-node value-node--bottom-right" data-title="Human-Centered AI"
                         data-desc="Technology should strengthen people, not replace them. We design AI-driven systems that enhance human decision-making, improve coordination, and create meaningful operational support where it matters most.">
                         <span>Human-<br>Centered AI</span>
                     </div>
                     <!-- Bottom -->
-                    <div class="value-node" style="left:50%; top:89.8%;" data-title="Accountability Through Data"
+                    <div class="value-node value-node--bottom" data-title="Accountability Through Data"
                         data-desc="Visibility drives performance. Our platforms provide measurable insights, traceability, and real-time analytics that empower organizations to make informed decisions and maintain operational accountability.">
                         <span>Accountability<br>Through Data</span>
                     </div>
                     <!-- Bottom Left -->
-                    <div class="value-node" style="left:15.7%; top:70%;" data-title="Scalable Infrastructure"
+                    <div class="value-node value-node--bottom-left" data-title="Scalable Infrastructure"
                         data-desc="We design for long-term growth. Our solutions are built to evolve with organizational needs, adapting to increasing demand, operational expansion, and technological advancement.">
                         <span>Scalable<br>Infrastructure</span>
                     </div>
                     <!-- Top Left -->
-                    <div class="value-node" style="left:15.7%; top:30%;" data-title="End-User Impact"
+                    <div class="value-node value-node--top-left" data-title="End-User Impact"
                         data-desc="Behind every workflow, system, and dataset is a real person. Whether serving patients, clients, or consumers, we build technology that improves communication, reduces friction, and enhances the overall experience for the end user.">
                         <span>End-User<br>Impact</span>
                     </div>
@@ -332,7 +316,7 @@
     <!-- ═══════════════════════════════════════════════════════════
      TECHNOLOGY PHILOSOPHY
 ═══════════════════════════════════════════════════════════ -->
-    <section class="section" style="border-top:1px solid var(--border);">
+    <section class="section section--border-top">
         <div class="container">
             <div class="section-header scroll-reveal">
                 <div class="section-eyebrow">Our Approach</div>
@@ -342,8 +326,8 @@
                     intelligent coordination.</p>
             </div>
 
-            <div style="max-width:760px; margin:0 auto 48px; text-align:center;" class="scroll-reveal">
-                <p style="font-size:0.95rem; color:var(--text-muted); line-height:1.9;">
+            <div class="philosophy-intro-wrap scroll-reveal">
+                <p class="philosophy-intro-text">
                     We believe artificial intelligence should bring structure to complexity, not replace human judgment.
                     The most effective systems are those that combine AI-driven automation with clear operational
                     frameworks
@@ -353,21 +337,14 @@
 
             <div class="philosophy-grid scroll-reveal">
                 <!-- Card 1: Light Theme -->
-                <div class="philosophy-item"
-                    style="position: relative; background: transparent; color: var(--text-main); border: none; padding: 0; display: flex; flex-direction: column; box-shadow: none;">
-                    <!-- Brand Blue Layer (Background) -->
-                    <div
-                        style="position: absolute; inset: 0; background: var(--primary-blue); border-radius: 42px; border-bottom-right-radius: 0px; z-index: 0;">
-                    </div>
-                    <!-- Main Content -->
-                    <div
-                        style="position: relative; background: var(--bg-section); border-radius: 36px; border: 1px solid var(--border); padding: 32px; overflow: hidden; z-index: 1; flex: 1; height: 100%;">
-                        <img src="assets/iso_k/svg/k_iso_circular_red.svg" alt=""
-                            style="position: absolute; bottom: -40px; right: -40px; width: 200px; opacity: 0.1; pointer-events: none; z-index: 0;">
-                        <div style="position: relative; z-index: 1;">
-                            <div class="phi-num" style="margin-bottom: 20px;">01</div>
+                <div class="philosophy-item phi-card-outer--light">
+                    <div class="phi-accent--blue"></div>
+                    <div class="phi-content--light">
+                        <img src="assets/iso_k/svg/k_iso_circular_red.svg" alt="" class="phi-logo-watermark">
+                        <div class="phi-content-inner">
+                            <div class="phi-num phi-num--mb">01</div>
                             <h4>Structure Before Scale</h4>
-                            <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; margin: 0;">
+                            <p class="phi-text-muted">
                                 Intelligent systems must be architected with disciplined workflows and clear logic
                                 before they can scale effectively. We build the foundation first.</p>
                         </div>
@@ -375,20 +352,14 @@
                 </div>
 
                 <!-- Card 2: Blue Theme (Middle) -->
-                <div class="philosophy-item"
-                    style="position: relative; background: transparent; color: white; border: none; padding: 0; display: flex; flex-direction: column; box-shadow: none;">
-                    <!-- Brand Red Layer (Background) -->
-                    <div
-                        style="position: absolute; inset: 0; background: var(--primary-red); border-radius: 36px; border-bottom-right-radius: 0px; z-index: 0;">
-                    </div>
-                    <!-- Main Solution Content -->
-                    <div
-                        style="position: relative; background: var(--primary-blue); border-radius: 36px; padding: 32px; overflow: hidden; z-index: 1; flex: 1; height: 100%;">
-                        <div class="bg-mosaic-light" style="opacity: 0.04;"></div>
-                        <div style="position: relative; z-index: 1;">
-                            <div class="phi-num" style="color: white; margin-bottom: 20px;">02</div>
-                            <h4 style="color: white;">AI with Purpose</h4>
-                            <p style="font-size: 0.9rem; color: rgba(255,255,255,0.85); line-height: 1.7; margin: 0;">
+                <div class="philosophy-item phi-card-outer--dark">
+                    <div class="phi-accent--red"></div>
+                    <div class="phi-content--dark">
+                        <div class="bg-mosaic-light bg-mosaic-light--faint"></div>
+                        <div class="phi-content-inner">
+                            <div class="phi-num phi-num--white">02</div>
+                            <h4 class="phi-heading--white">AI with Purpose</h4>
+                            <p class="phi-text-light">
                                 Automation must solve real operational problems, not add unnecessary layers of
                                 complexity. Every AI feature we build has a clear, measurable objective.</p>
                         </div>
@@ -396,21 +367,14 @@
                 </div>
 
                 <!-- Card 3: Light Theme -->
-                <div class="philosophy-item"
-                    style="position: relative; background: transparent; color: var(--text-main); border: none; padding: 0; display: flex; flex-direction: column; box-shadow: none;">
-                    <!-- Brand Blue Layer (Background) -->
-                    <div
-                        style="position: absolute; inset: 0; background: var(--primary-blue); border-radius: 42px; border-bottom-right-radius: 0px; z-index: 0;">
-                    </div>
-                    <!-- Main Content -->
-                    <div
-                        style="position: relative; background: var(--bg-section); border-radius: 36px; border: 1px solid var(--border); padding: 32px; overflow: hidden; z-index: 1; flex: 1; height: 100%;">
-                        <img src="assets/iso_k/svg/k_iso_circular_red.svg" alt=""
-                            style="position: absolute; bottom: -40px; right: -40px; width: 200px; opacity: 0.1; pointer-events: none; z-index: 0;">
-                        <div style="position: relative; z-index: 1;">
-                            <div class="phi-num" style="margin-bottom: 20px;">03</div>
+                <div class="philosophy-item phi-card-outer--light">
+                    <div class="phi-accent--blue"></div>
+                    <div class="phi-content--light">
+                        <img src="assets/iso_k/svg/k_iso_circular_red.svg" alt="" class="phi-logo-watermark">
+                        <div class="phi-content-inner">
+                            <div class="phi-num phi-num--mb">03</div>
                             <h4>Human-in-the-Loop Design</h4>
-                            <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; margin: 0;">
+                            <p class="phi-text-muted">
                                 Technology should enhance decision-making and coordination, ensuring that critical
                                 moments remain guided by human insight and judgment.</p>
                         </div>
@@ -440,8 +404,7 @@
     <!-- ═══════════════════════════════════════════════════════════
      WHY KAYROS
 ═══════════════════════════════════════════════════════════ -->
-    <section class="section"
-        style="background:var(--bg-section); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+    <section class="section section--leadership">
         <div class="container">
             <div class="section-header scroll-reveal">
                 <div class="section-eyebrow">Our Differentiators</div>
@@ -514,7 +477,7 @@
                             and generate actionable insights that drive performance and accountability.</p>
                     </div>
                 </div>
-                <div class="why-item" style="grid-column: 1 / -1;">
+                <div class="why-item why-item--full">
                     <div class="why-item-icon">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

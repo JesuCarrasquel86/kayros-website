@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/home.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
   <link rel="icon" type="image/svg+xml" href="assets/iso_k/svg/k_iso_circular_w_bg_blue.svg" />
 </head>
@@ -20,45 +21,15 @@
   <!-- ═══════════════════════════════════════════════════════════
      INTRO PRELOADER (Runs once per session)
 ═══════════════════════════════════════════════════════════ -->
-  <style>
-    @keyframes pulseHeartbeat {
-      0% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(250, 66, 56, 0.7);
-      }
 
-      70% {
-        transform: scale(1.1);
-        box-shadow: 0 0 0 12px rgba(250, 66, 56, 0);
-      }
-
-      100% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(250, 66, 56, 0);
-      }
-    }
-
-    #introOverlay {
-      position: fixed;
-      inset: 0;
-      z-index: 999999;
-      background: #FFFFFF;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-  </style>
 
   <div id="introOverlay">
-    <video id="introVideo" playsinline muted autoplay style="width: 100%; height: 100%; object-fit: contain;">
+    <video id="introVideo" playsinline muted autoplay class="intro-video-fill">
       <source
         src="https://f7n.edf.myftpupload.com/wp-content/uploads/2026/02/WhatsApp-Video-2026-02-05-at-10.57.05-AM.mp4"
         type="video/mp4">
     </video>
-    <button id="introSoundBtn"
-      style="position: absolute; bottom: 40px; right: 40px; background: var(--primary-red); color: white; border: none; border-radius: 50%; width: 56px; height: 56px; cursor: pointer; display: none; align-items: center; justify-content: center; z-index: 1000000; animation: pulseHeartbeat 1.5s infinite;">
+    <button id="introSoundBtn" class="intro-sound-btn">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
         stroke-linecap="round" stroke-linejoin="round">
         <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
@@ -164,20 +135,12 @@
             friction,<br />
             and brings intelligence to everyday operations.
           </p>
-          <style>
-            @media (max-width: 768px) {
-              .hero-banner-btns .btn {
-                width: 100%;
-                text-align: center;
-                justify-content: center;
-              }
-            }
-          </style>
+
           <div class="hero-banner-btns">
             <a href="contact.html" class="btn btn-primary">
               Contact us →
             </a>
-            <a onclick="openModal()" class="btn btn-outline-white" style="cursor: pointer">
+            <a onclick="openModal()" class="btn btn-outline-white cursor-pointer">
               Keep me informed — sign me up for emails
             </a>
           </div>
@@ -219,28 +182,26 @@
           <div class="who-card">
             <div class="who-card-inner">
               <!-- Faint red logo bottom-right -->
-              <img src="assets/iso_k/svg/k_iso_circular_red.svg" alt=""
-                  style="position: absolute; bottom: -40px; right: -40px; width: 200px; opacity: 0.07; pointer-events: none; z-index: 0;">
+              <img src="assets/iso_k/svg/k_iso_circular_red.svg" alt="" class="who-card__logo-watermark">
 
-              <div style="position: relative; z-index: 1;">
+              <div class="who-card__content">
                 <h2>Who We Are</h2>
                 <p>
                   <strong>Kayros</strong> is an AI technology company building intelligent operational systems for modern
                   organizations. We
                   develop scalable platforms that combine artificial intelligence and human coordination to optimize
                   communication, workflows, and real-time decision-making — beginning with our flagship healthcare platform,
-                  <strong style="color: var(--primary-red);">Kayros Assist</strong>.
+                  <strong class="text-brand-red">Kayros Assist</strong>.
                 </p>
-                <a onclick="openWhoModal()" class="btn btn-secondary mobile-only-btn"
-                  style="padding: 6px 16px; font-size: 0.8rem; border-radius: 50px; cursor: pointer; display: none;">
+                <a onclick="openWhoModal()" class="btn btn-secondary mobile-only-btn-sm">
                   Learn More &rarr;
                 </a>
               </div>
             </div>
             <div class="who-tooltip">
-              <div class="bg-mosaic-strong" style="border-radius: 8px; z-index: 0;"></div>
-              <div style="position: relative; z-index: 1;">
-                <h3 style="color: white; margin-bottom: 16px;">Who We Are — Extended</h3>
+              <div class="bg-mosaic-strong who-tooltip__overlay"></div>
+              <div class="who-card__content">
+                <h3 class="who-tooltip__heading">Who We Are — Extended</h3>
                 <p>
                   <strong>Kayros</strong> is an AI technology company building intelligent
                   operational infrastructure for modern organizations.
@@ -261,123 +222,40 @@
                   performance at scale.
                 </p>
                 <p>
-                  Our flagship platform, <strong style="color: var(--primary-red);">Kayros Assist</strong>, represents
+                  Our flagship platform, <strong class="text-brand-red">Kayros Assist</strong>, represents
                   the
                   healthcare implementation of this vision — delivering
                   intelligent patient operations powered by AI and live
                   coordination.
                 </p>
-                <p style="margin-bottom: 0;">
+                <p class="mb-0">
                   At <strong>Kayros</strong>, we believe the future of operations is not fully
-                  automated — it is <strong style="color: white;">intelligently orchestrated</strong>.
+                  automated — it is <strong class="text-white-strong">intelligently orchestrated</strong>.
                 </p>
               </div>
             </div>
           </div>
 
           <!-- MAIN PRODUCT CTA (Moved into column to fill empty space) -->
-          <style>
-            .product-cta-section {
-              position: relative;
-              background: rgba(241, 245, 249, 0.5);
-              border: 1px solid rgba(0, 0, 0, 0.05);
-              border-radius: var(--radius-card);
-              padding: 24px 12px !important;
-              margin-top: 0px !important;
-              transition: all 0.3s ease;
-              z-index: 2;
-            }
 
-            .product-cta-section:hover {
-              background: #fff;
-              border-color: var(--primary-red);
-              box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-              z-index: 10;
-            }
-
-            .cta-image img,
-            .cta-image video {
-              width: 88%;
-              height: 100%;
-              max-height: 320px;
-              /* Further reduction for compact look */
-              object-fit: cover;
-              border-radius: 32px;
-              opacity: 0.95;
-              box-shadow: none !important;
-            }
-
-            @media (max-width: 768px) {
-              .product-cta-section {
-                padding: 24px 20px !important;
-              }
-
-              .mobile-stack {
-                flex-direction: column !important;
-                align-items: center;
-                gap: 24px !important;
-                height: auto !important;
-              }
-
-              .mobile-stack .cta-text {
-                width: 100% !important;
-                flex: none !important;
-                justify-content: flex-start !important;
-                margin-bottom: 0px !important;
-                text-align: center !important;
-                align-items: center !important;
-              }
-
-              .mobile-stack .cta-text .section-eyebrow {
-                margin-right: 0px !important;
-                display: inline-block !important;
-                /* Keep pill compact and center it */
-              }
-
-              .mobile-stack .cta-image {
-                width: 100% !important;
-                flex: none !important;
-                margin-top: 0px !important;
-              }
-
-              .mobile-stack .cta-image img,
-              .mobile-stack .cta-image video {
-                max-height: none !important;
-                width: 100% !important;
-                height: auto !important;
-                border-radius: 20px !important;
-              }
-
-              .mobile-stack .section-eyebrow,
-              .mobile-stack .section-title,
-              .mobile-stack p {
-                margin-bottom: 12px !important;
-                text-align: center !important;
-              }
-            }
-          </style>
-          <div class="product-cta-section scroll-reveal" id="demo" style="display: flex;">
-            <div class="cta-content mobile-stack" style="display: flex; flex-direction: row; gap: 12px;">
-              <div class="cta-text"
-                style="order: 1; flex: 1; min-width: 0; align-items: flex-start; text-align: left; display: flex; flex-direction: column; justify-content: center;">
-                <div class="section-eyebrow" style="margin-bottom: 12px; font-size: 0.5rem;margin-right: -102px;">Our
-                  Main Product: <strong style="color: var(--primary-red);">Kayros Assist</strong>
+          <div class="product-cta-section scroll-reveal" id="demo">
+            <div class="cta-content mobile-stack cta-content-row">
+              <div class="cta-text cta-text-left">
+                <div class="section-eyebrow cta-eyebrow-wide">Our
+                  Main Product: <strong class="text-brand-red">Kayros Assist</strong>
                 </div>
-                <h2 class="section-title"
-                  style="font-size: 1.4rem; line-height: 1.25; margin-bottom: 12px; background: none; -webkit-text-fill-color: var(--text-main);">
+                <h2 class="section-title cta-title-compact">
                   Intelligent Patient Operations Platform</h2>
-                <p style="color: var(--text-muted); margin-bottom: 12px; font-size: 0.78rem; line-height: 1.6;">
-                  <strong style="color: var(--primary-red);">Kayros Assist</strong> is an AI-driven patient engagement
+                <p class="cta-desc-compact">
+                  <strong class="text-brand-red">Kayros Assist</strong> is an AI-driven patient engagement
                   platform designed to optimize patient communication,
                   reduce administrative burden, and improve operational efficiency in healthcare settings.
                 </p>
-                <a href="ai-solutions.html" class="btn btn-primary"
-                  style="padding: 5px 20px; font-size: 0.85rem; border-radius: 50px;">
+                <a href="ai-solutions.html" class="btn btn-primary cta-btn-sm">
                   <span class="expand-label">Learn More</span>
                 </a>
               </div>
-              <div class="cta-image"
-                style="order: 2; flex: 1; min-width: 0; display: flex; align-items: stretch; justify-content: flex-end; border-radius: 32px; overflow: hidden;">
+              <div class="cta-image cta-image-right">
                 <video src="https://filedn.com/lLIlU7CohpVRHupQLWK1oYH/Kayros/Home/Kayros%20Technologies%20-%20Video%20Recreaci%C3%B3n%20de%20conversaci%C3%B3n.mp4" autoplay loop muted playsinline></video>
               </div>
             </div>
@@ -387,16 +265,16 @@
 
         <!-- Right: Core Capabilities -->
         <div class="cap-col">
-          <div style="padding-top: 32px;">
+          <div class="cap-col__inner">
             <h2>
               Core Capabilities
             </h2>
             <ul class="capability-checklist">
               <li>
                 <div class="cap-item-title">
-                  <span class="cap-check" style="background: transparent;">
+                  <span class="cap-check cap-check--transparent">
                     <img src="assets/iso_k/svg/k_iso_circular_w_bg_blue.svg" alt="Kayros Check"
-                      style="width: 24px; height: 24px;" />
+                      class="cap-check-icon" />
                   </span>
                   AI Workflow Orchestration
                 </div>
@@ -415,9 +293,9 @@
               </li>
               <li>
                 <div class="cap-item-title">
-                  <span class="cap-check" style="background: transparent;">
+                  <span class="cap-check cap-check--transparent">
                     <img src="assets/iso_k/svg/k_iso_circular_w_bg_blue.svg" alt="Kayros Check"
-                      style="width: 24px; height: 24px;" />
+                      class="cap-check-icon" />
                   </span>
                   Real-Time Operational Visibility
                 </div>
@@ -431,9 +309,9 @@
               </li>
               <li>
                 <div class="cap-item-title">
-                  <span class="cap-check" style="background: transparent;">
+                  <span class="cap-check cap-check--transparent">
                     <img src="assets/iso_k/svg/k_iso_circular_w_bg_blue.svg" alt="Kayros Check"
-                      style="width: 24px; height: 24px;" />
+                      class="cap-check-icon" />
                   </span>
                   Omnichannel Communication Infrastructure
                 </div>
@@ -448,9 +326,9 @@
               </li>
               <li>
                 <div class="cap-item-title">
-                  <span class="cap-check" style="background: transparent;">
+                  <span class="cap-check cap-check--transparent">
                     <img src="assets/iso_k/svg/k_iso_circular_w_bg_blue.svg" alt="Kayros Check"
-                      style="width: 24px; height: 24px;" />
+                      class="cap-check-icon" />
                   </span>
                   Intelligent Case & Task Management
                 </div>
@@ -466,9 +344,9 @@
               </li>
               <li>
                 <div class="cap-item-title">
-                  <span class="cap-check" style="background: transparent;">
+                  <span class="cap-check cap-check--transparent">
                     <img src="assets/iso_k/svg/k_iso_circular_w_bg_blue.svg" alt="Kayros Check"
-                      style="width: 24px; height: 24px;" />
+                      class="cap-check-icon" />
                   </span>
                   Data-Driven Insights
                 </div>
@@ -477,14 +355,13 @@
                   <p>Beyond automation, <strong>Kayros</strong> leverages operational data to generate actionable
                     insights. By analyzing patterns, response behaviors, and performance metrics, our platforms
                     continuously improve workflows and enable smarter operational strategies.</p>
-                  <p style="font-weight: 700;"><strong>Kayros</strong> does not simply automate tasks — we engineer
+                  <p class="cap-tooltip__bold"><strong>Kayros</strong> does not simply automate tasks — we engineer
                     intelligent operational ecosystems designed for scalability, adaptability, and long-term growth.</p>
                 </div>
               </li>
             </ul>
-            <div style="text-align: left; margin-top: 16px;">
-              <a onclick="openCapModal()" class="btn btn-secondary mobile-only-btn"
-                style="padding: 6px 16px; font-size: 0.8rem; border-radius: 50px; cursor: pointer; display: none;">
+            <div class="cap-col__footer">
+              <a onclick="openCapModal()" class="btn btn-secondary mobile-only-btn-sm">
                 Full Capabilities &rarr;
               </a>
             </div>
@@ -499,14 +376,13 @@
      FEATURES / CORE VALUES
  ═══════════════════════════════════════════════════════════ -->
   <div class="bg-dark-glow">
-    <section class="features-section" id="features" style="background: transparent !important;">
+    <section class="features-section features-section--transparent" id="features">
       <div class="section-header" id="featuresHeader">
         <div class="section-eyebrow">Core Values</div>
-        <h2 class="section-title" style="color: white; background: none; -webkit-text-fill-color: white;">AI the right
+        <h2 class="section-title section-title--white">AI the right
           way</h2>
-        <p
-          style="color: rgba(255,255,255,0.7); max-width: 740px; margin: 16px auto 0; font-size: 0.95rem; line-height: 1.8;">
-          <strong style="color: var(--primary-red);">KAYROS AI Technology</strong> is the core intelligence layer that
+        <p class="section-subtitle--light">
+          <strong class="text-brand-red">KAYROS AI Technology</strong> is the core intelligence layer that
           powers all <strong>KAYROS</strong> products, enabling real-time
           decision support, workflow orchestration, predictive insights, and operational continuous optimization.
         </p>
@@ -589,12 +465,12 @@
      COUNTDOWN SECTION
  ═══════════════════════════════════════════════════════════ -->
   <section class="countdown-section" id="countdown">
-    <div class="section-header" id="countdownHeader" style="margin-bottom:0;">
+    <div class="section-header section-header--no-mb" id="countdownHeader">
       <div class="section-eyebrow">Launching Soon</div>
       <h2 class="section-title">AI-powered solutions are coming</h2>
-      <p style="color:var(--text-muted);max-width:700px;margin:16px auto 24px;font-size:0.95rem;line-height:1.7;">
+      <p class="countdown-desc">
         We are building the next generation of intelligent software tools to help businesses scale and optimize
-        their operations. Stay tuned for our upcoming launch of <strong style="color: var(--primary-red);">Kayros
+        their operations. Stay tuned for our upcoming launch of <strong class="text-brand-red">Kayros
           Assist</strong>.</p>
       <a onclick="openModal()" class="btn btn-primary">
         STAY CONNECTED!
@@ -632,18 +508,11 @@
 
 
   <div class="modal-overlay" id="modalOverlay">
-    <div class="modal-box" style="position: relative">
+    <div class="modal-box modal-box--relative">
       <button class="modal-close" onclick="closeModal()">&#215;</button>
       <div class="modal-left">
-        <h2 style="
-              color: white;
-              font-size: 1.2rem;
-              font-weight: 800;
-              position: relative;
-              z-index: 2;
-              text-align: center;
-            ">
-          Experience <strong style="color: var(--primary-red);">KAYROS AI Technology</strong>
+        <h2 class="modal-heading-white">
+          Experience <strong class="text-brand-red">KAYROS AI Technology</strong>
         </h2>
         <div class="modal-video-box">
           <video autoplay loop muted playsinline>
@@ -686,15 +555,15 @@
 
   <!-- Modal Who We Are -->
   <div class="modal-overlay" id="whoModal">
-    <div class="modal-box" style="position: relative; max-width: 600px;">
+    <div class="modal-box modal-box--sm">
       <button class="modal-close" onclick="closeWhoModal()">&#215;</button>
-      <div class="modal-left" style="background: var(--primary-blue-2);">
-        <div class="bg-mosaic-strong" style="opacity: 0.3;"></div>
-        <h2
-          style="color: white; font-size: 1.2rem; font-weight: 800; position: relative; z-index: 2; text-align: center;">
+      <div class="modal-left modal-left--blue">
+        <div class="bg-mosaic-strong modal-mosaic-faint"></div>
+        <h2 class="modal-heading-white">
           Who We Are — Extended</h2>
       </div>
-      <div class="modal-right" style="padding: 30px; overflow-y: auto;">
+      <div class="who-modal-tooltip-body">
+        <div class="bg-mosaic-strong"></div>
         <p><strong>Kayros</strong> is an AI technology company building intelligent operational infrastructure for
           modern organizations.</p>
         <p>We design systems that enhance how teams communicate, coordinate, and execute — combining artificial
@@ -703,80 +572,80 @@
           operations.</p>
         <p>Rather than creating isolated tools, we engineer integrated platforms that optimize workflows,
           decision-making, and performance at scale.</p>
-        <p>Our flagship platform, <strong style="color: var(--primary-red);">Kayros Assist</strong>, represents the
+        <p>Our flagship platform, <strong class="text-brand-red">Kayros Assist</strong>, represents the
           healthcare implementation of this vision — delivering intelligent patient operations powered by AI and live
           coordination.</p>
-        <p style="margin-bottom: 0;">At <strong>Kayros</strong>, we believe the future of operations is not fully
-          automated — it is <strong style="color: var(--primary-red);">intelligently orchestrated</strong>.</p>
+        <p class="mb-0">At <strong>Kayros</strong>, we believe the future of operations is not fully
+          automated — it is <strong class="text-white-strong">intelligently orchestrated</strong>.</p>
       </div>
     </div>
   </div>
 
   <!-- Modal Capabilities -->
   <div class="modal-overlay" id="capModal">
-    <div class="modal-box" style="position: relative; max-width: 700px;">
+    <div class="modal-box modal-box--md">
       <button class="modal-close" onclick="closeCapModal()">&#215;</button>
-      <div class="modal-left" style="background: var(--primary-blue-2);">
-        <div class="bg-mosaic-strong" style="opacity: 0.3;"></div>
-        <h2
-          style="color: white; font-size: 1.2rem; font-weight: 800; position: relative; z-index: 2; text-align: center;">
+      <div class="modal-left modal-left--blue">
+        <div class="bg-mosaic-strong modal-mosaic-faint"></div>
+        <h2 class="modal-heading-white">
           Core Capabilities Extended</h2>
       </div>
-      <div class="modal-right" style="padding: 30px; overflow-y: auto;">
-        <p style="font-size: 0.9rem; color: var(--text-main); margin-bottom: 24px; font-weight: 500;">At
+      <div class="modal-right modal-right--scroll">
+        <div class="bg-mosaic-strong"></div>
+        <p class="modal-cap-intro">At
           <strong>Kayros</strong>, our capabilities are built around one objective: structuring complex operations
           through intelligent systems that combine AI, automation, and human coordination.
         </p>
 
-        <ul class="capability-checklist modal-cap-list" style="list-style: none; padding: 0;">
-          <li style="margin-bottom: 24px; padding: 0; border: none; display: block;">
-            <strong style="color: var(--primary-red); display: block; margin-bottom: 8px; font-size: 0.95rem;">1. AI
+        <ul class="capability-checklist modal-cap-list">
+          <li class="modal-cap-item">
+            <strong class="modal-cap-title">1. AI
               Workflow Orchestration</strong>
-            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 8px;">We design
+            <p class="modal-cap-desc">We design
               intelligent orchestration engines that automate classification, routing, and prioritization across
               workflows. Our AI models analyze inputs in real time, determine intent, assign urgency levels, and trigger
               the appropriate operational pathway — whether automated or human-led.</p>
-            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; font-style: italic; margin: 0;">
+            <p class="modal-cap-note">
               This creates structured, scalable processes without removing human oversight where it matters most.</p>
           </li>
 
-          <li style="margin-bottom: 24px; padding: 0; border: none; display: block;">
-            <strong style="color: var(--primary-red); display: block; margin-bottom: 8px; font-size: 0.95rem;">2.
+          <li class="modal-cap-item">
+            <strong class="modal-cap-title">2.
               Real-Time Operational Visibility</strong>
-            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 8px;">
+            <p class="modal-cap-desc">
               <strong>Kayros</strong> provides live operational dashboards that allow organizations to monitor
               performance, workloads, response times, and resolution metrics in real time.
             </p>
-            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; font-style: italic; margin: 0;">
+            <p class="modal-cap-note">
               This visibility enables informed decision-making, proactive intervention, and measurable accountability
               across teams.</p>
           </li>
 
-          <li style="margin-bottom: 24px; padding: 0; border: none; display: block;">
-            <strong style="color: var(--primary-red); display: block; margin-bottom: 8px; font-size: 0.95rem;">3.
+          <li class="modal-cap-item">
+            <strong class="modal-cap-title">3.
               Omnichannel Communication Infrastructure</strong>
-            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 8px;">We unify
+            <p class="modal-cap-desc">We unify
               voice, messaging, and digital communication into a single operational framework. Instead of disconnected
               channels, our infrastructure ensures that every interaction is structured, documented, and integrated into
               the broader workflow ecosystem.</p>
-            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; font-style: italic; margin: 0;">
+            <p class="modal-cap-note">
               Communication becomes coordinated — not reactive.</p>
           </li>
 
-          <li style="margin-bottom: 24px; padding: 0; border: none; display: block;">
-            <strong style="color: var(--primary-red); display: block; margin-bottom: 8px; font-size: 0.95rem;">4.
+          <li class="modal-cap-item">
+            <strong class="modal-cap-title">4.
               Intelligent Case & Task Management</strong>
-            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 8px;">Our systems
+            <p class="modal-cap-desc">Our systems
               are built to manage complexity. We design case management frameworks that support prioritization,
               escalation protocols, human intervention, and resolution tracking.</p>
-            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; font-style: italic; margin: 0;">
+            <p class="modal-cap-note">
               This ensures continuity, traceability, and operational intelligence across every stage of the process.</p>
           </li>
 
-          <li style="margin-bottom: 24px; padding: 0; border: none; display: block;">
-            <strong style="color: var(--primary-red); display: block; margin-bottom: 8px; font-size: 0.95rem;">5.
+          <li class="modal-cap-item">
+            <strong class="modal-cap-title">5.
               Data-Driven Insights</strong>
-            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin: 0;">Beyond automation,
+            <p class="modal-cap-desc">Beyond automation,
               <strong>Kayros</strong> leverages operational data to generate actionable insights. By analyzing patterns,
               response behaviors, and performance metrics, our platforms continuously improve workflows and enable
               smarter operational strategies.
@@ -784,8 +653,7 @@
           </li>
         </ul>
 
-        <p
-          style="font-size: 0.9rem; color: var(--text-main); margin-top: 24px; font-weight: 600; text-align: center; border-top: 1px solid var(--border); padding-top: 20px;">
+        <p class="modal-cap-footer">
           <strong>Kayros</strong> does not simply automate tasks — we engineer intelligent operational ecosystems
           designed for scalability, adaptability, and long-term growth.
         </p>

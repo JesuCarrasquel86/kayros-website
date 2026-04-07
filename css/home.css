@@ -1,0 +1,509 @@
+/* ============================================================
+   HOME PAGE — css/home.css
+   ============================================================ */
+
+/* ─── Intro Preloader ──────────────────────────────────────── */
+@keyframes pulseHeartbeat {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(250, 66, 56, 0.7);
+    }
+
+    70% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 12px rgba(250, 66, 56, 0);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(250, 66, 56, 0);
+    }
+}
+
+#introOverlay {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    background: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.intro-video-fill {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.intro-sound-btn {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    background: var(--primary-red);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000000;
+    animation: pulseHeartbeat 1.5s infinite;
+}
+
+/* ─── Hero CTA mobile ─────────────────────────────────────── */
+@media (max-width: 768px) {
+    .hero-banner-btns .btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+/* ─── Who We Are Card ──────────────────────────────────────── */
+.who-card__logo-watermark {
+    position: absolute;
+    bottom: -40px;
+    right: -40px;
+    width: 200px;
+    opacity: 0.07;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.who-card__content {
+    position: relative;
+    z-index: 1;
+}
+
+.who-tooltip__overlay {
+    border-radius: 8px;
+    z-index: 0;
+}
+
+.who-tooltip__heading {
+    color: white;
+    margin-bottom: 16px;
+}
+
+/* ─── Brand Text Highlights ────────────────────────────────── */
+.text-brand-red {
+    color: var(--primary-red);
+}
+
+.text-white {
+    color: white;
+}
+
+.text-white-strong {
+    color: white;
+}
+
+.mb-0 {
+    margin-bottom: 0;
+}
+
+/* ─── Learn-more button (visible en desktop y mobile) ──────── */
+.mobile-only-btn-sm {
+    padding: 6px 16px;
+    font-size: 0.8rem;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    margin-top: 12px;
+}
+
+/* ─── Modals: single-column layout ────────────────────────── */
+#whoModal .modal-box,
+#capModal .modal-box {
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh;
+    overflow: hidden;
+    background: var(--primary-blue);
+}
+
+#whoModal .modal-left,
+#capModal .modal-left {
+    flex-shrink: 0;
+    padding: 24px 28px;
+    border-radius: var(--radius-card) var(--radius-card) 0 0;
+    background: transparent;
+    position: relative;
+}
+
+/* Mosaico visible en el título también */
+#whoModal .modal-left .bg-mosaic-strong,
+#capModal .modal-left .bg-mosaic-strong {
+    display: block;
+    border-radius: var(--radius-card) var(--radius-card) 0 0;
+    opacity: 0.04;
+}
+
+/* ─── Who Modal body — azul oscuro con mosaico ─────────────── */
+.who-modal-tooltip-body {
+    background: var(--primary-blue);
+    color: rgba(255, 255, 255, 0.85);
+    padding: 32px;
+    position: relative;
+    overflow-y: auto;
+    flex: 1;
+    border-radius: 0 0 var(--radius-card) var(--radius-card);
+}
+
+.who-modal-tooltip-body .bg-mosaic-strong {
+    border-radius: inherit;
+    opacity: 0.04;
+}
+
+.who-modal-tooltip-body p {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 1;
+}
+
+.who-modal-tooltip-body p:last-child {
+    margin-bottom: 0;
+}
+
+/* ─── Cap Modal body — azul oscuro con mosaico ─────────────── */
+#capModal .modal-right {
+    background: var(--primary-blue);
+    color: rgba(255, 255, 255, 0.85);
+    flex: 1;
+    overflow-y: auto;
+    border-radius: 0 0 var(--radius-card) var(--radius-card);
+    position: relative;
+}
+
+#capModal .modal-right .bg-mosaic-strong {
+    border-radius: inherit;
+    opacity: 0.04;
+}
+
+#capModal .modal-cap-intro {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+#capModal .modal-cap-title {
+    color: #ff7b72;
+}
+
+#capModal .modal-cap-desc,
+#capModal .modal-cap-note {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+#capModal .modal-cap-footer {
+    color: rgba(255, 255, 255, 0.9);
+    border-top-color: rgba(255, 255, 255, 0.12);
+}
+
+/* ─── Product CTA Section ──────────────────────────────────── */
+.product-cta-section {
+    position: relative;
+    background: rgba(241, 245, 249, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: var(--radius-card);
+    padding: 24px 12px !important;
+    margin-top: 0px !important;
+    transition: all 0.3s ease;
+    z-index: 2;
+    display: flex;
+}
+
+.product-cta-section:hover {
+    background: #fff;
+    border-color: var(--primary-red);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    z-index: 10;
+}
+
+.cta-image img,
+.cta-image video {
+    width: 88%;
+    height: 100%;
+    max-height: 320px;
+    object-fit: cover;
+    border-radius: 32px;
+    opacity: 0.95;
+    box-shadow: none !important;
+}
+
+.cta-content-row {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+
+.cta-text-left {
+    order: 1;
+    flex: 1;
+    min-width: 0;
+    align-items: flex-start;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cta-eyebrow-wide {
+    margin-bottom: 12px;
+    font-size: 0.5rem;
+    margin-right: -102px;
+}
+
+.cta-title-compact {
+    font-size: 1.4rem;
+    line-height: 1.25;
+    margin-bottom: 12px;
+    background: none;
+    -webkit-text-fill-color: var(--text-main);
+}
+
+.cta-desc-compact {
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    font-size: 0.78rem;
+    line-height: 1.6;
+}
+
+.cta-btn-sm {
+    padding: 8px 20px;
+    font-size: 0.85rem;
+    border-radius: 50px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cta-image-right {
+    order: 2;
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-end;
+    border-radius: 32px;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .product-cta-section {
+        padding: 24px 20px !important;
+    }
+
+    .mobile-stack {
+        flex-direction: column !important;
+        align-items: center;
+        gap: 24px !important;
+        height: auto !important;
+    }
+
+    .mobile-stack .cta-text {
+        width: 100% !important;
+        flex: none !important;
+        justify-content: flex-start !important;
+        margin-bottom: 0px !important;
+        text-align: center !important;
+        align-items: center !important;
+    }
+
+    .mobile-stack .cta-text .section-eyebrow {
+        margin-right: 0px !important;
+        display: inline-block !important;
+    }
+
+    .mobile-stack .cta-image {
+        width: 100% !important;
+        flex: none !important;
+        margin-top: 0px !important;
+    }
+
+    .mobile-stack .cta-image img,
+    .mobile-stack .cta-image video {
+        max-height: none !important;
+        width: 100% !important;
+        height: auto !important;
+        border-radius: 20px !important;
+    }
+
+    .mobile-stack .section-eyebrow,
+    .mobile-stack .section-title,
+    .mobile-stack p {
+        margin-bottom: 12px !important;
+        text-align: center !important;
+    }
+}
+
+/* ─── Capabilities ─────────────────────────────────────────── */
+.cap-check--transparent {
+    background: transparent;
+}
+
+.cap-check-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.cap-col__inner {
+    padding-top: 32px;
+}
+
+.cap-col__footer {
+    text-align: left;
+    margin-top: 16px;
+}
+
+.cap-tooltip__bold {
+    font-weight: 700;
+}
+
+/* ─── Core Values / Features ───────────────────────────────── */
+.features-section--transparent {
+    background: transparent !important;
+}
+
+.section-title--white {
+    color: white;
+    background: none;
+    -webkit-text-fill-color: white;
+}
+
+.section-subtitle--light {
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 740px;
+    margin: 16px auto 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+/* ─── Countdown ────────────────────────────────────────────── */
+.section-header--no-mb {
+    margin-bottom: 0;
+}
+
+.countdown-desc {
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 16px auto 24px;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* ─── Hero CTA cursor ─────────────────────────────────────── */
+.cursor-pointer {
+    cursor: pointer;
+}
+
+/* ─── Modals base ──────────────────────────────────────────── */
+.modal-box--relative {
+    position: relative;
+}
+
+.modal-heading-white {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 800;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.modal-box--sm {
+    position: relative;
+    max-width: 600px;
+}
+
+.modal-box--md {
+    position: relative;
+    max-width: 700px;
+}
+
+.modal-left--blue {
+    background: var(--primary-blue-2);
+}
+
+.modal-mosaic-faint {
+    opacity: 0.3;
+}
+
+.modal-right--scroll {
+    padding: 30px;
+    overflow-y: auto;
+}
+
+/* ─── Capabilities Modal Items ─────────────────────────────── */
+.modal-cap-list {
+    list-style: none;
+    padding: 0;
+}
+
+.modal-cap-item {
+    margin-bottom: 24px;
+    padding: 0;
+    border: none;
+    display: block;
+}
+
+/* Override global .capability-checklist li flex layout inside modal */
+.modal-cap-list.capability-checklist li.modal-cap-item {
+    display: block;
+    align-items: initial;
+    gap: 0;
+    border-bottom: none;
+    padding: 0;
+    margin-bottom: 24px;
+}
+
+.modal-cap-list.capability-checklist li.modal-cap-item::before {
+    display: none;
+}
+
+.modal-cap-title {
+    color: var(--primary-red);
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.modal-cap-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.modal-cap-note {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-style: italic;
+    margin: 0;
+}
+
+.modal-cap-intro {
+    font-size: 0.9rem;
+    color: var(--text-main);
+    margin-bottom: 24px;
+    font-weight: 500;
+}
+
+.modal-cap-footer {
+    font-size: 0.9rem;
+    color: var(--text-main);
+    margin-top: 24px;
+    font-weight: 600;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+}

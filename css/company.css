@@ -1,0 +1,316 @@
+/* ============================================================
+   COMPANY PAGE — css/company.css
+   Extracted inline styles from company.html
+   ============================================================ */
+
+/* ─── SVG connector lines (was embedded <style>) ───────────── */
+.values-wheel svg.connector-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* ─── About section grid ───────────────────────────────────── */
+.grid-2--about {
+    gap: 48px;
+    align-items: stretch;
+}
+
+.about-text-block {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    line-height: 1.9;
+    margin-bottom: 16px;
+}
+
+.about-text-block:last-child {
+    margin-bottom: 0;
+}
+
+/* ─── About Dark Card ──────────────────────────────────────── */
+.about-highlight-card {
+    background: linear-gradient(135deg, #0A0A1F 0%, #15153A 100%);
+    border-radius: 24px;
+    padding: 48px;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-highlight-card__glow-red {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 100% 100%, rgba(250, 66, 56, 0.25) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.about-highlight-card__decor-tl {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: 90px;
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 0;
+    filter: brightness(0) invert(1);
+    transform: scale(-1, -1);
+}
+
+.about-highlight-card__glow-blue {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 0% 0%, rgba(80, 100, 220, 0.12) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.about-highlight-card__decor-br {
+    position: absolute;
+    bottom: -20px;
+    right: -40px;
+    width: 320px;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.about-highlight-card__logo {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    margin: 0 auto 32px;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    z-index: 1;
+    max-width: none;
+}
+
+.about-highlight-card__stat {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+}
+
+.about-highlight-card__stat-label {
+    font-size: 1rem;
+    opacity: 0.7;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 1;
+}
+
+.about-highlight-card__quote {
+    font-size: 1rem;
+    font-style: italic;
+    opacity: 0.85;
+    line-height: 1.8;
+    position: relative;
+    z-index: 1;
+    max-width: 360px;
+}
+
+/* ─── Mission & Vision ─────────────────────────────────────── */
+.mission-vision-grid--mt {
+    margin-top: 48px;
+}
+
+.bg-mosaic-light--faint {
+    opacity: 0.04;
+}
+
+/* ─── Leadership Section ───────────────────────────────────── */
+.section--leadership {
+    background: var(--bg-section);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+/* ─── Values Center Logo ───────────────────────────────────── */
+.values-center__logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ─── Value Node Positions ─────────────────────────────────── */
+.value-node--top {
+    left: 50%;
+    top: 10.2%;
+}
+
+.value-node--top-right {
+    left: 84.3%;
+    top: 30%;
+}
+
+.value-node--bottom-right {
+    left: 84.3%;
+    top: 70%;
+}
+
+.value-node--bottom {
+    left: 50%;
+    top: 89.8%;
+}
+
+.value-node--bottom-left {
+    left: 15.7%;
+    top: 70%;
+}
+
+.value-node--top-left {
+    left: 15.7%;
+    top: 30%;
+}
+
+/* ─── Technology Philosophy ────────────────────────────────── */
+.section--border-top {
+    border-top: 1px solid var(--border);
+}
+
+.philosophy-intro-wrap {
+    max-width: 760px;
+    margin: 0 auto 48px;
+    text-align: center;
+}
+
+.philosophy-intro-text {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.9;
+}
+
+/* ─── Philosophy cards (Light theme card) ──────────────────── */
+.phi-card-outer--light {
+    position: relative;
+    background: transparent;
+    color: var(--text-main);
+    border: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: none;
+}
+
+.phi-accent--blue {
+    position: absolute;
+    inset: 0;
+    background: var(--primary-blue);
+    border-radius: 42px;
+    border-bottom-right-radius: 0px;
+    z-index: 0;
+}
+
+.phi-content--light {
+    position: relative;
+    background: var(--bg-section);
+    border-radius: 36px;
+    border: 1px solid var(--border);
+    padding: 32px;
+    overflow: hidden;
+    z-index: 1;
+    flex: 1;
+    height: 100%;
+}
+
+.phi-logo-watermark {
+    position: absolute;
+    bottom: -40px;
+    right: -40px;
+    width: 200px;
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.phi-content-inner {
+    position: relative;
+    z-index: 1;
+}
+
+.phi-num--mb {
+    margin-bottom: 20px;
+}
+
+.phi-text-muted {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ─── Philosophy cards (Dark/blue theme card) ──────────────── */
+.phi-card-outer--dark {
+    position: relative;
+    background: transparent;
+    color: white;
+    border: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: none;
+}
+
+.phi-accent--red {
+    position: absolute;
+    inset: 0;
+    background: var(--primary-red);
+    border-radius: 36px;
+    border-bottom-right-radius: 0px;
+    z-index: 0;
+}
+
+.phi-content--dark {
+    position: relative;
+    background: var(--primary-blue);
+    border-radius: 36px;
+    padding: 32px;
+    overflow: hidden;
+    z-index: 1;
+    flex: 1;
+    height: 100%;
+}
+
+.phi-num--white {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.phi-heading--white {
+    color: white;
+}
+
+/* Ensure h4 inside dark cards inherits white */
+.phi-card-outer--dark h4,
+.phi-content--dark h4 {
+    color: white;
+}
+
+/* Ensure paragraphs inside dark cards are legible */
+.phi-card-outer--dark p,
+.phi-content--dark p {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.phi-text-light {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ─── Why Kayros last item full-width ──────────────────────── */
+.why-item--full {
+    grid-column: 1 / -1;
+}

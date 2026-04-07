@@ -1,0 +1,364 @@
+/* ============================================================
+   AI SOLUTIONS PAGE — css/ai-solutions.css
+   Extracted inline styles from ai-solutions.html
+   ============================================================ */
+
+/* ─── Hero CTA buttons row ─────────────────────────────────── */
+.hero-btns-row {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ─── Intro Statement ──────────────────────────────────────── */
+.text-center {
+    text-align: center;
+}
+
+.assist-logo-wrap {
+    margin-bottom: 32px;
+}
+
+.assist-logo-img {
+    height: 64px;
+    width: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.assist-intro-text {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.9;
+    max-width: 830px;
+    margin: 0 auto;
+}
+
+/* ─── Challenge & Solution (Shared classes) ────────────────── */
+.section--no-pt {
+    padding-top: 0;
+}
+
+/* Challenge/Solution/Philosophy outer wrapper — light theme */
+.cs-card-outer--light {
+    position: relative;
+    background: transparent;
+    color: var(--text-main);
+    border: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Challenge/Solution/Philosophy outer wrapper — dark theme */
+.cs-card-outer--dark {
+    position: relative;
+    background: transparent;
+    color: white;
+    border: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Brand-colored background accent layer — blue */
+.cs-accent-layer--blue {
+    position: absolute;
+    inset: 0;
+    background: var(--primary-blue);
+    border-radius: 42px;
+    border-bottom-right-radius: 0px;
+    z-index: 0;
+}
+
+/* Brand-colored background accent layer — red */
+.cs-accent-layer--red {
+    position: absolute;
+    inset: 0;
+    background: var(--primary-red);
+    border-radius: 36px;
+    border-bottom-right-radius: 0px;
+    z-index: 0;
+}
+
+/* Main content panel — light */
+.cs-content-panel--light {
+    position: relative;
+    background: var(--bg-section);
+    border-radius: 36px;
+    border: 1px solid var(--border);
+    padding: 32px;
+    overflow: hidden;
+    z-index: 1;
+    flex: 1;
+    height: 100%;
+}
+
+/* Main content panel — dark/blue */
+.cs-content-panel--dark {
+    position: relative;
+    background: var(--primary-blue);
+    border-radius: 36px;
+    padding: 32px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Faint watermark logo */
+.cs-logo-watermark {
+    position: absolute;
+    bottom: -40px;
+    right: -40px;
+    width: 200px;
+    opacity: 0.07;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.cs-content-inner {
+    position: relative;
+    z-index: 1;
+}
+
+/* Challenge/Solution text */
+.cs-text-dark {
+    font-size: 0.85rem;
+    color: var(--text-main);
+    margin-bottom: 16px;
+    line-height: 1.7;
+}
+
+.cs-text-white {
+    font-size: 0.85rem;
+    color: white !important;
+    margin-bottom: 16px;
+    line-height: 1.7;
+}
+
+.cs-list--inherit {
+    color: inherit;
+}
+
+.cs-list--white {
+    color: white !important;
+}
+
+.cs-list--white li {
+    color: white !important;
+}
+
+.cs-note-dark {
+    font-size: 0.82rem;
+    color: var(--text-main);
+    margin-top: 20px;
+    font-style: italic;
+}
+
+.cs-icon--solution {
+    background: rgba(255, 255, 255, 0.1);
+    color: #22c55e;
+}
+
+.cs-heading--white {
+    color: white;
+}
+
+/* Ensure h3 inside dark solution cards inherits white */
+.cs-card-outer--dark h3,
+.cs-content-panel--dark h3 {
+    color: white;
+}
+
+/* Ensure paragraphs inside dark solution cards are legible */
+.cs-card-outer--dark p,
+.cs-content-panel--dark p {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.bg-mosaic-faint {
+    opacity: 0.04;
+}
+
+/* ─── Core Capabilities (Dark section) ─────────────────────── */
+.section--transparent {
+    background: transparent;
+    border: none;
+}
+
+.card--glass {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+}
+
+.card--glass h3 {
+    color: white;
+}
+
+.card--glass p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ─── Designed For Video ───────────────────────────────────── */
+.designed-for-video-wrap {
+    max-width: 860px;
+    margin: 40px auto 0;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--primary-red);
+    background: #000;
+}
+
+.designed-for-video {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+/* ─── Measurable Impact ────────────────────────────────────── */
+.impact-cards-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.impact-card {
+    flex: 1;
+    min-width: 180px;
+    scroll-snap-align: start;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border-radius: 18px;
+    padding: 24px 16px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.impact-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+.impact-card__icon-wrap {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(250, 66, 56, 0.1);
+    border-radius: 14px;
+}
+
+.impact-card__icon-img {
+    width: 28px;
+    height: 28px;
+}
+
+.impact-card__title {
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.impact-card__text {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 0.75rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ─── Infrastructure Highlight ─────────────────────────────── */
+.powered-by-box {
+    padding: 40px;
+    background: var(--bg-section);
+    border-radius: var(--radius-card);
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+}
+
+.powered-by-box__line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary-red), transparent);
+}
+
+.powered-by-box__label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--primary-red);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.powered-by-box__k-icon {
+    width: 22px;
+    height: 22px;
+}
+
+.powered-by-box__text {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-main);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ─── CTA Banner ───────────────────────────────────────────── */
+.cta-heading-lg {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    margin-bottom: 20px;
+}
+
+.cta-subtitle-light {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+.btn-group--center {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn--schedule {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+}
+
+.btn--specialist {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+/* ─── Designed For section subtitle ────────────────────────── */
+.section-subtitle--brand {
+    color: var(--primary-red);
+}

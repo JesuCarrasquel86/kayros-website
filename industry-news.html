@@ -15,6 +15,7 @@
 
     <!-- CSS Dependencies -->
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/news.css">
     <link rel="icon" type="image/svg+xml" href="assets/iso_k/svg/k_iso_circular_w_bg_blue.svg">
 </head>
 <body>
@@ -52,10 +53,10 @@
 
         <!-- Filter Tags -->
         <div class="news-filters-scroll scroll-reveal" id="newsFilters">
-            <button class="pill active" data-filter="all" style="cursor:pointer;">All</button>
-            <button class="pill" data-filter="Healthcare Tech" style="cursor:pointer;">Healthcare Tech</button>
-            <button class="pill" data-filter="Artificial Intelligence" style="cursor:pointer;">Artificial Intelligence</button>
-            <button class="pill" data-filter="Operations" style="cursor:pointer;">Operations</button>
+            <button class="pill active pill--clickable" data-filter="all">All</button>
+            <button class="pill pill--clickable" data-filter="Healthcare Tech">Healthcare Tech</button>
+            <button class="pill pill--clickable" data-filter="Artificial Intelligence">Artificial Intelligence</button>
+            <button class="pill pill--clickable" data-filter="Operations">Operations</button>
         </div>
 
         <div class="news-grid scroll-reveal">
@@ -105,7 +106,7 @@
             <!-- Article 2 -->
             <article class="news-card">
                 <a href="single-news.html?id=human-in-the-loop" class="news-card-img-link">
-                    <div class="news-card-img" style="background:linear-gradient(135deg, #FA4238 0%, #FF6B5B 100%);">
+                    <div class="news-card-img news-card-img--red-gradient">
                         <span class="news-tag">Operations</span>
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                     </div>
@@ -127,7 +128,7 @@
             <!-- Article 3 -->
             <article class="news-card">
                 <a href="single-news.html?id=robots-manufacturing-2026" class="news-card-img-link">
-                    <div class="news-card-img" style="background:linear-gradient(135deg, #0f766e 0%, #14b8a6 100%);">
+                    <div class="news-card-img news-card-img--teal-gradient">
                         <span class="news-tag">Artificial Intelligence</span>
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
                     </div>
@@ -149,7 +150,7 @@
             <!-- Article 4 -->
             <article class="news-card">
                 <a href="single-news.html?id=ai-trends-2026" class="news-card-img-link">
-                    <div class="news-card-img" style="background:linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);">
+                    <div class="news-card-img news-card-img--blue-gradient">
                         <span class="news-tag">Artificial Intelligence</span>
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
                     </div>
@@ -171,7 +172,7 @@
             <!-- Article 6 -->
             <article class="news-card">
                 <a href="single-news.html?id=intelligent-orchestration" class="news-card-img-link">
-                    <div class="news-card-img" style="background:linear-gradient(135deg, #b45309 0%, #f59e0b 100%);">
+                    <div class="news-card-img news-card-img--amber-gradient">
                         <span class="news-tag">Operations</span>
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
                     </div>
@@ -193,8 +194,8 @@
         </div>
 
         <!-- Load More / Source Link -->
-        <div style="text-align:center; margin-top:48px;" class="scroll-reveal">
-            <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:16px;">
+        <div class="news-load-more scroll-reveal">
+            <p class="news-load-more__text">
                 New articles are added weekly. For more AI industry news, visit our primary source:
             </p>
             <a href="https://www.artificialintelligence-news.com/" target="_blank" rel="noopener" class="btn btn-secondary">
@@ -209,10 +210,10 @@
 ═══════════════════════════════════════════════════════════ -->
 <section class="cta-banner">
     <div class="cta-banner-inner scroll-reveal">
-        <h2 style="font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 20px;">Stay Informed Every Week</h2>
-        <p style="font-size: 1.1rem; color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto 30px;">Sign up to receive curated AI and healthcare technology news directly in your inbox.</p>
+        <h2 class="cta-heading--news">Stay Informed Every Week</h2>
+        <p class="cta-subtitle--news">Sign up to receive curated AI and healthcare technology news directly in your inbox.</p>
         <div class="btn-group">
-            <a onclick="openModal()" class="btn btn-primary" style="cursor:pointer; padding: 14px 34px;">
+            <a onclick="openModal()" class="btn btn-primary btn--sign-up">
               Sign Me Up &rarr;
             </a>
         </div>
@@ -226,10 +227,10 @@
 
 <!-- Modal -->
 <div class="modal-overlay" id="modalOverlay">
-    <div class="modal-box" style="position:relative;">
+    <div class="modal-box modal-box--relative">
         <button class="modal-close" onclick="closeModal()">&#215;</button>
         <div class="modal-left">
-            <h2 style="color:white;font-size:1.2rem;font-weight:800;position:relative;z-index:2;text-align:center;">Stay Connected with <strong>Kayros</strong></h2>
+            <h2 class="modal-heading--news">Stay Connected with <strong>Kayros</strong></h2>
             <div class="modal-video-box">
                 <video autoplay loop muted playsinline>
                     <source src="https://f7n.edf.myftpupload.com/wp-content/uploads/2026/02/WhatsApp-Video-2026-02-05-at-10.57.05-AM.mp4" type="video/mp4">

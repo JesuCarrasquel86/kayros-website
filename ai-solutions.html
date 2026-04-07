@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/ai-solutions.css">
     <link rel="icon" type="image/svg+xml" href="assets/iso_k/svg/k_iso_circular_w_bg_blue.svg">
 </head>
 
@@ -43,8 +44,8 @@
             <h1><strong>Kayros</strong> <span>Assist</span></h1>
             <p>AI-Driven Patient Engagement Platform — designed to transform how medical organizations manage patient
                 communication, operational workflows, and real-time coordination.</p>
-            <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
-                <a onclick="openModal()" class="btn btn-primary" style="cursor:pointer;">Schedule a Demo &rarr;</a>
+            <div class="hero-btns-row">
+                <a onclick="openModal()" class="btn btn-primary cursor-pointer">Schedule a Demo &rarr;</a>
                 <a href="contact.html" class="btn btn-secondary">Speak with a Specialist</a>
             </div>
         </div>
@@ -54,12 +55,12 @@
      INTRO STATEMENT
 ═══════════════════════════════════════════════════════════ -->
     <section class="section">
-        <div class="container-sm" style="text-align:center;">
-            <div style="margin-bottom: 32px;">
+        <div class="container-sm text-center">
+            <div class="assist-logo-wrap">
                 <img src="assets/kayros_assist/svg/kayros_logo_ws_1.svg" alt="Kayros Assist Logo"
-                    style="height: 64px; width: auto; margin: 0 auto; display: block;">
+                    class="assist-logo-img">
             </div>
-            <p style="font-size:1.05rem; color:var(--text-muted); line-height:1.9; max-width:830px; margin:0 auto;">
+            <p class="assist-intro-text">
                 Is our flagship healthcare platform — built on <strong>Kayros</strong>' intelligent operational
                 infrastructure.
                 It combines <strong>AI automation</strong> with <strong>live human oversight</strong> to deliver
@@ -73,25 +74,19 @@
     <!-- ═══════════════════════════════════════════════════════════
      CHALLENGE & SOLUTION
 ═══════════════════════════════════════════════════════════ -->
-    <section class="section" style="padding-top:0;">
+    <section class="section section--no-pt">
         <div class="container">
             <div class="challenge-solution-grid scroll-reveal">
                 <!-- Challenge -->
-                <div class="cs-box challenge"
-                    style="position: relative; background: transparent; color: var(--text-main); border: none; padding: 0; display: flex; flex-direction: column;">
-                    <!-- Brand Blue Layer (Background) -->
-                    <div
-                        style="position: absolute; inset: 0; background: var(--primary-blue); border-radius: 42px; border-bottom-right-radius: 0px; z-index: 0;">
-                    </div>
+                <div class="cs-box challenge cs-card-outer--light">
+                    <div class="cs-accent-layer--blue"></div>
 
                     <!-- Main Challenge Content -->
-                    <div
-                        style="position: relative; background: var(--bg-section); border-radius: 36px; border: 1px solid var(--border); padding: 32px; overflow: hidden; z-index: 1; flex: 1; height: 100%;">
+                    <div class="cs-content-panel--light">
                         <!-- Faint red logo bottom-right -->
-                        <img src="assets/iso_k/svg/k_iso_circular_red.svg" alt=""
-                            style="position: absolute; bottom: -40px; right: -40px; width: 200px; opacity: 0.07; pointer-events: none; z-index: 0;">
+                        <img src="assets/iso_k/svg/k_iso_circular_red.svg" alt="" class="cs-logo-watermark">
 
-                        <div style="position: relative; z-index: 1;">
+                        <div class="cs-content-inner">
                             <h3>
                                 <span class="cs-icon">
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -103,40 +98,35 @@
                                 </span>
                                 The Challenge
                             </h3>
-                            <p style="font-size:0.85rem; color:var(--text-main); margin-bottom:16px; line-height:1.7;">
+                            <p class="cs-text-dark">
                                 Healthcare organizations face increasing operational complexity:</p>
-                            <ul class="cs-list" style="color: inherit;">
-                                <li style="color: inherit;">High call volumes and fragmented communication channels</li>
-                                <li style="color: inherit;">Administrative overload on clinical and support staff</li>
-                                <li style="color: inherit;">Missed appointments and follow-up gaps</li>
-                                <li style="color: inherit;">Disconnected messaging systems across departments</li>
-                                <li style="color: inherit;">Limited real-time visibility into operational performance
+                            <ul class="cs-list cs-list--inherit">
+                                <li>High call volumes and fragmented communication channels</li>
+                                <li>Administrative overload on clinical and support staff</li>
+                                <li>Missed appointments and follow-up gaps</li>
+                                <li>Disconnected messaging systems across departments</li>
+                                <li>Limited real-time visibility into operational performance
                                 </li>
                             </ul>
-                            <p style="font-size:0.82rem; color:var(--text-main); margin-top:20px; font-style:italic;">
-                                Traditional tools manage tasks. <strong style="color: var(--primary-red);">Kayros
+                            <p class="cs-note-dark">
+                                Traditional tools manage tasks. <strong class="text-brand-red">Kayros
                                     Assist</strong> structures the entire workflow.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Solution -->
-                <div class="cs-box solution"
-                    style="position: relative; background: transparent; color: white; border: none; padding: 0; display: flex; flex-direction: column;">
-                    <!-- Brand Red Layer (Background) -->
-                    <div
-                        style="position: absolute; inset: 0; background: var(--primary-red); border-radius: 36px; border-bottom-right-radius: 0px; z-index: 0;">
-                    </div>
+                <div class="cs-box solution cs-card-outer--dark">
+                    <div class="cs-accent-layer--red"></div>
 
                     <!-- Main Solution Content -->
-                    <div
-                        style="position: relative; background: var(--primary-blue); border-radius: 36px; padding: 32px; overflow: hidden; z-index: 1;">
+                    <div class="cs-content-panel--dark">
                         <!-- Very faint mosaic for texture only -->
-                        <div class="bg-mosaic-light" style="opacity: 0.04;"></div>
+                        <div class="bg-mosaic-light bg-mosaic-faint"></div>
 
-                        <div style="position: relative; z-index: 1;">
-                            <h3 style="color: white;">
-                                <span class="cs-icon" style="background: rgba(255,255,255,0.1); color: #22c55e;">
+                        <div class="cs-content-inner">
+                            <h3 class="cs-heading--white">
+                                <span class="cs-icon cs-icon--solution">
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
@@ -145,21 +135,21 @@
                                 </span>
                                 The Solution
                             </h3>
-                            <p style="font-size:0.85rem; color: white !important; margin-bottom:16px; line-height:1.7;">
-                                <strong style="color: var(--primary-red);">Kayros Assist</strong> integrates AI-powered
+                            <p class="cs-text-white">
+                                <strong class="text-brand-red">Kayros Assist</strong> integrates AI-powered
                                 automation, real-time operational dashboards, and omnichannel communication into one
                                 unified platform.
                             </p>
-                            <ul class="cs-list" style="color: white !important;">
-                                <li style="color: white !important;">Automate patient engagement at every touchpoint
+                            <ul class="cs-list cs-list--white">
+                                <li>Automate patient engagement at every touchpoint
                                 </li>
-                                <li style="color: white !important;">Prioritize and route communications intelligently
+                                <li>Prioritize and route communications intelligently
                                 </li>
-                                <li style="color: white !important;">Reduce administrative burden on staff</li>
-                                <li style="color: white !important;">Improve coordination between AI and live agents
+                                <li>Reduce administrative burden on staff</li>
+                                <li>Improve coordination between AI and live agents
                                 </li>
-                                <li style="color: white !important;">Track cases from initiation to resolution</li>
-                                <li style="color: white !important;">Gain full operational visibility in real time</li>
+                                <li>Track cases from initiation to resolution</li>
+                                <li>Gain full operational visibility in real time</li>
                             </ul>
                         </div>
                     </div>
@@ -172,18 +162,17 @@
      CORE CAPABILITIES
 ═══════════════════════════════════════════════════════════ -->
     <div class="bg-dark-glow">
-        <section class="section core-section" style="background:transparent; border:none;">
+        <section class="section core-section section--transparent">
             <div class="container">
                 <div class="section-header scroll-reveal">
                     <div class="section-eyebrow">Platform Capabilities</div>
-                    <h2 class="section-title" style="color: white;">Core Capabilities</h2>
-                    <p class="section-subtitle" style="color: rgba(255,255,255,0.7);">Six integrated capabilities that
+                    <h2 class="section-title section-title--white">Core Capabilities</h2>
+                    <p class="section-subtitle section-subtitle--light">Six integrated capabilities that
                         power intelligent patient operations.</p>
                 </div>
 
                 <div class="grid-3 scroll-cards">
-                    <div class="card"
-                        style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(10px);">
+                    <div class="card card--glass">
                         <div class="card-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -193,14 +182,13 @@
                                 <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                             </svg>
                         </div>
-                        <h3 style="color: white;">AI-Powered Patient Engagement</h3>
-                        <p style="color: rgba(255,255,255,0.7);">Intelligent automation for appointment confirmations,
+                        <h3>AI-Powered Patient Engagement</h3>
+                        <p>Intelligent automation for appointment confirmations,
                             reminders, follow-ups, and patient
                             inquiries — reducing manual workload while maintaining accuracy and personalization.</p>
                     </div>
 
-                    <div class="card"
-                        style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(10px);">
+                    <div class="card card--glass">
                         <div class="card-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -209,14 +197,13 @@
                                 <line x1="12" y1="17" x2="12" y2="21"></line>
                             </svg>
                         </div>
-                        <h3 style="color: white;">Live Operational Desk</h3>
-                        <p style="color: rgba(255,255,255,0.7);">A centralized dashboard that allows staff to monitor,
+                        <h3>Live Operational Desk</h3>
+                        <p>A centralized dashboard that allows staff to monitor,
                             intervene, and manage patient interactions
                             in real time — ensuring no case falls through the cracks.</p>
                     </div>
 
-                    <div class="card"
-                        style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(10px);">
+                    <div class="card card--glass">
                         <div class="card-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -231,14 +218,13 @@
                                 <line x1="17" y1="16" x2="23" y2="16"></line>
                             </svg>
                         </div>
-                        <h3 style="color: white;">Intelligent Routing &amp; Prioritization</h3>
-                        <p style="color: rgba(255,255,255,0.7);">AI classification of patient communications based on
+                        <h3>Intelligent Routing &amp; Prioritization</h3>
+                        <p>AI classification of patient communications based on
                             urgency and intent — ensuring critical cases
                             receive immediate attention and routine inquiries are handled efficiently.</p>
                     </div>
 
-                    <div class="card"
-                        style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(10px);">
+                    <div class="card card--glass">
                         <div class="card-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -247,14 +233,13 @@
                                 </path>
                             </svg>
                         </div>
-                        <h3 style="color: white;">Omnichannel Communication</h3>
-                        <p style="color: rgba(255,255,255,0.7);">Unified management of voice and messaging channels
+                        <h3>Omnichannel Communication</h3>
+                        <p>Unified management of voice and messaging channels
                             within a structured operational framework —
                             ensuring every patient interaction is captured and coordinated.</p>
                     </div>
 
-                    <div class="card"
-                        style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(10px);">
+                    <div class="card card--glass">
                         <div class="card-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -262,14 +247,13 @@
                                 <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
                             </svg>
                         </div>
-                        <h3 style="color: white;">Case &amp; Task Management</h3>
-                        <p style="color: rgba(255,255,255,0.7);">Structured workflows that track patient interactions,
+                        <h3>Case &amp; Task Management</h3>
+                        <p>Structured workflows that track patient interactions,
                             escalations, and resolutions from start to
                             finish — providing full traceability and operational accountability.</p>
                     </div>
 
-                    <div class="card"
-                        style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(10px);">
+                    <div class="card card--glass">
                         <div class="card-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -277,8 +261,8 @@
                                 <polyline points="17 6 23 6 23 12"></polyline>
                             </svg>
                         </div>
-                        <h3 style="color: white;">Real-Time Performance Visibility</h3>
-                        <p style="color: rgba(255,255,255,0.7);">Operational dashboards and reporting tools that provide
+                        <h3>Real-Time Performance Visibility</h3>
+                        <p>Operational dashboards and reporting tools that provide
                             measurable insights into response times,
                             workload distribution, and resolution efficiency across the organization.</p>
                     </div>
@@ -295,14 +279,12 @@
             <div class="section-header scroll-reveal">
                 <div class="section-eyebrow">Healthcare Organizations</div>
                 <h2 class="section-title">Designed For</h2>
-                <p class="section-subtitle"><strong style="color: var(--primary-red);">Kayros Assist</strong> is ideal
+                <p class="section-subtitle"><strong class="text-brand-red">Kayros Assist</strong> is ideal
                     for a wide range of healthcare settings.</p>
             </div>
 
-            <div class="video-container scroll-reveal"
-                style="max-width: 860px; margin: 40px auto 0; border-radius: 24px; overflow: hidden; box-shadow: 0 25px 60px rgba(0,0,0,0.1); border: 1px solid var(--primary-red); background: #000;">
-                <video autoplay muted loop playsinline
-                    style="width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover;">
+            <div class="video-container designed-for-video-wrap scroll-reveal">
+                <video autoplay muted loop playsinline class="designed-for-video">
                     <source
                         src="https://filedn.com/lLIlU7CohpVRHupQLWK1oYH/Kayros/Home/Video%20%20Website%20KAYROS%20%20Horizontal.mp4"
                         type="video/mp4">
@@ -316,83 +298,68 @@
      MEASURABLE IMPACT
 ═══════════════════════════════════════════════════════════ -->
     <div class="bg-dark-glow">
-        <section class="section" style="background: transparent; border: none;">
+        <section class="section section--transparent">
             <div class="container">
                 <div class="section-header scroll-reveal">
                     <div class="section-eyebrow">Results</div>
-                    <h2 class="section-title" style="color: white;">Measurable Impact</h2>
-                    <p class="section-subtitle" style="color: rgba(255,255,255,0.7);">Organizations using structured
+                    <h2 class="section-title section-title--white">Measurable Impact</h2>
+                    <p class="section-subtitle section-subtitle--light">Organizations using structured
                         AI-powered engagement systems can expect:</p>
                 </div>
 
-                <div class="scroll-cards impact-cards-row" style="display: flex; gap: 16px; flex-wrap: wrap;">
-                    <div style="flex: 1; min-width: 180px; scroll-snap-align: start; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(12px); border-radius: 18px; padding: 24px 16px; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                        onmouseenter="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 20px 50px rgba(0,0,0,0.25)'"
-                        onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                        <div
-                            style="width: 48px; height: 48px; margin: 0 auto 14px; display: flex; align-items: center; justify-content: center; background: rgba(250,66,56,0.1); border-radius: 14px;">
+                <div class="scroll-cards impact-cards-row">
+                    <div class="impact-card">
+                        <div class="impact-card__icon-wrap">
                             <img src="assets/iso_k/svg/k_iso_circular_white.svg" alt=""
-                                style="width: 28px; height: 28px;">
+                                class="impact-card__icon-img">
                         </div>
-                        <h3 style="color: white; font-size: 0.9rem; font-weight: 700; margin-bottom: 6px;">Reduced
+                        <h3 class="impact-card__title">Reduced
                             No-Show Rates</h3>
-                        <p style="color: rgba(255,255,255,0.55); font-size: 0.75rem; line-height: 1.5; margin: 0;">
+                        <p class="impact-card__text">
                             Automated reminders cut missed appointments.</p>
                     </div>
 
-                    <div style="flex: 1; min-width: 180px; scroll-snap-align: start; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(12px); border-radius: 18px; padding: 24px 16px; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                        onmouseenter="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 20px 50px rgba(0,0,0,0.25)'"
-                        onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                        <div
-                            style="width: 48px; height: 48px; margin: 0 auto 14px; display: flex; align-items: center; justify-content: center; background: rgba(250,66,56,0.1); border-radius: 14px;">
+                    <div class="impact-card">
+                        <div class="impact-card__icon-wrap">
                             <img src="assets/iso_k/svg/k_iso_circular_white.svg" alt=""
-                                style="width: 28px; height: 28px;">
+                                class="impact-card__icon-img">
                         </div>
-                        <h3 style="color: white; font-size: 0.9rem; font-weight: 700; margin-bottom: 6px;">Lower Admin
+                        <h3 class="impact-card__title">Lower Admin
                             Workload</h3>
-                        <p style="color: rgba(255,255,255,0.55); font-size: 0.75rem; line-height: 1.5; margin: 0;">AI
+                        <p class="impact-card__text">AI
                             handles routine tasks for your staff.</p>
                     </div>
 
-                    <div style="flex: 1; min-width: 180px; scroll-snap-align: start; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(12px); border-radius: 18px; padding: 24px 16px; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                        onmouseenter="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 20px 50px rgba(0,0,0,0.25)'"
-                        onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                        <div
-                            style="width: 48px; height: 48px; margin: 0 auto 14px; display: flex; align-items: center; justify-content: center; background: rgba(250,66,56,0.1); border-radius: 14px;">
+                    <div class="impact-card">
+                        <div class="impact-card__icon-wrap">
                             <img src="assets/iso_k/svg/k_iso_circular_white.svg" alt=""
-                                style="width: 28px; height: 28px;">
+                                class="impact-card__icon-img">
                         </div>
-                        <h3 style="color: white; font-size: 0.9rem; font-weight: 700; margin-bottom: 6px;">Faster
+                        <h3 class="impact-card__title">Faster
                             Response Times</h3>
-                        <p style="color: rgba(255,255,255,0.55); font-size: 0.75rem; line-height: 1.5; margin: 0;">
+                        <p class="impact-card__text">
                             Critical cases get immediate attention.</p>
                     </div>
 
-                    <div style="flex: 1; min-width: 180px; scroll-snap-align: start; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(12px); border-radius: 18px; padding: 24px 16px; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                        onmouseenter="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 20px 50px rgba(0,0,0,0.25)'"
-                        onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                        <div
-                            style="width: 48px; height: 48px; margin: 0 auto 14px; display: flex; align-items: center; justify-content: center; background: rgba(250,66,56,0.1); border-radius: 14px;">
+                    <div class="impact-card">
+                        <div class="impact-card__icon-wrap">
                             <img src="assets/iso_k/svg/k_iso_circular_white.svg" alt=""
-                                style="width: 28px; height: 28px;">
+                                class="impact-card__icon-img">
                         </div>
-                        <h3 style="color: white; font-size: 0.9rem; font-weight: 700; margin-bottom: 6px;">Patient
+                        <h3 class="impact-card__title">Patient
                             Satisfaction</h3>
-                        <p style="color: rgba(255,255,255,0.55); font-size: 0.75rem; line-height: 1.5; margin: 0;">
+                        <p class="impact-card__text">
                             Personalized engagement builds trust.</p>
                     </div>
 
-                    <div style="flex: 1; min-width: 180px; scroll-snap-align: start; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(12px); border-radius: 18px; padding: 24px 16px; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                        onmouseenter="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 20px 50px rgba(0,0,0,0.25)'"
-                        onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                        <div
-                            style="width: 48px; height: 48px; margin: 0 auto 14px; display: flex; align-items: center; justify-content: center; background: rgba(250,66,56,0.1); border-radius: 14px;">
+                    <div class="impact-card">
+                        <div class="impact-card__icon-wrap">
                             <img src="assets/iso_k/svg/k_iso_circular_white.svg" alt=""
-                                style="width: 28px; height: 28px;">
+                                class="impact-card__icon-img">
                         </div>
-                        <h3 style="color: white; font-size: 0.9rem; font-weight: 700; margin-bottom: 6px;">Operational
+                        <h3 class="impact-card__title">Operational
                             Accountability</h3>
-                        <p style="color: rgba(255,255,255,0.55); font-size: 0.75rem; line-height: 1.5; margin: 0;">Full
+                        <p class="impact-card__text">Full
                             case tracking from start to finish.</p>
                     </div>
                 </div>
@@ -404,20 +371,16 @@
      INFRASTRUCTURE HIGHLIGHT
 ═══════════════════════════════════════════════════════════ -->
     <section class="section powered-by-kairos">
-        <div class="container-sm" style="text-align:center;">
-            <div class="scroll-reveal"
-                style="padding:40px; background:var(--bg-section); border-radius:var(--radius-card); border:1px solid var(--border); position:relative; overflow:hidden;">
-                <div
-                    style="position:absolute; top:0; left:0; width:100%; height:2px; background:linear-gradient(90deg, transparent, var(--primary-red), transparent);">
-                </div>
-                <div
-                    style="font-size:0.85rem; font-weight:700; color:var(--primary-red); text-transform:uppercase; letter-spacing:2px; margin-bottom:16px; display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap;">
-                    <img src="assets/iso_k/svg/k_iso_circular_w_bg_blue.svg" alt="K" style="width: 22px; height: 22px;">
+        <div class="container-sm text-center">
+            <div class="scroll-reveal powered-by-box">
+                <div class="powered-by-box__line"></div>
+                <div class="powered-by-box__label">
+                    <img src="assets/iso_k/svg/k_iso_circular_w_bg_blue.svg" alt="K" class="powered-by-box__k-icon">
                     <span>Powered by <strong>Kayros</strong> Infrastructure</span>
                 </div>
-                <p style="font-size:1.1rem; font-weight:500; color:var(--text-main); line-height:1.7; margin:0;">
-                    <strong style="color: var(--primary-red);">Kayros Assist</strong> is built on
-                    <strong>Kayros</strong>’ intelligent operational framework — combining automation, structured
+                <p class="powered-by-box__text">
+                    <strong class="text-brand-red">Kayros Assist</strong> is built on
+                    <strong>Kayros</strong>' intelligent operational framework — combining automation, structured
                     workflows, and human-centered AI to create scalable healthcare systems.
                 </p>
             </div>
@@ -430,18 +393,16 @@
 ═══════════════════════════════════════════════════════════ -->
     <section class="cta-banner">
         <div class="cta-banner-inner scroll-reveal">
-            <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 20px;">Transform Patient Operations with
+            <h2 class="cta-heading-lg">Transform Patient Operations with
                 Intelligent AI</h2>
-            <p style="font-size: 1.1rem; color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto 40px;">Ready to
-                see <strong style="color: var(--primary-red);">Kayros Assist</strong> in action? Our team is here to
+            <p class="cta-subtitle-light">Ready to
+                see <strong class="text-brand-red">Kayros Assist</strong> in action? Our team is here to
                 walk you through the platform.</p>
-            <div class="btn-group" style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                <a onclick="openModal()" class="btn btn-primary"
-                    style="cursor:pointer; display: flex; align-items: center; gap: 10px; padding: 14px 28px;">
+            <div class="btn-group btn-group--center">
+                <a onclick="openModal()" class="btn btn-primary btn--schedule">
                     Schedule a Demo &rarr;
                 </a>
-                <a href="contact.html" class="btn btn-outline-white"
-                    style="border: 1px solid rgba(255,255,255,0.3); color: white; padding: 14px 28px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;">
+                <a href="contact.html" class="btn btn-outline-white btn--specialist">
                     Speak with an AI Solutions Specialist
                 </a>
             </div>
@@ -457,11 +418,11 @@
 
     <!-- Modal -->
     <div class="modal-overlay" id="modalOverlay">
-        <div class="modal-box" style="position:relative;">
+        <div class="modal-box modal-box--relative">
             <button class="modal-close" onclick="closeModal()">&#215;</button>
             <div class="modal-left">
-                <h2 style="color:white;font-size:1.2rem;font-weight:800;position:relative;z-index:2;text-align:center;">
-                    Experience <strong style="color: var(--primary-red);">KAYROS AI Technology</strong></h2>
+                <h2 class="modal-heading-white">
+                    Experience <strong class="text-brand-red">KAYROS AI Technology</strong></h2>
                 <div class="modal-video-box">
                     <video autoplay loop muted playsinline>
                         <source
