@@ -125,9 +125,6 @@
     margin-top: 48px;
 }
 
-.bg-mosaic-light--faint {
-    opacity: 0.04;
-}
 
 /* ─── Leadership Section ───────────────────────────────────── */
 .section--leadership {
@@ -273,13 +270,26 @@
 
 .phi-content--dark {
     position: relative;
-    background: var(--primary-blue);
+    background: #0B1120;
     border-radius: 36px;
     padding: 32px;
     overflow: hidden;
     z-index: 1;
     flex: 1;
     height: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.phi-content--dark::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 70% 50% at 50% 0%, rgba(250, 66, 56, 0.09) 0%, transparent 65%),
+        radial-gradient(ellipse 60% 50% at 100% 100%, rgba(26, 5, 128, 0.5) 0%, transparent 60%);
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 0;
 }
 
 .phi-num--white {

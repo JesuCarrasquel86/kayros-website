@@ -69,49 +69,97 @@
     text-decoration: none;
 }
 
-.contact-social-link--instagram:hover {
-    background: #E1306C;
-    color: white;
-    border-color: #E1306C;
-}
-
-.contact-social-link--facebook:hover {
-    background: #1877F2;
-    color: white;
-    border-color: #1877F2;
-}
-
+.contact-social-link--instagram:hover,
+.contact-social-link--facebook:hover,
 .contact-social-link--linkedin:hover {
-    background: #0A66C2;
+    background: var(--primary-red, #fa4238);
     color: white;
-    border-color: #0A66C2;
+    border-color: var(--primary-red, #fa4238);
 }
 
-/* ─── QR Code Box ──────────────────────────────────────────── */
-.contact-qr-box--styled {
-    margin-top: 32px;
-    padding: 24px;
-    background: var(--bg-section);
-    border: 1px solid var(--border);
-    border-radius: 16px;
+/* ─── QR Sticky flotante ───────────────────────────────────── */
+.qr-sticky {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.qr-sticky__tab {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 14px 10px;
+    background: var(--primary-red, #fa4238);
+    color: white;
+    border-radius: 12px 0 0 12px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s ease;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-right: none;
+    box-shadow: -4px 0 20px rgba(0,0,0,0.15);
 }
 
-.contact-qr-img {
-    width: 100px;
-    border-radius: 10px;
+.qr-sticky__tab:hover {
+    background: #d93328;
+}
+
+.qr-sticky__label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+
+.qr-sticky__panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    background: white;
+    border: 1px solid var(--border, #e2e8f0);
+    border-radius: 12px 0 0 12px;
+    box-shadow: -6px 0 30px rgba(0,0,0,0.12);
+    width: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: width 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.qr-sticky.is-open .qr-sticky__panel {
+    width: 170px;
+    opacity: 1;
+    pointer-events: auto;
+    padding: 16px;
+}
+
+.qr-sticky__img {
+    width: 130px;
+    border-radius: 8px;
     display: block;
-    margin: 0 auto 12px;
+    margin-bottom: 10px;
 }
 
-.contact-qr-label {
-    font-size: 0.78rem;
-    color: var(--text-muted);
+.qr-sticky__text {
+    font-size: 0.72rem;
     font-weight: 600;
+    color: var(--text-muted, #64748b);
+    text-align: center;
     margin: 0;
+    line-height: 1.4;
+    white-space: nowrap;
 }
 
 /* ─── Contact Form Box ─────────────────────────────────────── */

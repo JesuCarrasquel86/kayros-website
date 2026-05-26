@@ -568,10 +568,10 @@
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url('../assets/iso_k/svg/k_iso_circular_w_bg_blue.svg');
-    background-size: 64px;
-    background-repeat: repeat;
-    opacity: 0.035;
+    background-image:
+        linear-gradient(rgba(0, 168, 255, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 168, 255, 0.06) 1px, transparent 1px);
+    background-size: 50px 50px;
     pointer-events: none;
 }
 

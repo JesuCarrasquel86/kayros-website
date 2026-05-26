@@ -145,14 +145,6 @@
                             </a>
                         </div>
                     </div>
-
-                    <!-- QR Code -->
-                    <div class="contact-qr-box contact-qr-box--styled">
-                        <img src="https://f7n.edf.myftpupload.com/wp-content/uploads/2026/02/qr-linktree-kayros-2.png"
-                            alt="Kayros QR Code" class="contact-qr-img">
-                        <p class="contact-qr-label">Scan to
-                            connect with us</p>
-                    </div>
                 </div>
 
                 <!-- Right: Form -->
@@ -253,6 +245,34 @@
      FOOTER GLOBAL — editá components/footer.html
 ═══════════════════════════════════════════════════════════ -->
     <div id="site-footer"></div>
+
+    <!-- QR Flotante sticky -->
+    <div class="qr-sticky" id="qrSticky">
+        <div class="qr-sticky__tab" id="qrTab" aria-label="Ver QR para conectar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+                <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+                <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+                <rect x="14" y="14" width="3" height="3" rx="0.5"></rect>
+                <rect x="18" y="14" width="3" height="3" rx="0.5"></rect>
+                <rect x="14" y="18" width="3" height="3" rx="0.5"></rect>
+            </svg>
+            <span class="qr-sticky__label">Scan</span>
+        </div>
+        <div class="qr-sticky__panel">
+            <img src="https://f7n.edf.myftpupload.com/wp-content/uploads/2026/02/qr-linktree-kayros-2.png"
+                alt="Kayros QR Code" class="qr-sticky__img">
+            <p class="qr-sticky__text">Scan to connect with us</p>
+        </div>
+    </div>
+
+    <!-- QR Flotante sticky -->
+    <script>
+        document.getElementById('qrTab').addEventListener('click', function () {
+            document.getElementById('qrSticky').classList.toggle('is-open');
+        });
+    </script>
 
     <script src="js/main.js"></script>
     <script>

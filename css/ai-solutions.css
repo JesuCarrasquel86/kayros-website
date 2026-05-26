@@ -98,11 +98,24 @@
 /* Main content panel — dark/blue */
 .cs-content-panel--dark {
     position: relative;
-    background: var(--primary-blue);
+    background: #0B1120;
     border-radius: 36px;
     padding: 32px;
     overflow: hidden;
     z-index: 1;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.cs-content-panel--dark::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 70% 50% at 50% 0%, rgba(250, 66, 56, 0.09) 0%, transparent 65%),
+        radial-gradient(ellipse 60% 50% at 100% 100%, rgba(26, 5, 128, 0.5) 0%, transparent 60%);
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 0;
 }
 
 /* Faint watermark logo */
@@ -176,9 +189,6 @@
     color: rgba(255, 255, 255, 0.85);
 }
 
-.bg-mosaic-faint {
-    opacity: 0.04;
-}
 
 /* ─── Core Capabilities (Dark section) ─────────────────────── */
 .section--transparent {
@@ -290,6 +300,15 @@
     width: 100%;
     height: 2px;
     background: linear-gradient(90deg, transparent, var(--primary-red), transparent);
+}
+
+.powered-by-box__line--blue {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(46, 139, 255, 0.85), transparent);
 }
 
 .powered-by-box__label {
