@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
 /* ============================================================
    KAYROS AI TECHNOLOGIES — Shared Stylesheet
    Light theme (single theme, no dark mode)
@@ -143,13 +145,6 @@ body {
     position: relative;
     line-height: 1.6;
     padding-top: var(--header-h);
-    /* Fade-in initial state */
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-body.is-ready {
-    opacity: 1;
 }
 
 h1,
