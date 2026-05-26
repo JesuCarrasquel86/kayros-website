@@ -556,14 +556,15 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
 .mobile-nav.open li:nth-child(5) { transition-delay: 0.3s; }
 .mobile-nav.open li:nth-child(6) { transition-delay: 0.35s; }
 
-/* The Diamond element (No numbers) */
+/* K bullet */
 .mobile-nav li::before {
-    content: '';
-    width: 14px;
-    height: 14px;
-    background: var(--primary-red);
-    transform: rotate(45deg);
+    content: 'K';
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1rem;
+    color: var(--primary-red);
     flex-shrink: 0;
+    line-height: 1;
 }
 
 .mobile-nav .nav-link {

@@ -341,145 +341,91 @@
     .ks-feat-hero::before { display: none; }
 
     /* ════════════════════════════════════════════════
-       Cap Modal — Dark redesign
+       Kayros Modal System — sys-card aesthetic
     ════════════════════════════════════════════════ */
+    #whoModal .modal-box,
     #capModal .modal-box {
-      background: #080a20;
-      border-color: rgba(255,255,255,0.07);
-      max-width: 920px;
-      grid-template-columns: 0.65fr 1.35fr;
-    }
-    #capModal .modal-left.modal-left--blue {
-      background-color: #05061a;
-      background-image:
-        linear-gradient(rgba(0,168,255,0.07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,168,255,0.07) 1px, transparent 1px);
-      background-size: 40px 40px;
-      border-right: 1px solid rgba(255,255,255,0.06);
-      gap: 20px;
-    }
-    #capModal .modal-left.modal-left--blue::before {
-      background: rgba(250,66,56,0.18);
-      filter: blur(60px);
-      opacity: 1;
-    }
-    #capModal .bg-mosaic-strong { display: none; }
-    #capModal .modal-heading-white {
-      font-size: 1.3rem;
-      font-weight: 900;
-      color: white;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      position: relative;
-      z-index: 1;
-    }
-    #capModal .modal-heading-white em {
-      color: #FA4238;
-      font-style: normal;
-    }
-    #capModal .modal-right {
-      background: #080a20;
-      padding: 28px 26px;
-    }
-    #capModal .modal-right .bg-mosaic-strong { display: none; }
-
-    .modal-cap-logo-wrap {
-      position: relative;
-      width: 100px;
-      height: 100px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1;
-    }
-    .modal-cap-logo { width: 58px; height: 58px; position: relative; z-index: 2; }
-    .modal-cap-ring {
-      position: absolute;
-      border-radius: 50%;
-    }
-    .modal-cap-ring:nth-child(1) { inset: 6px; border: 1px solid rgba(250,66,56,0.28); animation: kx-spin 16s linear infinite; }
-    .modal-cap-ring:nth-child(2) { inset: -12px; border: 1px solid rgba(46,139,255,0.16); animation: kx-spin 24s linear infinite reverse; }
-    .modal-cap-ring:nth-child(3) { inset: -28px; border: 1px solid rgba(250,66,56,0.08); animation: kx-spin 36s linear infinite; }
-
-    .modal-cap-stat-row {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      width: 100%;
-      position: relative;
-      z-index: 1;
-    }
-    .modal-cap-stat {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 7px 12px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 8px;
-      font-size: 10px;
-      font-family: 'Courier New', monospace;
-    }
-    .modal-cap-stat span:first-child { color: rgba(255,255,255,0.42); }
-    .modal-cap-stat span:last-child { color: #22C55E; font-weight: 700; }
-
-    .modal-cap-intro {
-      font-size: 0.84rem;
-      color: rgba(255,255,255,0.45);
-      line-height: 1.7;
-      margin-bottom: 20px;
-      padding-bottom: 18px;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-    }
-    .modal-cap-item {
-      background: rgba(255,255,255,0.025);
+      display: flex; flex-direction: column;
+      grid-template-columns: unset;
+      background: #0B1120;
       border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 14px;
-      padding: 18px 20px;
-      margin-bottom: 10px;
-      list-style: none;
-      transition: border-color 0.25s;
+      border-radius: 20px;
+      overflow: hidden;
+      max-height: 88vh;
+      width: 100%;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.04);
     }
-    .modal-cap-item:hover { border-color: rgba(250,66,56,0.22); }
-    .modal-cap-title {
-      display: block;
-      font-size: 0.88rem;
-      font-weight: 800;
-      color: rgba(255,255,255,0.9);
-      margin-bottom: 8px;
-      font-family: 'Montserrat', sans-serif;
-      letter-spacing: 0.01em;
+    #whoModal .modal-box { max-width: 500px; }
+    #capModal .modal-box { max-width: 540px; }
+
+    /* Hide original structure panels */
+    #whoModal .modal-left,
+    #whoModal .who-modal-tooltip-body,
+    #capModal .modal-left,
+    #capModal .modal-right { display: none !important; }
+
+    /* Hide K tiles */
+    #capModal .bg-mosaic-strong,
+    #whoModal .bg-mosaic-strong { display: none; }
+
+    /* km-modal inner wrapper */
+    .km-modal { display: flex; flex-direction: column; height: 100%; }
+
+    /* Header */
+    .km-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.06);
+      flex-shrink: 0;
     }
-    .modal-cap-desc {
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.48);
-      line-height: 1.65;
-      margin-bottom: 0;
+    .km-brand { display: flex; align-items: center; gap: 9px; }
+    .km-brand img { width: 26px; height: 26px; }
+    .km-brand span { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; color: white; font-family: 'Montserrat', sans-serif; }
+    .km-status { display: flex; align-items: center; gap: 6px; font-size: 9px; font-weight: 700; letter-spacing: 0.1em; color: rgba(255,255,255,0.35); font-family: 'Courier New', monospace; }
+    .km-led { width: 6px; height: 6px; border-radius: 50%; background: #22C55E; box-shadow: 0 0 8px rgba(34,197,94,0.7); animation: ks-blink 2.5s infinite; }
+
+    /* Logo + rings */
+    .km-logo-wrap {
+      display: flex; align-items: center; justify-content: center;
+      position: relative; height: 110px; margin: 20px 0 12px; flex-shrink: 0;
     }
-    .modal-cap-note {
-      font-size: 0.79rem;
-      color: rgba(46,139,255,0.8);
-      line-height: 1.55;
-      padding: 8px 12px;
-      background: rgba(46,139,255,0.06);
-      border-left: 2px solid rgba(46,139,255,0.3);
-      border-radius: 0 6px 6px 0;
-      margin: 10px 0 0;
+    .km-logo { width: 68px; height: 68px; position: relative; z-index: 2; }
+    .km-ring { position: absolute; border-radius: 50%; }
+    .km-ring:nth-child(1) { inset: 4px; border: 1px solid rgba(250,66,56,0.22); animation: kx-spin 18s linear infinite; }
+    .km-ring:nth-child(2) { inset: -16px; border: 1px solid rgba(46,139,255,0.14); animation: kx-spin 26s linear infinite reverse; }
+    .km-ring:nth-child(3) { inset: -36px; border: 1px solid rgba(250,66,56,0.08); animation: kx-spin 35s linear infinite; }
+
+    /* Scrollable body */
+    .km-body { flex: 1; overflow-y: auto; padding: 4px 20px 8px; }
+    .km-body::-webkit-scrollbar { width: 3px; }
+    .km-body::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+
+    /* Row items */
+    .km-list { display: flex; flex-direction: column; gap: 8px; }
+    .km-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 11px 14px;
+      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 10px; transition: border-color 0.2s;
     }
-    .modal-cap-footer {
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.32);
-      line-height: 1.7;
-      border-top: 1px solid rgba(255,255,255,0.07);
-      padding-top: 18px;
-      margin-top: 4px;
-      font-style: italic;
+    .km-item:hover { border-color: rgba(250,66,56,0.18); }
+    .km-dot { width: 5px; height: 5px; border-radius: 50%; background: #2E8BFF; box-shadow: 0 0 6px rgba(46,139,255,0.6); flex-shrink: 0; margin-top: 5px; }
+    .km-item-body { flex: 1; min-width: 0; }
+    .km-item-name { font-size: 10.5px; font-weight: 700; color: white; font-family: 'Montserrat', sans-serif; line-height: 1.3; }
+    .km-item-desc { font-size: 10.5px; color: rgba(255,255,255,0.88); line-height: 1.6; margin-top: 4px; font-family: 'Montserrat', sans-serif; }
+    .km-item-note { font-size: 10px; color: rgba(46,139,255,0.85); line-height: 1.5; margin-top: 7px; padding: 6px 10px; background: rgba(46,139,255,0.06); border-left: 2px solid rgba(46,139,255,0.28); border-radius: 0 5px 5px 0; font-family: 'Montserrat', sans-serif; }
+    .km-body strong { color: #FA4238; }
+    .km-badge { font-size: 8px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: #22C55E; background: rgba(34,197,94,0.09); border: 1px solid rgba(34,197,94,0.22); padding: 3px 9px; border-radius: 999px; font-family: 'Courier New', monospace; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+
+    /* Footer */
+    .km-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 13px 20px; border-top: 1px solid rgba(255,255,255,0.05); flex-shrink: 0;
     }
-    .modal-cap-footer strong { color: rgba(255,255,255,0.55); font-style: normal; }
-    #capModal .modal-close {
-      top: 14px;
-      right: 14px;
-    }
+    .km-footer span { font-size: 9px; color: rgba(255,255,255,0.28); font-family: 'Courier New', monospace; letter-spacing: 0.06em; }
+    .km-footer strong { font-size: 9px; color: rgba(255,255,255,0.5); font-weight: 600; font-family: 'Courier New', monospace; }
+
+    #whoModal .modal-close,
+    #capModal .modal-close { top: 12px; right: 14px; }
 
     /* Remaining responsive */
     @media (max-width: 900px) {
@@ -774,7 +720,7 @@
             <div class="kx-stat-box__lab">No-show rate</div>
           </div>
           <div class="kx-stat-box">
-            <div class="kx-stat-box__val">24/7</div>
+            <div class="kx-stat-box__val"><em>24</em>/7</div>
             <div class="kx-stat-box__lab">AI coverage</div>
           </div>
           <div class="kx-stat-box">
@@ -934,142 +880,11 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════
-   SECTION 3 — CORE CAPABILITIES (Feature Hero + Grid — Opción A)
-═══════════════════════════════════════════════════════════ -->
-  <section class="cap-standalone-section">
-    <div class="cap-standalone-inner">
-
-      <div class="ks-slabel ks-slabel--dark" style="margin-bottom:36px;">
-        <span class="ks-slabel__text">03 · What We Build · Opción A</span>
-        <div class="ks-slabel__line"></div>
-      </div>
-
-      <div style="margin-bottom:36px;">
-        <div class="cap-hub-eyebrow section-eyebrow" style="margin-bottom:10px;">What We Build</div>
-        <h2 class="cap-hub-title" style="margin-bottom:10px;">Core Capabilities</h2>
-        <p class="cap-hub-subtitle">Five integrated pillars powering every Kayros platform.</p>
-      </div>
-
-      <!-- Feature Hero: AI Workflow Orchestration -->
-      <div class="ks-feat-hero">
-        <div>
-          <div class="ks-badge ks-badge--dark">
-            <svg style="width:12px;height:12px;" viewBox="0 0 24 24" fill="none" stroke="#FF6B5B" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-            Star Capability
-          </div>
-          <h3>AI Workflow Orchestration</h3>
-          <p>
-            The intelligence layer behind Kayros. Smart automation that structures, prioritizes and optimizes every
-            operational process in real time — whether automated or human-led.
-          </p>
-          <div class="ks-hero-stats">
-            <span class="ks-hero-stat">
-              <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-              70% fewer manual tasks
-            </span>
-            <span class="ks-hero-stat">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              Response &lt; 2 min
-            </span>
-          </div>
-        </div>
-        <div class="ks-workflow-box">
-          <div class="ks-wf-head">
-            <span class="ks-wf-led"></span>
-            <span>WORKFLOW LIVE</span>
-          </div>
-          <div class="ks-wf-line">→ Patient request received</div>
-          <div class="ks-wf-line wf2">→ Triage by urgency level</div>
-          <div class="ks-wf-line wf3">→ Route to specialist</div>
-          <div class="ks-wf-line wf4">→ Auto-response sent ✓</div>
-        </div>
-      </div>
-
-      <!-- 2×2 Cap Grid -->
-      <div class="ks-cap-grid">
-
-        <div class="ks-cap-card">
-          <div class="ks-cap-head">
-            <div class="ks-cap-icon">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4"/></svg>
-            </div>
-            <span class="ks-cap-tag">REAL-TIME</span>
-          </div>
-          <h3>Real-Time Visibility</h3>
-          <p class="ks-cap-desc">Live operational dashboards for immediate, informed decision-making.</p>
-          <div class="ks-bars">
-            <div class="ks-bar" style="background:rgba(250,66,56,0.25);height:40%;"></div>
-            <div class="ks-bar" style="background:rgba(250,66,56,0.45);height:62%;"></div>
-            <div class="ks-bar" style="background:rgba(250,66,56,0.65);height:80%;"></div>
-            <div class="ks-bar" style="background:#FA4238;height:100%;"></div>
-            <div class="ks-bar" style="background:rgba(250,66,56,0.7);height:88%;"></div>
-            <div class="ks-bar" style="background:rgba(250,66,56,0.5);height:72%;"></div>
-          </div>
-        </div>
-
-        <div class="ks-cap-card">
-          <div class="ks-cap-head">
-            <div class="ks-cap-icon">
-              <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            </div>
-            <span class="ks-cap-tag">UNIFIED</span>
-          </div>
-          <h3>Omnichannel Comms</h3>
-          <p class="ks-cap-desc">Voice, SMS, WhatsApp and email in a single coordination framework.</p>
-          <div class="ks-ch-row">
-            <div class="ks-ch-item"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.38 2 2 0 0 1 3.61 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.64a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/></svg></div>
-            <div class="ks-ch-item"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
-            <div class="ks-ch-item"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-            <div class="ks-ch-item"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-          </div>
-        </div>
-
-        <div class="ks-cap-card">
-          <div class="ks-cap-head">
-            <div class="ks-cap-icon">
-              <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-            </div>
-            <span class="ks-cap-tag">PRIORITIZED</span>
-          </div>
-          <h3>Case &amp; Task Management</h3>
-          <p class="ks-cap-desc">Structured tracking and resolution with automatic prioritization.</p>
-          <div class="ks-case-rows">
-            <div class="ks-case-row"><span class="ks-case-dot" style="background:#FA4238;"></span>Urgent · 3 cases</div>
-            <div class="ks-case-row"><span class="ks-case-dot" style="background:#FF6B5B;"></span>In progress · 12 cases</div>
-            <div class="ks-case-row"><span class="ks-case-dot" style="background:rgba(250,66,56,0.3);"></span>Resolved · 48 cases</div>
-          </div>
-        </div>
-
-        <div class="ks-cap-card">
-          <div class="ks-cap-head">
-            <div class="ks-cap-icon">
-              <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-            </div>
-            <span class="ks-cap-tag">ACTIONABLE</span>
-          </div>
-          <h3>Data-Driven Insights</h3>
-          <p class="ks-cap-desc">Advanced analytics converting operational data into concrete improvements.</p>
-          <div class="ks-metric">
-            <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-            <span>+42% avg. efficiency</span>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="ks-cap-footer">
-        <a onclick="openCapModal()" class="btn btn-secondary">Full Capabilities &rarr;</a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════
-   SECTION 3B — CORE CAPABILITIES (Cascada — Opción B)
+   SECTION 3 — CORE CAPABILITIES (Cascada)
 ═══════════════════════════════════════════════════════════ -->
   <section class="kc-section">
     <div class="kc-view-label">
-      <div class="kc-view-badge">03 · What We Build · Opción B</div>
+      <div class="kc-view-badge">03 · What We Build</div>
       <h2 class="kc-view-title">Core <span>Capabilities</span></h2>
       <p class="kc-view-sub">At Kayros, our capabilities are built around one objective: structuring complex operations
         through intelligent systems that combine AI, automation, and human coordination.</p>
@@ -1403,26 +1218,58 @@
   <div class="modal-overlay" id="whoModal">
     <div class="modal-box modal-box--sm">
       <button class="modal-close" onclick="closeWhoModal()">&#215;</button>
-      <div class="modal-left modal-left--blue">
-        <div class="bg-mosaic-strong modal-mosaic-faint"></div>
-        <h2 class="modal-heading-white">
-          Who We Are — Extended</h2>
-      </div>
-      <div class="who-modal-tooltip-body">
-        <div class="bg-mosaic-strong"></div>
-        <p><strong>Kayros</strong> is an AI technology company building intelligent operational infrastructure for
-          modern organizations.</p>
-        <p>We design systems that enhance how teams communicate, coordinate, and execute — combining artificial
-          intelligence, automation, and human oversight into unified operational frameworks.</p>
-        <p>Our technology is built to structure complexity. To reduce friction. To bring visibility to real-time
-          operations.</p>
-        <p>Rather than creating isolated tools, we engineer integrated platforms that optimize workflows,
-          decision-making, and performance at scale.</p>
-        <p>Our flagship platform, <strong class="text-brand-red">Kayros Assist</strong>, represents the
-          healthcare implementation of this vision — delivering intelligent patient operations powered by AI and live
-          coordination.</p>
-        <p class="mb-0">At <strong>Kayros</strong>, we believe the future of operations is not fully
-          automated — it is <strong class="text-white-strong">intelligently orchestrated</strong>.</p>
+      <div class="km-modal">
+        <div class="km-header">
+          <div class="km-brand">
+            <img src="assets/iso_k/svg/k_iso_circular_w_bg_blue.svg" alt="Kayros">
+            <span>KAYROS.AI</span>
+          </div>
+          <div class="km-status"><span class="km-led"></span>SYSTEM ONLINE</div>
+        </div>
+        <div class="km-body">
+          <div class="km-list">
+            <div class="km-item">
+              <span class="km-dot"></span>
+              <div class="km-item-body">
+                <div class="km-item-desc"><strong>Kayros</strong> is an AI technology company building intelligent operational infrastructure for modern organizations.</div>
+              </div>
+            </div>
+            <div class="km-item">
+              <span class="km-dot"></span>
+              <div class="km-item-body">
+                <div class="km-item-desc">We design systems that enhance how teams communicate, coordinate, and execute — combining artificial intelligence, automation, and human oversight into unified operational frameworks.</div>
+              </div>
+            </div>
+            <div class="km-item">
+              <span class="km-dot"></span>
+              <div class="km-item-body">
+                <div class="km-item-desc">Our technology is built to structure complexity. To reduce friction. To bring visibility to real-time operations.</div>
+              </div>
+            </div>
+            <div class="km-item">
+              <span class="km-dot"></span>
+              <div class="km-item-body">
+                <div class="km-item-desc">Rather than creating isolated tools, we engineer integrated platforms that optimize workflows, decision-making, and performance at scale.</div>
+              </div>
+            </div>
+            <div class="km-item">
+              <span class="km-dot"></span>
+              <div class="km-item-body">
+                <div class="km-item-desc">Our flagship platform, <strong>Kayros Assist</strong>, represents the healthcare implementation of this vision — delivering intelligent patient operations powered by AI and live coordination.</div>
+              </div>
+            </div>
+            <div class="km-item">
+              <span class="km-dot"></span>
+              <div class="km-item-body">
+                <div class="km-item-desc">At <strong>Kayros</strong>, we believe the future of operations is not fully automated — it is <strong>intelligently orchestrated</strong>.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="km-footer">
+          <span>v2.4.1 · KAYROS ASSIST</span>
+          <strong>Intelligently Orchestrated</strong>
+        </div>
       </div>
     </div>
   </div>
@@ -1431,68 +1278,71 @@
   <div class="modal-overlay" id="capModal">
     <div class="modal-box modal-box--md">
       <button class="modal-close" onclick="closeCapModal()">&#215;</button>
-
-      <div class="modal-left modal-left--blue">
-        <div class="modal-cap-logo-wrap">
-          <div class="modal-cap-ring"></div>
-          <div class="modal-cap-ring"></div>
-          <div class="modal-cap-ring"></div>
-          <img class="modal-cap-logo" src="assets/iso_k/svg/k_iso_circular_red.svg" alt="Kayros">
+      <div class="km-modal">
+        <div class="km-header">
+          <div class="km-brand">
+            <img src="assets/iso_k/svg/k_iso_circular_w_bg_blue.svg" alt="Kayros">
+            <span>KAYROS.AI</span>
+          </div>
+          <div class="km-status"><span class="km-led"></span>SYSTEM ONLINE</div>
         </div>
-        <h2 class="modal-heading-white">Core <em>Capabilities</em></h2>
-        <div class="modal-cap-stat-row">
-          <div class="modal-cap-stat">
-            <span>Automation rate</span><span>70%+</span>
-          </div>
-          <div class="modal-cap-stat">
-            <span>Avg. response</span><span>&lt; 2 min</span>
-          </div>
-          <div class="modal-cap-stat">
-            <span>Efficiency gain</span><span>+42%</span>
-          </div>
-          <div class="modal-cap-stat">
-            <span>System status</span><span>ACTIVE</span>
+        <div class="km-logo-wrap">
+          <div class="km-ring"></div>
+          <div class="km-ring"></div>
+          <div class="km-ring">
+        </div>
+        <div class="km-body">
+          <div class="km-list">
+            <div class="km-item">
+              <span class="km-dot"></span>
+              <div class="km-item-body">
+                <div class="km-item-name">AI Workflow Orchestration</div>
+                <div class="km-item-desc">We design intelligent orchestration engines that automate classification, routing, and prioritization across workflows. Our AI models analyze inputs in real time, determine intent, assign urgency levels, and trigger the appropriate operational pathway — whether automated or human-led.</div>
+                <div class="km-item-note">This creates structured, scalable processes without removing human oversight where it matters most.</div>
+              </div>
+              <span class="km-badge">ACTIVE</span>
+            </div>
+            <div class="km-item">
+              <span class="km-dot"></span>
+              <div class="km-item-body">
+                <div class="km-item-name">Real-Time Operational Visibility</div>
+                <div class="km-item-desc">Kayros provides live operational dashboards that allow organizations to monitor performance, workloads, response times, and resolution metrics in real time.</div>
+                <div class="km-item-note">This visibility enables informed decision-making, proactive intervention, and measurable accountability across teams.</div>
+              </div>
+              <span class="km-badge">ACTIVE</span>
+            </div>
+            <div class="km-item">
+              <span class="km-dot"></span>
+              <div class="km-item-body">
+                <div class="km-item-name">Omnichannel Communication</div>
+                <div class="km-item-desc">We unify voice, messaging, and digital communication into a single operational framework. Every interaction is structured, documented, and integrated into the broader workflow ecosystem.</div>
+                <div class="km-item-note">Communication becomes coordinated — not reactive.</div>
+              </div>
+              <span class="km-badge">ACTIVE</span>
+            </div>
+            <div class="km-item">
+              <span class="km-dot"></span>
+              <div class="km-item-body">
+                <div class="km-item-name">Case &amp; Task Management</div>
+                <div class="km-item-desc">Our systems are built to manage complexity. We design case management frameworks that support prioritization, escalation protocols, human intervention, and resolution tracking.</div>
+                <div class="km-item-note">This ensures continuity, traceability, and operational intelligence across every stage of the process.</div>
+              </div>
+              <span class="km-badge">ACTIVE</span>
+            </div>
+            <div class="km-item">
+              <span class="km-dot"></span>
+              <div class="km-item-body">
+                <div class="km-item-name">Data-Driven Insights</div>
+                <div class="km-item-desc">Beyond automation, Kayros leverages operational data to generate actionable insights. By analyzing patterns, response behaviors, and performance metrics, our platforms continuously improve workflows and enable smarter operational strategies.</div>
+              </div>
+              <span class="km-badge">ACTIVE</span>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="modal-right modal-right--scroll">
-        <p class="modal-cap-intro">At <strong style="color:rgba(255,255,255,0.75)">Kayros</strong>, our capabilities are built around one objective: structuring complex operations through intelligent systems that combine AI, automation, and human coordination.</p>
-
-        <ul class="capability-checklist modal-cap-list">
-          <li class="modal-cap-item">
-            <strong class="modal-cap-title">01 &nbsp;·&nbsp; AI Workflow Orchestration</strong>
-            <p class="modal-cap-desc">Intelligent orchestration engines that automate classification, routing, and prioritization across workflows. Our AI models analyze inputs in real time, determine intent, assign urgency levels, and trigger the appropriate operational pathway — whether automated or human-led.</p>
-            <p class="modal-cap-note">Structured, scalable processes without removing human oversight where it matters most.</p>
-          </li>
-
-          <li class="modal-cap-item">
-            <strong class="modal-cap-title">02 &nbsp;·&nbsp; Real-Time Operational Visibility</strong>
-            <p class="modal-cap-desc">Live operational dashboards that allow organizations to monitor performance, workloads, response times, and resolution metrics in real time.</p>
-            <p class="modal-cap-note">Informed decision-making, proactive intervention, and measurable accountability across teams.</p>
-          </li>
-
-          <li class="modal-cap-item">
-            <strong class="modal-cap-title">03 &nbsp;·&nbsp; Omnichannel Communication</strong>
-            <p class="modal-cap-desc">Voice, messaging, and digital communication unified into a single operational framework. Every interaction is structured, documented, and integrated into the broader workflow ecosystem.</p>
-            <p class="modal-cap-note">Communication becomes coordinated — not reactive.</p>
-          </li>
-
-          <li class="modal-cap-item">
-            <strong class="modal-cap-title">04 &nbsp;·&nbsp; Intelligent Case &amp; Task Management</strong>
-            <p class="modal-cap-desc">Case management frameworks that support prioritization, escalation protocols, human intervention, and resolution tracking built to manage operational complexity.</p>
-            <p class="modal-cap-note">Continuity, traceability, and operational intelligence across every stage of the process.</p>
-          </li>
-
-          <li class="modal-cap-item">
-            <strong class="modal-cap-title">05 &nbsp;·&nbsp; Data-Driven Insights</strong>
-            <p class="modal-cap-desc">Operational data converted into actionable insights. By analyzing patterns, response behaviors, and performance metrics, our platforms continuously improve workflows and enable smarter operational strategies.</p>
-          </li>
-        </ul>
-
-        <p class="modal-cap-footer">
-          <strong>Kayros</strong> does not simply automate tasks — we engineer intelligent operational ecosystems designed for scalability, adaptability, and long-term growth.
-        </p>
+        <div class="km-footer">
+          <span>v2.4.1 · KAYROS ASSIST</span>
+          <strong>All systems nominal</strong>
+        </div>
       </div>
     </div>
   </div>
