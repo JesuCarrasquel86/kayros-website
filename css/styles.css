@@ -1683,6 +1683,19 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
     z-index: 1;
 }
 
+/* Fondo holográfico reutilizable — navy oscuro + cuadrícula azul eléctrica */
+.bg-holographic-grid {
+    background-color: #080a20;
+    background-image:
+        linear-gradient(rgba(0, 168, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 168, 255, 0.08) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: center center;
+    color: var(--text-white);
+    position: relative;
+    overflow: hidden;
+}
+
 .info-modal-content {
     position: relative;
     z-index: 1;

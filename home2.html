@@ -1,0 +1,1780 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kayros AI Technologies — Intelligent Operational Software</title>
+  <meta name="description"
+    content="Kayros is an AI technology company building intelligent operational systems for modern organizations." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/hero-kx.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <link rel="icon" type="image/svg+xml" href="assets/iso_k/svg/k_iso_circular_w_bg_blue.svg" />
+  <style>
+    /* ── Kayros-Sections Components (dark + light variants) ── */
+
+    /* Shared */
+    .ks-section-inner { max-width: 1100px; width: 100%; margin: 0 auto; padding: 80px 40px; }
+
+    /* Section label row */
+    .ks-slabel { display: flex; align-items: center; gap: 14px; margin-bottom: 44px; }
+    .ks-slabel__text { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; font-family: 'Montserrat', sans-serif; }
+    .ks-slabel__line { flex: 1; height: 1px; }
+    .ks-slabel--light .ks-slabel__text { color: #94A3B8; }
+    .ks-slabel--light .ks-slabel__line { background: rgba(0,0,0,0.09); }
+    .ks-slabel--dark .ks-slabel__text { color: rgba(255,255,255,0.32); }
+    .ks-slabel--dark .ks-slabel__line { background: rgba(255,255,255,0.1); }
+
+    /* Badge pill */
+    .ks-badge { display: inline-flex; align-items: center; gap: 7px; font-size: 10px; font-weight: 700; padding: 5px 14px; border-radius: 999px; letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 18px; font-family: 'Montserrat', sans-serif; }
+    .ks-badge--light { background: rgba(250,66,56,0.06); border: 1px solid rgba(250,66,56,0.18); color: #FA4238; }
+    .ks-badge--dark  { background: rgba(250,66,56,0.12); border: 1px solid rgba(250,66,56,0.26); color: #FF6B5B; }
+    .ks-badge__dot { width: 6px; height: 6px; border-radius: 50%; animation: ks-blink 2s infinite; }
+    .ks-badge--light .ks-badge__dot { background: #FA4238; }
+    .ks-badge--dark  .ks-badge__dot { background: #FF6B5B; }
+    @keyframes ks-blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+
+    /* Features list */
+    .ks-feat-list { display: flex; flex-direction: column; gap: 13px; margin-bottom: 30px; }
+    .ks-feat-item { display: flex; align-items: center; gap: 10px; font-size: 14px; line-height: 1.4; font-family: 'Montserrat', sans-serif; }
+    .ks-feat-item--light { color: #334155; }
+    .ks-feat-item--dark  { color: rgba(255,255,255,0.78); }
+    .ks-feat-check { width: 22px; height: 22px; flex-shrink: 0; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; }
+    .ks-feat-check--light { background: rgba(250,66,56,0.07); border: 1px solid rgba(250,66,56,0.16); color: #FA4238; }
+    .ks-feat-check--dark  { background: rgba(250,66,56,0.12); color: #FF6B5B; }
+    .ks-feat-check svg { width: 12px; height: 12px; }
+
+    /* ── Card 1: About grid (light) ── */
+    .ks-about-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 72px; align-items: center; }
+    .ks-about-heading { font-size: 2.65rem; font-weight: 900; color: #0B1120; line-height: 1.1; letter-spacing: -0.025em; margin: 14px 0 22px; }
+    .ks-about-body { font-size: 1rem; line-height: 1.9; color: #475569; margin-bottom: 32px; max-width: 520px; }
+    .ks-about-visual { display: flex; align-items: center; justify-content: center; }
+    .ks-about-logo-wrap { position: relative; width: 280px; height: 280px; display: flex; align-items: center; justify-content: center; }
+    .ks-about-logo { width: 160px; position: relative; z-index: 1; }
+
+    /* ── Card 2: Assist grid (dark) ── */
+    .ks-assist-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .ks-assist-heading { font-size: 2.4rem; font-weight: 900; color: #fff; line-height: 1.1; letter-spacing: -0.025em; margin: 14px 0 16px; }
+    .ks-assist-lead { font-size: 1rem; line-height: 1.85; color: rgba(255,255,255,0.62); margin-bottom: 24px; }
+    .ks-assist-video-wrap { border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 40px 80px -20px rgba(0,0,0,0.7); position: relative; }
+    .ks-assist-video-wrap::before { content:''; position:absolute; inset:-1px; border-radius:21px; border:1px solid rgba(255,255,255,0.1); z-index:2; pointer-events:none; }
+    .ks-assist-video-wrap video { width:100%; height:auto; display:block; max-height:440px; object-fit:cover; border-radius:20px; }
+
+    /* ── Capabilities: Feature Hero ── */
+    .ks-feat-hero { border-radius: 20px; padding: 44px; display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: center; margin-bottom: 20px; position: relative; overflow: hidden; background: linear-gradient(135deg, rgba(250,66,56,0.1) 0%, rgba(46,139,255,0.06) 100%); border: 1px solid rgba(250,66,56,0.16); }
+    .ks-feat-hero::before { content:''; position:absolute; top:-60px; right:-60px; width:220px; height:220px; background:radial-gradient(circle, rgba(250,66,56,0.12) 0%, transparent 70%); border-radius:50%; pointer-events:none; }
+    .ks-feat-hero > * { position: relative; }
+    .ks-feat-hero h3 { font-size: 1.75rem; font-weight: 800; color: white; line-height: 1.15; margin: 14px 0; letter-spacing: -0.02em; }
+    .ks-feat-hero p { font-size: 0.9rem; color: rgba(255,255,255,0.6); line-height: 1.75; margin-bottom: 22px; }
+    .ks-hero-stats { display: flex; gap: 20px; flex-wrap: wrap; }
+    .ks-hero-stat { display: inline-flex; align-items: center; gap: 7px; font-size: 12px; color: rgba(255,255,255,0.7); font-weight: 600; font-family: 'Montserrat', sans-serif; }
+    .ks-hero-stat svg { width: 14px; height: 14px; stroke: #2E8BFF; fill: none; stroke-width: 2.5; flex-shrink: 0; }
+
+    /* Workflow terminal */
+    .ks-workflow-box { background: rgba(0,0,0,0.38); border-radius: 14px; padding: 22px; border: 1px solid rgba(255,255,255,0.06); font-family: 'Courier New', monospace; font-size: 12px; color: rgba(255,255,255,0.7); line-height: 2.1; }
+    .ks-wf-head { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .ks-wf-led { width: 8px; height: 8px; border-radius: 50%; background: #2E8BFF; box-shadow: 0 0 8px rgba(46,139,255,0.7); animation: ks-pulse 2s infinite; }
+    @keyframes ks-pulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+    .ks-wf-head span { font-size: 10px; letter-spacing: 0.12em; color: rgba(255,255,255,0.32); }
+    .ks-wf-line { opacity: 0.4; }
+    .ks-wf-line.wf2 { opacity: 0.65; }
+    .ks-wf-line.wf3 { opacity: 0.82; }
+    .ks-wf-line.wf4 { color: #2E8BFF; font-weight: 600; opacity: 1; }
+
+    /* Cap grid 2×2 */
+    .ks-cap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .ks-cap-card { background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.07); border-radius: 16px; padding: 26px; position: relative; overflow: hidden; transition: transform 0.2s, border-color 0.25s; }
+    .ks-cap-card:hover { transform: translateY(-2px); border-color: rgba(250,66,56,0.22); }
+    .ks-cap-card::before { content:''; position:absolute; top:-40px; right:-40px; width:120px; height:120px; background:rgba(250,66,56,0.04); border-radius:50%; }
+    .ks-cap-card > * { position: relative; }
+    .ks-cap-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+    .ks-cap-icon { width: 46px; height: 46px; background: rgba(250,66,56,0.1); border: 1px solid rgba(250,66,56,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+    .ks-cap-icon svg { width: 22px; height: 22px; stroke: #FA4238; fill: none; stroke-width: 1.8; }
+    .ks-cap-tag { font-size: 9px; font-weight: 700; color: #2E8BFF; background: rgba(46,139,255,0.08); border: 1px solid rgba(46,139,255,0.15); padding: 4px 10px; border-radius: 999px; letter-spacing: 0.07em; font-family: 'Montserrat', sans-serif; }
+    .ks-cap-card h3 { font-size: 0.98rem; font-weight: 700; color: white; margin-bottom: 8px; letter-spacing: 0.01em; }
+    .ks-cap-desc { font-size: 0.84rem; color: rgba(255,255,255,0.5); line-height: 1.6; margin-bottom: 16px; }
+
+    /* Mini viz */
+    .ks-bars { display: flex; gap: 5px; align-items: flex-end; height: 40px; }
+    .ks-bar { width: 9px; border-radius: 3px; }
+    .ks-ch-row { display: flex; gap: 9px; }
+    .ks-ch-item { width: 36px; height: 36px; border-radius: 50%; background: rgba(46,139,255,0.08); border: 1px solid rgba(46,139,255,0.15); display: flex; align-items: center; justify-content: center; }
+    .ks-ch-item svg { width: 16px; height: 16px; stroke: #2E8BFF; fill: none; stroke-width: 2; }
+    .ks-case-rows { display: flex; flex-direction: column; gap: 8px; }
+    .ks-case-row { display: flex; align-items: center; gap: 8px; font-size: 12px; color: rgba(255,255,255,0.6); font-family: 'Montserrat', sans-serif; }
+    .ks-case-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .ks-metric { display: flex; align-items: center; gap: 10px; padding: 11px 14px; background: rgba(46,139,255,0.06); border: 1px solid rgba(46,139,255,0.12); border-radius: 10px; }
+    .ks-metric svg { width: 20px; height: 20px; stroke: #2E8BFF; fill: none; stroke-width: 2; flex-shrink: 0; }
+    .ks-metric span { font-size: 13px; color: rgba(255,255,255,0.88); font-weight: 700; font-family: 'Montserrat', sans-serif; }
+    .ks-cap-footer { text-align: center; margin-top: 32px; }
+
+    /* ── Core Capabilities Cascade — View B (DARK) ── */
+    .kc-section { background: #0A0919; padding: 100px 40px; position: relative; }
+    .kc-view-label { text-align: center; margin-bottom: 60px; }
+    .kc-view-badge { display: inline-flex; align-items: center; gap: 7px; background: rgba(250,66,56,0.1); border: 1px solid rgba(250,66,56,0.22); color: #FF6B5B; border-radius: 999px; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; padding: 5px 14px; margin-bottom: 16px; font-family: 'Montserrat', sans-serif; }
+    .kc-view-title { font-size: 2.2rem; font-weight: 900; color: #ffffff; margin-bottom: 12px; letter-spacing: -0.025em; }
+    .kc-view-title span { color: #FA4238; }
+    .kc-view-sub { font-size: 0.95rem; color: rgba(255,255,255,0.5); max-width: 580px; margin: 0 auto; line-height: 1.7; }
+    .kc-inner { max-width: 900px; margin: 0 auto; }
+    .kc-cascade { position: relative; display: flex; flex-direction: column; }
+    .kc-card { position: relative; width: 78%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 2rem 2.5rem; margin-top: 1.25rem; cursor: pointer; backdrop-filter: blur(20px); transition: all 0.45s cubic-bezier(0.2,0.8,0.2,1); }
+    .kc-card:first-child { margin-top: 0; }
+    .kc-card.kc-left  { align-self: flex-start; }
+    .kc-card.kc-right { align-self: flex-end; }
+    .kc-card:hover { transform: translateY(-3px); border-color: rgba(250,66,56,0.2); box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
+    .kc-card:hover .kc-icon { border-color: rgba(250,66,56,0.5); box-shadow: 0 0 20px rgba(250,66,56,0.25); }
+    .kc-card:hover .kc-icon svg { stroke: #FA4238; transform: scale(1.1); }
+    .kc-card.kc-open { border-color: rgba(46,139,255,0.35); box-shadow: 0 0 0 1px rgba(46,139,255,0.2), 0 8px 32px rgba(0,0,0,0.4); }
+    .kc-card.kc-open .kc-extra { max-height: 400px; opacity: 1; margin-top: 1.4rem; padding-top: 1.4rem; border-top: 1px solid rgba(255,255,255,0.08); }
+    .kc-cbody { display: flex; align-items: flex-start; gap: 1.4rem; position: relative; z-index: 2; }
+    .kc-card.kc-right .kc-cbody { flex-direction: row-reverse; }
+    .kc-icon { width: 52px; height: 52px; min-width: 52px; border-radius: 14px; border: 1px solid rgba(46,139,255,0.25); background: rgba(46,139,255,0.06); display: flex; align-items: center; justify-content: center; transition: all 0.4s; }
+    .kc-icon svg { width: 22px; height: 22px; stroke: #2E8BFF; fill: none; stroke-width: 1.8; transition: all 0.4s; filter: drop-shadow(0 0 6px rgba(46,139,255,0.4)); }
+    .kc-ctext { flex: 1; }
+    .kc-card.kc-right .kc-ctext { text-align: right; }
+    .kc-cname { font-size: 0.95rem; font-weight: 800; color: rgba(255,255,255,0.92); line-height: 1.3; margin-bottom: 6px; letter-spacing: 0.02em; font-family: 'Montserrat', sans-serif; }
+    .kc-cdesc { font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.65; }
+    .kc-extra { max-height: 0; opacity: 0; overflow: hidden; transition: all 450ms ease-in-out; }
+    .kc-etitle { font-size: 0.92rem; font-weight: 700; color: #2E8BFF; margin-bottom: 10px; }
+    .kc-etext { font-size: 0.88rem; color: rgba(255,255,255,0.72); line-height: 1.75; margin-bottom: 10px; }
+    .kc-etext:last-child { margin-bottom: 0; }
+    .kc-conclusion { text-align: center; font-size: 0.95rem; line-height: 1.75; color: rgba(255,255,255,0.45); max-width: 580px; margin: 4rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08); }
+
+    /* ── Card 1: Clean k-assist style (inspired by kayros-sections.html) ── */
+    .who-kx-wrap { width: 100%; padding: 80px 40px; }
+    .who-kx-label { display: flex; align-items: center; gap: 14px; max-width: 1100px; margin: 0 auto 28px; }
+    .who-kx-label span { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #94A3B8; white-space: nowrap; }
+    .who-kx-label div { flex: 1; height: 1px; background: rgba(0,0,0,0.09); }
+    .who-kx-card { max-width: 1100px; margin: 0 auto; background: #fff; border: 1px solid rgba(0,0,0,0.08); border-radius: 20px; padding: 48px; display: grid; grid-template-columns: 1fr 220px; gap: 52px; align-items: center; box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
+    .who-kx-pill { display: inline-flex; align-items: center; gap: 6px; background: rgba(250,66,56,0.06); border: 1px solid rgba(250,66,56,0.18); color: #FA4238; font-size: 10px; font-weight: 700; padding: 5px 14px; border-radius: 999px; letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 18px; }
+    .who-kx-dot { width: 6px; height: 6px; border-radius: 50%; background: #FA4238; animation: ks-blink 2s infinite; }
+    .who-kx-h2 { font-size: 2.4rem; font-weight: 900; color: #0B1120; letter-spacing: -0.025em; line-height: 1.1; margin: 0 0 16px; }
+    .who-kx-p { font-size: 0.95rem; line-height: 1.85; color: #475569; margin-bottom: 24px; max-width: 520px; }
+    .who-kx-feats { display: flex; flex-direction: column; gap: 11px; margin-bottom: 28px; }
+    .who-kx-feat { display: flex; align-items: center; gap: 10px; font-size: 13.5px; color: #334155; }
+    .who-kx-check { width: 20px; height: 20px; flex-shrink: 0; border-radius: 50%; background: rgba(250,66,56,0.07); border: 1px solid rgba(250,66,56,0.15); display: flex; align-items: center; justify-content: center; }
+    .who-kx-check svg { width: 11px; height: 11px; stroke: #FA4238; fill: none; stroke-width: 2.5; stroke-linecap: round; }
+    .who-kx-visual { display: flex; align-items: center; justify-content: center; position: relative; height: 240px; }
+    .who-kx-visual img { width: 160px; position: relative; z-index: 2; }
+    .who-kx-rings { position: absolute; inset: 0; border-radius: 50%; border: 1px solid rgba(16,2,73,0.08); box-shadow: 0 0 0 24px rgba(16,2,73,0.03), 0 0 0 48px rgba(16,2,73,0.015), 0 0 0 72px rgba(16,2,73,0.008); }
+
+    /* ── Card 2: Remove K pattern, keep clean dark ── */
+    .product-standalone-section::before {
+      background:
+        radial-gradient(ellipse 60% 80% at 0% 50%, rgba(26,5,128,0.7) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 60% at 100% 100%, rgba(250,66,56,0.15) 0%, transparent 55%);
+    }
+    /* Kill the repeating K tiles */
+    .product-standalone-section::after { content: none !important; }
+
+    /* ── Button fix: secondary on dark ── */
+    .cap-standalone-section .btn-secondary,
+    .product-standalone-section .btn-secondary,
+    .kc-section .btn-secondary {
+      color: #fff;
+      border-color: rgba(255,255,255,0.28);
+    }
+    .cap-standalone-section .btn-secondary:hover,
+    .product-standalone-section .btn-secondary:hover {
+      background: rgba(255,255,255,0.09);
+      border-color: rgba(255,255,255,0.6);
+      color: #fff;
+    }
+    .cap-standalone-section .btn-secondary { color: #fff; border-color: rgba(255,255,255,0.28); }
+    .ks-cap-footer .btn-secondary { color: #fff !important; border-color: rgba(255,255,255,0.28) !important; }
+    .ks-cap-footer .btn-secondary:hover { background: rgba(255,255,255,0.09) !important; border-color: rgba(255,255,255,0.6) !important; }
+
+    /* ════════════════════════════════════════════════
+       kx-about — 01 ABOUT KAYROS (professional + tech)
+    ════════════════════════════════════════════════ */
+    .kx-about {
+      background: #ffffff;
+      padding: 100px 40px;
+      position: relative; overflow: hidden;
+    }
+    /* Subtle tech grid background */
+    .kx-about::before {
+      content: ''; position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(16,2,73,0.028) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16,2,73,0.028) 1px, transparent 1px);
+      background-size: 64px 64px;
+      pointer-events: none;
+    }
+    .kx-about-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 420px;
+      gap: 80px; align-items: center;
+      position: relative; z-index: 1;
+    }
+
+    /* Shared section label */
+    .kx-label { display: flex; align-items: center; gap: 12px; margin-bottom: 36px; }
+    .kx-label__num { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #FA4238; font-family: 'Courier New', monospace; }
+    .kx-label__line { flex: 1; height: 1px; }
+    .kx-label--light .kx-label__line { background: rgba(0,0,0,0.08); }
+    .kx-label--dark  .kx-label__line { background: rgba(255,255,255,0.1); }
+    .kx-label__tag { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; font-family: 'Courier New', monospace; }
+    .kx-label--light .kx-label__tag { color: #94A3B8; }
+    .kx-label--dark  .kx-label__tag { color: rgba(255,255,255,0.3); }
+
+    .kx-heading { font-size: 3.2rem; font-weight: 900; color: #0B1120; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 20px; }
+    .kx-heading em { color: #FA4238; font-style: normal; }
+    .kx-body { font-size: 0.97rem; line-height: 1.9; color: #475569; margin-bottom: 36px; max-width: 500px; }
+
+    /* Stats row */
+    .kx-stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-bottom: 36px; }
+    .kx-stat-box { background: #F8FAFC; border: 1px solid rgba(0,0,0,0.07); border-radius: 14px; padding: 18px 14px; position: relative; overflow: hidden; }
+    .kx-stat-box::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,#FA4238,#FF6B5B); border-radius:0 0 14px 14px; }
+    .kx-stat-box__val { font-size: 1.55rem; font-weight: 900; color: #0B1120; line-height: 1; margin-bottom: 6px; }
+    .kx-stat-box__val em { color: #FA4238; font-style: normal; }
+    .kx-stat-box__lab { font-size: 9.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: #94A3B8; }
+
+    /* Tech system card (right visual) */
+    .kx-sys-card {
+      background: #0B1120; border-radius: 20px; padding: 28px;
+      border: 1px solid rgba(255,255,255,0.07);
+      box-shadow: 0 24px 64px rgba(0,0,0,0.18), 0 0 0 1px rgba(255,255,255,0.04);
+      position: relative; overflow: hidden;
+    }
+    .kx-sys-card::before {
+      content:''; position:absolute; inset:0;
+      background:
+        radial-gradient(ellipse 70% 50% at 50% 0%, rgba(250,66,56,0.09) 0%, transparent 65%),
+        radial-gradient(ellipse 60% 50% at 100% 100%, rgba(26,5,128,0.5) 0%, transparent 60%);
+      pointer-events:none;
+    }
+    .kx-sys-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; padding-bottom:16px; border-bottom:1px solid rgba(255,255,255,0.06); position:relative; }
+    .kx-sys-brand { display:flex; align-items:center; gap:9px; }
+    .kx-sys-brand img { width:26px; height:26px; }
+    .kx-sys-brand span { font-size:11px; font-weight:700; letter-spacing:0.08em; color:white; }
+    .kx-sys-status { display:flex; align-items:center; gap:6px; font-size:9px; font-weight:700; letter-spacing:0.1em; color:rgba(255,255,255,0.35); font-family:'Courier New',monospace; }
+    .kx-sys-led { width:6px; height:6px; border-radius:50%; background:#22C55E; box-shadow:0 0 8px rgba(34,197,94,0.7); animation:ks-blink 2.5s infinite; }
+
+    .kx-sys-logo-wrap { display:flex; align-items:center; justify-content:center; margin:20px 0; position:relative; height:100px; }
+    .kx-sys-logo { width:72px; height:72px; position:relative; z-index:2; }
+    .kx-sys-ring { position:absolute; border-radius:50%; }
+    .kx-sys-ring:nth-child(1) { inset:4px; border:1px solid rgba(250,66,56,0.22); animation:kx-spin 18s linear infinite; }
+    .kx-sys-ring:nth-child(2) { inset:-16px; border:1px solid rgba(46,139,255,0.14); animation:kx-spin 26s linear infinite reverse; }
+    .kx-sys-ring:nth-child(3) { inset:-36px; border:1px solid rgba(250,66,56,0.08); animation:kx-spin 35s linear infinite; }
+    @keyframes kx-spin { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+
+    .kx-sys-list { display:flex; flex-direction:column; gap:8px; position:relative; }
+    .kx-sys-item { display:flex; align-items:center; justify-content:space-between; padding:9px 12px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.05); border-radius:9px; }
+    .kx-sys-item-left { display:flex; align-items:center; gap:9px; }
+    .kx-sys-dot { width:5px; height:5px; border-radius:50%; background:#2E8BFF; box-shadow:0 0 6px rgba(46,139,255,0.6); }
+    .kx-sys-name { font-size:10.5px; font-weight:600; color:rgba(255,255,255,0.72); font-family:'Montserrat',sans-serif; }
+    .kx-sys-badge { font-size:8.5px; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; color:#22C55E; background:rgba(34,197,94,0.09); border:1px solid rgba(34,197,94,0.22); padding:2px 8px; border-radius:999px; font-family:'Courier New',monospace; }
+    .kx-sys-footer { margin-top:18px; padding-top:14px; border-top:1px solid rgba(255,255,255,0.05); display:flex; align-items:center; justify-content:space-between; position:relative; }
+    .kx-sys-footer span { font-size:9px; color:rgba(255,255,255,0.28); font-family:'Courier New',monospace; letter-spacing:0.06em; }
+    .kx-sys-footer strong { color:rgba(255,255,255,0.5); font-weight:600; }
+
+    /* ════════════════════════════════════════════════
+       kx-product — 02 KAYROS ASSIST (dark, tech)
+    ════════════════════════════════════════════════ */
+    .kx-product {
+      background-color: #080a20;
+      background-image:
+        linear-gradient(rgba(0,168,255,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,168,255,0.08) 1px, transparent 1px);
+      background-size: 50px 50px;
+      background-position: center center;
+      padding: 100px 40px;
+      position: relative; overflow: hidden;
+    }
+    .kx-product::before {
+      content:''; position:absolute; inset:0;
+      background:
+        radial-gradient(ellipse 55% 70% at 0% 50%, rgba(0,80,200,0.35) 0%, transparent 60%),
+        radial-gradient(ellipse 45% 55% at 100% 100%, rgba(250,66,56,0.1) 0%, transparent 52%);
+      pointer-events:none;
+    }
+    .kx-product::after { content: none; }
+    .kx-product-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+      position: relative; z-index: 1;
+    }
+    .kx-product-badge { display:inline-flex; align-items:center; gap:7px; background:rgba(250,66,56,0.1); border:1px solid rgba(250,66,56,0.25); color:#FF6B5B; font-size:10px; font-weight:700; padding:5px 14px; border-radius:999px; letter-spacing:0.07em; text-transform:uppercase; margin-bottom:18px; }
+    .kx-product-badge svg { width:12px; height:12px; flex-shrink:0; }
+    .kx-product-heading { font-size: 2.8rem; font-weight: 900; color: white; line-height: 1.08; letter-spacing: -0.025em; margin: 0 0 16px; }
+    .kx-product-heading em { color: #FA4238; font-style: normal; }
+    .kx-product-lead { font-size: 0.96rem; line-height: 1.85; color: rgba(255,255,255,0.58); margin-bottom: 28px; max-width: 460px; }
+    .kx-product-feats { display:flex; flex-direction:column; gap:10px; margin-bottom:32px; }
+    .kx-product-feat { display:flex; align-items:center; gap:10px; font-size:13.5px; color:rgba(255,255,255,0.78); }
+    .kx-product-check { width:20px; height:20px; flex-shrink:0; border-radius:50%; background:rgba(250,66,56,0.1); border:1px solid rgba(250,66,56,0.25); display:flex; align-items:center; justify-content:center; }
+    .kx-product-check svg { width:10px; height:10px; stroke:#FA4238; fill:none; stroke-width:3; stroke-linecap:round; }
+
+    /* Video with chrome bar */
+    .kx-video-wrap { border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 0 0 1px rgba(250,66,56,0.07), 0 32px 64px rgba(0,0,0,0.55); position: relative; }
+    .kx-video-chrome { display:flex; align-items:center; gap:6px; padding:0 14px; height:34px; background:rgba(0,0,0,0.55); backdrop-filter:blur(8px); }
+    .kx-chrome-dot { width:10px; height:10px; border-radius:50%; }
+    .kx-video-wrap video { width:100%; display:block; max-height:420px; object-fit:cover; }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .kx-about { padding: 72px 24px; }
+      .kx-product { padding: 72px 24px; }
+      .kx-about-inner { grid-template-columns: 1fr; gap: 48px; }
+      .kx-about-visual { display: none; }
+      .kx-product-inner { grid-template-columns: 1fr; gap: 48px; }
+      .kx-heading { font-size: 2.4rem; }
+      .kx-product-heading { font-size: 2.2rem; }
+      .kx-stats-grid { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 600px) {
+      .kx-stats-grid { grid-template-columns: repeat(2,1fr); }
+      .kx-heading { font-size: 2rem; }
+    }
+    /* ── Remove ks-feat-hero gradient background ── */
+    .ks-feat-hero {
+      background: rgba(255,255,255,0.025);
+      border-color: rgba(255,255,255,0.07);
+    }
+    .ks-feat-hero::before { display: none; }
+
+    /* ════════════════════════════════════════════════
+       Cap Modal — Dark redesign
+    ════════════════════════════════════════════════ */
+    #capModal .modal-box {
+      background: #080a20;
+      border-color: rgba(255,255,255,0.07);
+      max-width: 920px;
+      grid-template-columns: 0.65fr 1.35fr;
+    }
+    #capModal .modal-left.modal-left--blue {
+      background-color: #05061a;
+      background-image:
+        linear-gradient(rgba(0,168,255,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,168,255,0.07) 1px, transparent 1px);
+      background-size: 40px 40px;
+      border-right: 1px solid rgba(255,255,255,0.06);
+      gap: 20px;
+    }
+    #capModal .modal-left.modal-left--blue::before {
+      background: rgba(250,66,56,0.18);
+      filter: blur(60px);
+      opacity: 1;
+    }
+    #capModal .bg-mosaic-strong { display: none; }
+    #capModal .modal-heading-white {
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: white;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      position: relative;
+      z-index: 1;
+    }
+    #capModal .modal-heading-white em {
+      color: #FA4238;
+      font-style: normal;
+    }
+    #capModal .modal-right {
+      background: #080a20;
+      padding: 28px 26px;
+    }
+    #capModal .modal-right .bg-mosaic-strong { display: none; }
+
+    .modal-cap-logo-wrap {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+    }
+    .modal-cap-logo { width: 58px; height: 58px; position: relative; z-index: 2; }
+    .modal-cap-ring {
+      position: absolute;
+      border-radius: 50%;
+    }
+    .modal-cap-ring:nth-child(1) { inset: 6px; border: 1px solid rgba(250,66,56,0.28); animation: kx-spin 16s linear infinite; }
+    .modal-cap-ring:nth-child(2) { inset: -12px; border: 1px solid rgba(46,139,255,0.16); animation: kx-spin 24s linear infinite reverse; }
+    .modal-cap-ring:nth-child(3) { inset: -28px; border: 1px solid rgba(250,66,56,0.08); animation: kx-spin 36s linear infinite; }
+
+    .modal-cap-stat-row {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+    .modal-cap-stat {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 7px 12px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 8px;
+      font-size: 10px;
+      font-family: 'Courier New', monospace;
+    }
+    .modal-cap-stat span:first-child { color: rgba(255,255,255,0.42); }
+    .modal-cap-stat span:last-child { color: #22C55E; font-weight: 700; }
+
+    .modal-cap-intro {
+      font-size: 0.84rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .modal-cap-item {
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin-bottom: 10px;
+      list-style: none;
+      transition: border-color 0.25s;
+    }
+    .modal-cap-item:hover { border-color: rgba(250,66,56,0.22); }
+    .modal-cap-title {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 8px;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 0.01em;
+    }
+    .modal-cap-desc {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.48);
+      line-height: 1.65;
+      margin-bottom: 0;
+    }
+    .modal-cap-note {
+      font-size: 0.79rem;
+      color: rgba(46,139,255,0.8);
+      line-height: 1.55;
+      padding: 8px 12px;
+      background: rgba(46,139,255,0.06);
+      border-left: 2px solid rgba(46,139,255,0.3);
+      border-radius: 0 6px 6px 0;
+      margin: 10px 0 0;
+    }
+    .modal-cap-footer {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.32);
+      line-height: 1.7;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 18px;
+      margin-top: 4px;
+      font-style: italic;
+    }
+    .modal-cap-footer strong { color: rgba(255,255,255,0.55); font-style: normal; }
+    #capModal .modal-close {
+      top: 14px;
+      right: 14px;
+    }
+
+    /* Remaining responsive */
+    @media (max-width: 900px) {
+      .ks-feat-hero { grid-template-columns: 1fr; padding: 28px; }
+      .ks-cap-grid { grid-template-columns: 1fr; }
+      .kc-card, .kc-card.kc-right { width: 100%; }
+      .kc-card.kc-right .kc-cbody { flex-direction: row; }
+      .kc-card.kc-right .kc-ctext { text-align: left; }
+      .kc-section { padding: 72px 24px; }
+    }
+  </style>
+</head>
+
+<body class="home-transparent-header">
+  <!-- ═══════════════════════════════════════════════════════════
+     INTRO PRELOADER (Runs once per session)
+═══════════════════════════════════════════════════════════ -->
+
+
+  <div id="introOverlay">
+    <video id="introVideo" playsinline muted autoplay class="intro-video-fill">
+      <source
+        src="https://f7n.edf.myftpupload.com/wp-content/uploads/2026/02/WhatsApp-Video-2026-02-05-at-10.57.05-AM.mp4"
+        type="video/mp4">
+    </video>
+    <button id="introSoundBtn" class="intro-sound-btn">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+        <line x1="23" y1="9" x2="17" y2="15"></line>
+        <line x1="17" y1="9" x2="23" y2="15"></line>
+      </svg>
+    </button>
+  </div>
+  <audio id="kayros-sound" src="https://f7n.edf.myftpupload.com/wp-content/uploads/2026/02/kayros-sound.mp3"
+    preload="auto"></audio>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const overlay = document.getElementById('introOverlay');
+      const introAudio = document.getElementById('kayros-sound');
+      const introVideo = document.getElementById('introVideo');
+      const soundBtn = document.getElementById('introSoundBtn');
+
+      // Solo correr una vez por sesión
+      if (sessionStorage.getItem('kayrosIntroPlayed')) {
+        overlay.style.display = 'none';
+        return;
+      }
+
+      sessionStorage.setItem('kayrosIntroPlayed', 'true');
+
+      // Intentar reproducir audio con el video (la mayoría de navegadores bloquearán esto sin interacción)
+      // Como el video tiene 'muted' y 'autoplay' en el HTML, ya está corriendo.
+      const playPromise = introAudio.play();
+
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          // Autoplay de audio funcionó
+          introVideo.currentTime = 0;
+        }).catch(error => {
+          // Audio bloqueado
+          soundBtn.style.display = 'flex';
+        });
+      } else {
+        // Fallback extra
+        soundBtn.style.display = 'flex';
+      }
+
+      // Al hacer clic en el botón de sonido
+      soundBtn.addEventListener('click', () => {
+        // Asegurar que tanto el audio como el video estén sincronizados y corriendo
+        introAudio.currentTime = introVideo.currentTime || 0;
+        introAudio.play().catch(e => console.error("Error reproduciendo audio:", e));
+        introVideo.play().catch(e => console.error("Error reproduciendo video:", e)); // Forzar por si se pausó
+
+        // Cambiar el ícono a sonido activado
+        soundBtn.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>';
+        soundBtn.style.animation = 'none'; // Detener pulsación
+        setTimeout(() => {
+          soundBtn.style.opacity = '0';
+        }, 800);
+      });
+
+      // Cerrar intro al terminar
+      function endIntro() {
+        overlay.style.opacity = '0';
+        overlay.style.pointerEvents = 'none';
+        setTimeout(() => {
+          overlay.style.display = 'none';
+        }, 850);
+      }
+
+      introVideo.addEventListener('ended', endIntro);
+
+      // Respaldo por si el video falla en cargar
+      setTimeout(() => {
+        if (overlay.style.display !== 'none' && introVideo.currentTime === 0) {
+          endIntro();
+        }
+      }, 5000);
+    });
+  </script>
+  <!-- ═══════════════════════════════════════════════════════════
+     HEADER GLOBAL — editá components/header.html
+═══════════════════════════════════════════════════════════ -->
+  <div id="site-header"></div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+     VIEWPORT FILL: hero + Who We Are + Core Capabilities only
+═══════════════════════════════════════════════════════════ -->
+  <div class="viewport-sections">
+    <!-- HERO BANNER -->
+    <section class="kx-hero bg-holographic-grid" data-screen-label="01 Hero">
+      <div class="bg"></div>
+      <div class="grain"></div>
+
+      <div class="container">
+        <div class="row">
+          <!-- LEFT: copy -->
+          <div>
+            <div class="eyebrow">
+              <span class="dot"></span>
+              <span>Now in private beta · Kayros Assist</span>
+            </div>
+
+            <h1>
+              Intelligent <span class="acc">patient operations</span>, intelligently orchestrated.
+            </h1>
+
+            <p class="lede">
+              <b>Kayros Assist</b> blends AI workflow orchestration, omnichannel
+              communication and a live operational desk — so your medical office
+              spends less time on the phone and more time with patients.
+            </p>
+
+            <div class="ctas">
+              <button class="btn-primary" onclick="openModal()">Request a demo →</button>
+              <button class="btn-ghost">
+                <span class="play">
+                  <svg viewBox="0 0 12 12"><polygon points="3,2 10,6 3,10" /></svg>
+                </span>
+                Watch the 90-second tour
+              </button>
+            </div>
+
+            <div class="stats">
+              <div class="stat">
+                <div class="v">-42<span class="acc">%</span></div>
+                <div class="l">No-show rate</div>
+              </div>
+              <div class="stat">
+                <div class="v">24/7</div>
+                <div class="l">AI patient coverage</div>
+              </div>
+              <div class="stat">
+                <div class="v">12<span class="acc">×</span></div>
+                <div class="l">Faster first response</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT: product showcase -->
+          <div class="showcase">
+            <div class="hero-phone">
+              <div class="screen">
+                <div class="pheader">
+                  <div class="ph-logo">
+                    <img src="assets/kayros_ai_technologies/png/kayros_ai_tech_color.png" alt="Kayros" />
+                    <span class="tag">ASSIST</span>
+                  </div>
+                  <div class="avt">A</div>
+                </div>
+                <div class="ptitle">Hola, Aileen</div>
+                <div class="psub">2 upcoming appointments</div>
+
+                <div class="pcard">
+                  <span class="ico" style="background: rgba(250,66,56,0.10); color: #FA4238;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="6" width="18" height="14" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  </span>
+                  <div class="body">
+                    <div class="t">Annual check-up</div>
+                    <div class="d">Tue · 10:30 AM</div>
+                  </div>
+                  <span class="pill ok">Confirmed</span>
+                </div>
+
+                <div class="pcard">
+                  <span class="ico" style="background: rgba(74,122,255,0.10); color: #3D7BF7;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                  </span>
+                  <div class="body">
+                    <div class="t">Lab results</div>
+                    <div class="d">Ready to review</div>
+                  </div>
+                  <span class="pill wait">New</span>
+                </div>
+
+                <div class="pcard">
+                  <span class="ico" style="background: rgba(34,211,160,0.12); color: #10A674;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h3l3-8 4 16 3-8h5"/></svg>
+                  </span>
+                  <div class="body">
+                    <div class="t">Heart rate</div>
+                    <div class="d">72 bpm · resting</div>
+                  </div>
+                </div>
+
+                <div class="cta-row">
+                  <button class="pcta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="6" width="18" height="14" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    Book new visit
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating chips -->
+            <div class="hero-chip hero-chip-1">
+              <span class="ico">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                  <polyline points="5 12 10 17 19 7" />
+                </svg>
+              </span>
+              <div>
+                <div class="t">Appointment confirmed</div>
+                <div class="d">Tue, 10:30 · Dr. Martinez</div>
+              </div>
+            </div>
+
+            <div class="hero-chip hero-chip-2">
+              <span class="ico">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 12h2M8 8v8M12 6v12M16 9v6M20 12h2"/></svg>
+              </span>
+              <div>
+                <div class="t" style="display: flex; align-items: center; gap: 6px;">
+                  Kayros Assist <span class="pulse"></span>
+                </div>
+                <div class="d">Online · responding in 8s</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Logo strip — social proof -->
+        <div class="logo-strip">
+          <span class="lab">Trusted by forward-looking medical offices</span>
+          <div class="marks">
+            <span class="mark">Clínica Aurora</span>
+            <span class="mark">Sunrise Health</span>
+            <span class="mark">MedFlow Co.</span>
+            <span class="mark">Sano+</span>
+            <span class="mark">Vértice Salud</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+  <!-- /.viewport-sections -->
+
+  <!-- ═══════════════════════════════════════════════════════════
+   01 ABOUT KAYROS — Professional / Tech redesign
+═══════════════════════════════════════════════════════════ -->
+  <section class="kx-about">
+    <div class="kx-about-inner">
+
+      <!-- LEFT: copy -->
+      <div>
+        <div class="kx-label kx-label--light">
+          <span class="kx-label__num">01</span>
+          <div class="kx-label__line"></div>
+          <span class="kx-label__tag">About Kayros</span>
+        </div>
+
+        <div class="who-kx-pill">
+          <span class="who-kx-dot"></span>
+          About Us
+        </div>
+
+        <h2 class="kx-heading">Who We <em>Are</em></h2>
+        <p class="kx-body">
+          <strong>Kayros</strong> is an AI technology company building intelligent operational systems for modern
+          organizations. We develop scalable platforms that combine artificial intelligence and human coordination
+          to optimize communication, workflows, and real-time decision-making — beginning with our flagship
+          healthcare platform, <strong style="color:#FA4238;">Kayros Assist</strong>.
+        </p>
+
+        <div class="kx-stats-grid">
+          <div class="kx-stat-box">
+            <div class="kx-stat-box__val">-<em>42</em>%</div>
+            <div class="kx-stat-box__lab">No-show rate</div>
+          </div>
+          <div class="kx-stat-box">
+            <div class="kx-stat-box__val">24/7</div>
+            <div class="kx-stat-box__lab">AI coverage</div>
+          </div>
+          <div class="kx-stat-box">
+            <div class="kx-stat-box__val">12<em>×</em></div>
+            <div class="kx-stat-box__lab">Faster response</div>
+          </div>
+          <div class="kx-stat-box">
+            <div class="kx-stat-box__val"><em>95</em>%</div>
+            <div class="kx-stat-box__lab">Satisfaction rate</div>
+          </div>
+        </div>
+
+        <div class="who-kx-feats">
+          <div class="who-kx-feat">
+            <span class="who-kx-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+            AI-powered operational intelligence
+          </div>
+          <div class="who-kx-feat">
+            <span class="who-kx-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Scalable platforms for modern organizations
+          </div>
+          <div class="who-kx-feat">
+            <span class="who-kx-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Human + AI coordination frameworks
+          </div>
+        </div>
+
+        <a onclick="openWhoModal()" class="btn btn-secondary">
+          Learn More &rarr;
+        </a>
+      </div>
+
+      <!-- RIGHT: tech system card -->
+      <div class="kx-about-visual">
+        <div class="kx-sys-card">
+          <div class="kx-sys-header">
+            <div class="kx-sys-brand">
+              <img src="assets/iso_k/svg/k_iso_circular_w_bg_blue.svg" alt="Kayros">
+              <span>KAYROS.AI</span>
+            </div>
+            <div class="kx-sys-status">
+              <span class="kx-sys-led"></span>
+              SYSTEM ONLINE
+            </div>
+          </div>
+
+          <div class="kx-sys-logo-wrap">
+            <div class="kx-sys-ring"></div>
+            <div class="kx-sys-ring"></div>
+            <div class="kx-sys-ring"></div>
+            <img class="kx-sys-logo" src="assets/iso_k/svg/k_iso_circular_red.svg" alt="Kayros">
+          </div>
+
+          <div class="kx-sys-list">
+            <div class="kx-sys-item">
+              <div class="kx-sys-item-left">
+                <span class="kx-sys-dot"></span>
+                <span class="kx-sys-name">AI Orchestration Engine</span>
+              </div>
+              <span class="kx-sys-badge">ACTIVE</span>
+            </div>
+            <div class="kx-sys-item">
+              <div class="kx-sys-item-left">
+                <span class="kx-sys-dot"></span>
+                <span class="kx-sys-name">Omnichannel Layer</span>
+              </div>
+              <span class="kx-sys-badge">ACTIVE</span>
+            </div>
+            <div class="kx-sys-item">
+              <div class="kx-sys-item-left">
+                <span class="kx-sys-dot"></span>
+                <span class="kx-sys-name">Patient Engagement</span>
+              </div>
+              <span class="kx-sys-badge">ACTIVE</span>
+            </div>
+            <div class="kx-sys-item">
+              <div class="kx-sys-item-left">
+                <span class="kx-sys-dot"></span>
+                <span class="kx-sys-name">Live Operational Desk</span>
+              </div>
+              <span class="kx-sys-badge">ACTIVE</span>
+            </div>
+          </div>
+
+          <div class="kx-sys-footer">
+            <span>v2.4.1 · KAYROS ASSIST</span>
+            <strong>All systems nominal</strong>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+   02 OUR MAIN PRODUCT — Kayros Assist (dark, tech)
+═══════════════════════════════════════════════════════════ -->
+  <section class="kx-product" id="demo">
+    <div class="kx-product-inner">
+
+      <!-- LEFT: copy -->
+      <div>
+        <div class="kx-label kx-label--dark">
+          <span class="kx-label__num">02</span>
+          <div class="kx-label__line"></div>
+          <span class="kx-label__tag">Our Main Product</span>
+        </div>
+
+        <div class="kx-product-badge">
+          <svg viewBox="0 0 24 24" fill="#FF6B5B"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Kayros Assist
+        </div>
+
+        <h2 class="kx-product-heading">
+          Intelligent<br>Patient Operations<br><em>Platform</em>
+        </h2>
+        <p class="kx-product-lead">
+          AI-driven patient engagement platform designed to optimize patient communication, reduce administrative
+          burden, and improve operational efficiency in healthcare settings.
+        </p>
+
+        <div class="kx-product-feats">
+          <div class="kx-product-feat">
+            <span class="kx-product-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Automated patient engagement &amp; scheduling
+          </div>
+          <div class="kx-product-feat">
+            <span class="kx-product-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Reduce no-show rate by up to 42%
+          </div>
+          <div class="kx-product-feat">
+            <span class="kx-product-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+            24/7 AI patient coverage &amp; live operational desk
+          </div>
+          <div class="kx-product-feat">
+            <span class="kx-product-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+            12× faster first response time
+          </div>
+        </div>
+
+        <a href="ai-solutions.html" class="btn btn-primary">
+          Learn More &rarr;
+        </a>
+      </div>
+
+      <!-- RIGHT: video -->
+      <div class="kx-video-wrap">
+        <div class="kx-video-chrome">
+          <span class="kx-chrome-dot" style="background:#FF5F57"></span>
+          <span class="kx-chrome-dot" style="background:#FEBC2E"></span>
+          <span class="kx-chrome-dot" style="background:#28C840"></span>
+        </div>
+        <video src="https://filedn.com/lLIlU7CohpVRHupQLWK1oYH/Kayros/Home/Kayros%20Technologies%20-%20Video%20Recreaci%C3%B3n%20de%20conversaci%C3%B3n.mp4" autoplay loop muted playsinline></video>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+   SECTION 3 — CORE CAPABILITIES (Feature Hero + Grid — Opción A)
+═══════════════════════════════════════════════════════════ -->
+  <section class="cap-standalone-section">
+    <div class="cap-standalone-inner">
+
+      <div class="ks-slabel ks-slabel--dark" style="margin-bottom:36px;">
+        <span class="ks-slabel__text">03 · What We Build · Opción A</span>
+        <div class="ks-slabel__line"></div>
+      </div>
+
+      <div style="margin-bottom:36px;">
+        <div class="cap-hub-eyebrow section-eyebrow" style="margin-bottom:10px;">What We Build</div>
+        <h2 class="cap-hub-title" style="margin-bottom:10px;">Core Capabilities</h2>
+        <p class="cap-hub-subtitle">Five integrated pillars powering every Kayros platform.</p>
+      </div>
+
+      <!-- Feature Hero: AI Workflow Orchestration -->
+      <div class="ks-feat-hero">
+        <div>
+          <div class="ks-badge ks-badge--dark">
+            <svg style="width:12px;height:12px;" viewBox="0 0 24 24" fill="none" stroke="#FF6B5B" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            Star Capability
+          </div>
+          <h3>AI Workflow Orchestration</h3>
+          <p>
+            The intelligence layer behind Kayros. Smart automation that structures, prioritizes and optimizes every
+            operational process in real time — whether automated or human-led.
+          </p>
+          <div class="ks-hero-stats">
+            <span class="ks-hero-stat">
+              <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              70% fewer manual tasks
+            </span>
+            <span class="ks-hero-stat">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Response &lt; 2 min
+            </span>
+          </div>
+        </div>
+        <div class="ks-workflow-box">
+          <div class="ks-wf-head">
+            <span class="ks-wf-led"></span>
+            <span>WORKFLOW LIVE</span>
+          </div>
+          <div class="ks-wf-line">→ Patient request received</div>
+          <div class="ks-wf-line wf2">→ Triage by urgency level</div>
+          <div class="ks-wf-line wf3">→ Route to specialist</div>
+          <div class="ks-wf-line wf4">→ Auto-response sent ✓</div>
+        </div>
+      </div>
+
+      <!-- 2×2 Cap Grid -->
+      <div class="ks-cap-grid">
+
+        <div class="ks-cap-card">
+          <div class="ks-cap-head">
+            <div class="ks-cap-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4"/></svg>
+            </div>
+            <span class="ks-cap-tag">REAL-TIME</span>
+          </div>
+          <h3>Real-Time Visibility</h3>
+          <p class="ks-cap-desc">Live operational dashboards for immediate, informed decision-making.</p>
+          <div class="ks-bars">
+            <div class="ks-bar" style="background:rgba(250,66,56,0.25);height:40%;"></div>
+            <div class="ks-bar" style="background:rgba(250,66,56,0.45);height:62%;"></div>
+            <div class="ks-bar" style="background:rgba(250,66,56,0.65);height:80%;"></div>
+            <div class="ks-bar" style="background:#FA4238;height:100%;"></div>
+            <div class="ks-bar" style="background:rgba(250,66,56,0.7);height:88%;"></div>
+            <div class="ks-bar" style="background:rgba(250,66,56,0.5);height:72%;"></div>
+          </div>
+        </div>
+
+        <div class="ks-cap-card">
+          <div class="ks-cap-head">
+            <div class="ks-cap-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <span class="ks-cap-tag">UNIFIED</span>
+          </div>
+          <h3>Omnichannel Comms</h3>
+          <p class="ks-cap-desc">Voice, SMS, WhatsApp and email in a single coordination framework.</p>
+          <div class="ks-ch-row">
+            <div class="ks-ch-item"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.38 2 2 0 0 1 3.61 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.64a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/></svg></div>
+            <div class="ks-ch-item"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+            <div class="ks-ch-item"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div class="ks-ch-item"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          </div>
+        </div>
+
+        <div class="ks-cap-card">
+          <div class="ks-cap-head">
+            <div class="ks-cap-icon">
+              <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            <span class="ks-cap-tag">PRIORITIZED</span>
+          </div>
+          <h3>Case &amp; Task Management</h3>
+          <p class="ks-cap-desc">Structured tracking and resolution with automatic prioritization.</p>
+          <div class="ks-case-rows">
+            <div class="ks-case-row"><span class="ks-case-dot" style="background:#FA4238;"></span>Urgent · 3 cases</div>
+            <div class="ks-case-row"><span class="ks-case-dot" style="background:#FF6B5B;"></span>In progress · 12 cases</div>
+            <div class="ks-case-row"><span class="ks-case-dot" style="background:rgba(250,66,56,0.3);"></span>Resolved · 48 cases</div>
+          </div>
+        </div>
+
+        <div class="ks-cap-card">
+          <div class="ks-cap-head">
+            <div class="ks-cap-icon">
+              <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            </div>
+            <span class="ks-cap-tag">ACTIONABLE</span>
+          </div>
+          <h3>Data-Driven Insights</h3>
+          <p class="ks-cap-desc">Advanced analytics converting operational data into concrete improvements.</p>
+          <div class="ks-metric">
+            <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            <span>+42% avg. efficiency</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="ks-cap-footer">
+        <a onclick="openCapModal()" class="btn btn-secondary">Full Capabilities &rarr;</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+   SECTION 3B — CORE CAPABILITIES (Cascada — Opción B)
+═══════════════════════════════════════════════════════════ -->
+  <section class="kc-section">
+    <div class="kc-view-label">
+      <div class="kc-view-badge">03 · What We Build · Opción B</div>
+      <h2 class="kc-view-title">Core <span>Capabilities</span></h2>
+      <p class="kc-view-sub">At Kayros, our capabilities are built around one objective: structuring complex operations
+        through intelligent systems that combine AI, automation, and human coordination.</p>
+    </div>
+    <div class="kc-inner">
+      <div class="kc-cascade">
+
+        <div class="kc-card kc-left" onclick="toggleKcCard(this)">
+          <div class="kc-cbody">
+            <div class="kc-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <div class="kc-ctext">
+              <div class="kc-cname">AI WORKFLOW ORCHESTRATION</div>
+              <p class="kc-cdesc">Intelligent automation that structures and optimizes operational processes.</p>
+            </div>
+          </div>
+          <div class="kc-extra">
+            <div class="kc-etitle">AI Workflow Orchestration</div>
+            <p class="kc-etext">We design intelligent orchestration engines that automate classification, routing, and prioritization across workflows. Our AI models analyze inputs in real time, determine intent, assign urgency levels, and trigger the appropriate operational pathway — whether automated or human-led.</p>
+            <p class="kc-etext">This creates structured, scalable processes without removing human oversight where it matters most.</p>
+          </div>
+        </div>
+
+        <div class="kc-card kc-right" onclick="toggleKcCard(this)">
+          <div class="kc-cbody">
+            <div class="kc-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4"/></svg>
+            </div>
+            <div class="kc-ctext">
+              <div class="kc-cname">REAL-TIME OPERATIONAL VISIBILITY</div>
+              <p class="kc-cdesc">Live dashboards and monitoring for informed, immediate decision-making.</p>
+            </div>
+          </div>
+          <div class="kc-extra">
+            <div class="kc-etitle">Real-Time Operational Visibility</div>
+            <p class="kc-etext">Kayros provides live operational dashboards that allow organizations to monitor performance, workloads, response times, and resolution metrics in real time.</p>
+            <p class="kc-etext">This visibility enables informed decision-making, proactive intervention, and measurable accountability across teams.</p>
+          </div>
+        </div>
+
+        <div class="kc-card kc-left" onclick="toggleKcCard(this)">
+          <div class="kc-cbody">
+            <div class="kc-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div class="kc-ctext">
+              <div class="kc-cname">OMNICHANNEL COMMUNICATION</div>
+              <p class="kc-cdesc">Unified voice, messaging, and digital coordination systems.</p>
+            </div>
+          </div>
+          <div class="kc-extra">
+            <div class="kc-etitle">Omnichannel Communication Infrastructure</div>
+            <p class="kc-etext">We unify voice, messaging, and digital communication into a single operational framework. Instead of disconnected channels, our infrastructure ensures that every interaction is structured, documented, and integrated into the broader workflow ecosystem.</p>
+            <p class="kc-etext">Communication becomes coordinated — not reactive.</p>
+          </div>
+        </div>
+
+        <div class="kc-card kc-right" onclick="toggleKcCard(this)">
+          <div class="kc-cbody">
+            <div class="kc-icon">
+              <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            <div class="kc-ctext">
+              <div class="kc-cname">INTELLIGENT CASE &amp; TASK MANAGEMENT</div>
+              <p class="kc-cdesc">Structured tracking, prioritization, and resolution of operational workflows.</p>
+            </div>
+          </div>
+          <div class="kc-extra">
+            <div class="kc-etitle">Intelligent Case &amp; Task Management</div>
+            <p class="kc-etext">Our systems are built to manage complexity. We design case management frameworks that support prioritization, escalation protocols, human intervention, and resolution tracking.</p>
+            <p class="kc-etext">This ensures continuity, traceability, and operational intelligence across every stage of the process.</p>
+          </div>
+        </div>
+
+        <div class="kc-card kc-left" onclick="toggleKcCard(this)">
+          <div class="kc-cbody">
+            <div class="kc-icon">
+              <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            </div>
+            <div class="kc-ctext">
+              <div class="kc-cname">DATA-DRIVEN INSIGHTS</div>
+              <p class="kc-cdesc">Actionable analytics that improve performance and operational outcomes.</p>
+            </div>
+          </div>
+          <div class="kc-extra">
+            <div class="kc-etitle">Data-Driven Insights</div>
+            <p class="kc-etext">Beyond automation, Kayros leverages operational data to generate actionable insights. By analyzing patterns, response behaviors, and performance metrics, our platforms continuously improve workflows and enable smarter operational strategies.</p>
+          </div>
+        </div>
+
+      </div>
+      <p class="kc-conclusion">
+        Kayros does not simply automate tasks — we engineer intelligent operational ecosystems designed for
+        scalability, adaptability, and long-term growth.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+     FEATURES / CORE VALUES — 3D Orbital Carousel
+ ═══════════════════════════════════════════════════════════ -->
+  <div class="bg-holographic-grid">
+    <canvas id="cv-particle-canvas" class="cv-particle-canvas"></canvas>
+    <section class="features-section features-section--transparent cv-section" id="features">
+      <div class="cv-ambient cv-ambient--left"></div>
+      <div class="cv-ambient cv-ambient--right"></div>
+
+      <!-- Section Header -->
+      <div class="section-header" id="featuresHeader">
+        <div class="section-eyebrow">Core Values</div>
+        <h2 class="section-title section-title--white"><span class="text-brand-red">AI</span> the right way</h2>
+        <p class="section-subtitle--light">
+          <strong class="text-brand-red">KAYROS AI Technology</strong> is the core intelligence layer that
+          powers all <strong>KAYROS</strong> products, enabling real-time
+          decision support, workflow orchestration, predictive insights, and operational continuous optimization.
+        </p>
+      </div>
+
+      <!-- 3D Orbital Carousel -->
+      <div class="cv-scene" id="cvScene">
+
+        <!-- Centro: Logo K -->
+        <div class="cv-center-logo">
+          <div class="cv-center-logo__inner">
+            <div class="cv-center-logo__glow"></div>
+            <div class="cv-center-logo__glow2"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 929.6 929.6" class="cv-k-logo">
+              <defs><style>.cst0{fill:#100249}.cst1{fill:#fa4238}.cst2{fill:#fff}</style></defs>
+              <circle class="cst2" cx="464.8" cy="464.8" r="464.8"/>
+              <polygon class="cst1" points="404 460.2 403.9 460.3 333.2 531 332.6 531.6 332.6 531.5 261.3 460.2 332.6 388.9 404 460.2"/>
+              <path class="cst0" d="M464.8,56.9c-225.3,0-407.9,182.6-407.9,407.9s182.6,407.9,407.9,407.9,407.9-182.6,407.9-407.9S690.1,56.9,464.8,56.9ZM211.2,459.4v217.5c-102.6-122.7-102.6-301.3,0-424.1v206.6ZM663.2,729.2l-234.5-257.9-85.3,85.3,203.1,227.5h4.1c-72.4,19.3-149.2,13.6-217.9-16.3v-201.4l-107-106.2,107-107.1v-191.4c75.1-32.7,159.7-36.4,237.4-10.4l-147.5,147.6,70.4,72.3,170.5-170.7c80.1,60.3,132,156.2,132,264.3s-51.9,204.1-132.2,264.4Z"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Card 01 — Efficiency -->
+        <div class="cv-card">
+          <div class="cv-card-grid"></div>
+          <div class="cv-hud cv-hud--tl"></div><div class="cv-hud cv-hud--tr"></div>
+          <div class="cv-hud cv-hud--bl"></div><div class="cv-hud cv-hud--br"></div>
+          <div class="cv-card__header">
+            <div class="cv-card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2.11 2.11 0 1 1-2.98 2.98l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2.11 2.11 0 1 1-2.98-2.98l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0 .33-1.82l-.06-.06a2.11 2.11 0 1 1 2.98-2.98l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2.11 2.11 0 1 1 2.98 2.98l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+              </svg>
+            </div>
+            <div class="cv-card__num">01</div>
+          </div>
+          <h3 class="cv-card__title">Efficiency</h3>
+          <p class="cv-card__desc">Smart, fast results</p>
+        </div>
+
+        <!-- Card 02 — Innovation -->
+        <div class="cv-card">
+          <div class="cv-card-grid"></div>
+          <div class="cv-hud cv-hud--tl"></div><div class="cv-hud cv-hud--tr"></div>
+          <div class="cv-hud cv-hud--bl"></div><div class="cv-hud cv-hud--br"></div>
+          <div class="cv-card__header">
+            <div class="cv-card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
+                <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
+                <path d="M9 12H4s.5-1 1-4c1.5 0 3 .5 3 .5L9 12z"/>
+                <path d="M15 11l-3 3s.5 1.5.5 3c3 1.5 4 1 4 1l-1.5-4z"/>
+              </svg>
+            </div>
+            <div class="cv-card__num">02</div>
+          </div>
+          <h3 class="cv-card__title">Innovation</h3>
+          <p class="cv-card__desc">Advancing intelligence</p>
+        </div>
+
+        <!-- Card 03 — Quality -->
+        <div class="cv-card">
+          <div class="cv-card-grid"></div>
+          <div class="cv-hud cv-hud--tl"></div><div class="cv-hud cv-hud--tr"></div>
+          <div class="cv-hud cv-hud--bl"></div><div class="cv-hud cv-hud--br"></div>
+          <div class="cv-card__header">
+            <div class="cv-card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+            </div>
+            <div class="cv-card__num">03</div>
+          </div>
+          <h3 class="cv-card__title">Quality</h3>
+          <p class="cv-card__desc">Built for excellence</p>
+        </div>
+
+        <!-- Card 04 — Accuracy -->
+        <div class="cv-card">
+          <div class="cv-card-grid"></div>
+          <div class="cv-hud cv-hud--tl"></div><div class="cv-hud cv-hud--tr"></div>
+          <div class="cv-hud cv-hud--bl"></div><div class="cv-hud cv-hud--br"></div>
+          <div class="cv-card__header">
+            <div class="cv-card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <circle cx="12" cy="12" r="6"/>
+                <circle cx="12" cy="12" r="2"/>
+              </svg>
+            </div>
+            <div class="cv-card__num">04</div>
+          </div>
+          <h3 class="cv-card__title">Accuracy</h3>
+          <p class="cv-card__desc">Precision delivered</p>
+        </div>
+
+        <!-- Card 05 — Adaptability -->
+        <div class="cv-card">
+          <div class="cv-card-grid"></div>
+          <div class="cv-hud cv-hud--tl"></div><div class="cv-hud cv-hud--tr"></div>
+          <div class="cv-hud cv-hud--bl"></div><div class="cv-hud cv-hud--br"></div>
+          <div class="cv-card__header">
+            <div class="cv-card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                <polyline points="7.5 4.21 12 6.81 16.5 4.21"/>
+                <polyline points="7.5 19.79 7.5 14.6 3 12"/>
+                <polyline points="21 12 16.5 14.6 16.5 19.79"/>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                <line x1="12" y1="22.08" x2="12" y2="12"/>
+              </svg>
+            </div>
+            <div class="cv-card__num">05</div>
+          </div>
+          <h3 class="cv-card__title">Adaptability</h3>
+          <p class="cv-card__desc">Designed to evolve</p>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+     COUNTDOWN SECTION
+ ═══════════════════════════════════════════════════════════ -->
+  <section class="countdown-section" id="countdown">
+    <div class="section-header section-header--no-mb" id="countdownHeader">
+      <div class="section-eyebrow">Launching Soon</div>
+      <h2 class="section-title">AI-powered solutions are coming</h2>
+      <p class="countdown-desc">
+        We are building the next generation of intelligent software tools to help businesses scale and optimize
+        their operations. Stay tuned for our upcoming launch of <strong class="text-brand-red">Kayros
+          Assist</strong>.</p>
+      <a onclick="openModal()" class="btn btn-primary">
+        STAY CONNECTED!
+      </a>
+    </div>
+    <div class="countdown-timer">
+      <div class="countdown-item" id="cdDays">
+        <div class="countdown-number" id="days">00</div>
+        <div class="countdown-label">Days</div>
+      </div>
+      <div class="countdown-item" id="cdHours">
+        <div class="countdown-number" id="hours">00</div>
+        <div class="countdown-label">Hours</div>
+      </div>
+      <div class="countdown-item" id="cdMinutes">
+        <div class="countdown-number" id="minutes">00</div>
+        <div class="countdown-label">Minutes</div>
+      </div>
+      <div class="countdown-item" id="cdSeconds">
+        <div class="countdown-number" id="seconds">00</div>
+        <div class="countdown-label">Seconds</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+     FOOTER GLOBAL — editá components/footer.html
+═══════════════════════════════════════════════════════════ -->
+  <div id="site-footer"></div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+     CONTACT MODAL
+═══════════════════════════════════════════════════════════ -->
+
+
+
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box modal-box--relative">
+      <button class="modal-close" onclick="closeModal()">&#215;</button>
+      <div class="modal-left">
+        <h2 class="modal-heading-white">
+          Experience <strong class="text-brand-red">KAYROS AI Technology</strong>
+        </h2>
+        <div class="modal-video-box">
+          <video autoplay loop muted playsinline>
+            <source
+              src="https://f7n.edf.myftpupload.com/wp-content/uploads/2026/02/WhatsApp-Video-2026-02-05-at-10.57.05-AM.mp4"
+              type="video/mp4" />
+          </video>
+        </div>
+        <img src="https://f7n.edf.myftpupload.com/wp-content/uploads/2026/02/qr-linktree-kayros-2.png" class="modal-qr"
+          alt="QR Code" />
+        <p class="modal-scan-label">Scan to Connect</p>
+      </div>
+      <div class="modal-right">
+        <h2><span>Contact Us</span></h2>
+        <p>
+          Fill in your details and our team will reach out as soon as possible.
+        </p>
+        <form class="demo-form" id="demoForm" onsubmit="handleFormSubmit(event)">
+          <div class="form-group">
+            <label>Name *</label>
+            <input type="text" placeholder="Your full name" required />
+          </div>
+          <div class="form-group">
+            <label>Email *</label>
+            <input type="email" placeholder="you@email.com" required />
+          </div>
+          <div class="form-group">
+            <label>Phone *</label>
+            <input type="tel" placeholder="+1 (787) 000-0000" required />
+          </div>
+          <div class="form-group">
+            <label>Message *</label>
+            <textarea rows="3" placeholder="How can we help you?" required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Message →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Who We Are -->
+  <div class="modal-overlay" id="whoModal">
+    <div class="modal-box modal-box--sm">
+      <button class="modal-close" onclick="closeWhoModal()">&#215;</button>
+      <div class="modal-left modal-left--blue">
+        <div class="bg-mosaic-strong modal-mosaic-faint"></div>
+        <h2 class="modal-heading-white">
+          Who We Are — Extended</h2>
+      </div>
+      <div class="who-modal-tooltip-body">
+        <div class="bg-mosaic-strong"></div>
+        <p><strong>Kayros</strong> is an AI technology company building intelligent operational infrastructure for
+          modern organizations.</p>
+        <p>We design systems that enhance how teams communicate, coordinate, and execute — combining artificial
+          intelligence, automation, and human oversight into unified operational frameworks.</p>
+        <p>Our technology is built to structure complexity. To reduce friction. To bring visibility to real-time
+          operations.</p>
+        <p>Rather than creating isolated tools, we engineer integrated platforms that optimize workflows,
+          decision-making, and performance at scale.</p>
+        <p>Our flagship platform, <strong class="text-brand-red">Kayros Assist</strong>, represents the
+          healthcare implementation of this vision — delivering intelligent patient operations powered by AI and live
+          coordination.</p>
+        <p class="mb-0">At <strong>Kayros</strong>, we believe the future of operations is not fully
+          automated — it is <strong class="text-white-strong">intelligently orchestrated</strong>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Capabilities -->
+  <div class="modal-overlay" id="capModal">
+    <div class="modal-box modal-box--md">
+      <button class="modal-close" onclick="closeCapModal()">&#215;</button>
+
+      <div class="modal-left modal-left--blue">
+        <div class="modal-cap-logo-wrap">
+          <div class="modal-cap-ring"></div>
+          <div class="modal-cap-ring"></div>
+          <div class="modal-cap-ring"></div>
+          <img class="modal-cap-logo" src="assets/iso_k/svg/k_iso_circular_red.svg" alt="Kayros">
+        </div>
+        <h2 class="modal-heading-white">Core <em>Capabilities</em></h2>
+        <div class="modal-cap-stat-row">
+          <div class="modal-cap-stat">
+            <span>Automation rate</span><span>70%+</span>
+          </div>
+          <div class="modal-cap-stat">
+            <span>Avg. response</span><span>&lt; 2 min</span>
+          </div>
+          <div class="modal-cap-stat">
+            <span>Efficiency gain</span><span>+42%</span>
+          </div>
+          <div class="modal-cap-stat">
+            <span>System status</span><span>ACTIVE</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-right modal-right--scroll">
+        <p class="modal-cap-intro">At <strong style="color:rgba(255,255,255,0.75)">Kayros</strong>, our capabilities are built around one objective: structuring complex operations through intelligent systems that combine AI, automation, and human coordination.</p>
+
+        <ul class="capability-checklist modal-cap-list">
+          <li class="modal-cap-item">
+            <strong class="modal-cap-title">01 &nbsp;·&nbsp; AI Workflow Orchestration</strong>
+            <p class="modal-cap-desc">Intelligent orchestration engines that automate classification, routing, and prioritization across workflows. Our AI models analyze inputs in real time, determine intent, assign urgency levels, and trigger the appropriate operational pathway — whether automated or human-led.</p>
+            <p class="modal-cap-note">Structured, scalable processes without removing human oversight where it matters most.</p>
+          </li>
+
+          <li class="modal-cap-item">
+            <strong class="modal-cap-title">02 &nbsp;·&nbsp; Real-Time Operational Visibility</strong>
+            <p class="modal-cap-desc">Live operational dashboards that allow organizations to monitor performance, workloads, response times, and resolution metrics in real time.</p>
+            <p class="modal-cap-note">Informed decision-making, proactive intervention, and measurable accountability across teams.</p>
+          </li>
+
+          <li class="modal-cap-item">
+            <strong class="modal-cap-title">03 &nbsp;·&nbsp; Omnichannel Communication</strong>
+            <p class="modal-cap-desc">Voice, messaging, and digital communication unified into a single operational framework. Every interaction is structured, documented, and integrated into the broader workflow ecosystem.</p>
+            <p class="modal-cap-note">Communication becomes coordinated — not reactive.</p>
+          </li>
+
+          <li class="modal-cap-item">
+            <strong class="modal-cap-title">04 &nbsp;·&nbsp; Intelligent Case &amp; Task Management</strong>
+            <p class="modal-cap-desc">Case management frameworks that support prioritization, escalation protocols, human intervention, and resolution tracking built to manage operational complexity.</p>
+            <p class="modal-cap-note">Continuity, traceability, and operational intelligence across every stage of the process.</p>
+          </li>
+
+          <li class="modal-cap-item">
+            <strong class="modal-cap-title">05 &nbsp;·&nbsp; Data-Driven Insights</strong>
+            <p class="modal-cap-desc">Operational data converted into actionable insights. By analyzing patterns, response behaviors, and performance metrics, our platforms continuously improve workflows and enable smarter operational strategies.</p>
+          </li>
+        </ul>
+
+        <p class="modal-cap-footer">
+          <strong>Kayros</strong> does not simply automate tasks — we engineer intelligent operational ecosystems designed for scalability, adaptability, and long-term growth.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    /* ─── Core Values 3D Orbital Carousel ──────────────────── */
+    (function () {
+      const scene = document.getElementById('cvScene');
+      const cards = document.querySelectorAll('.cv-card');
+      if (!scene || !cards.length) return;
+
+      let currentAngle = 0;
+      let currentSpeed = 0.0015;
+      let targetSpeed = 0.0015;
+      let hoveredIndex = null;
+
+      cards.forEach((card, index) => {
+        card.addEventListener('mouseenter', () => { hoveredIndex = index; });
+        card.addEventListener('mouseleave', () => { hoveredIndex = null; });
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        const normalizedX = (e.clientX / window.innerWidth) * 2 - 1;
+        const direction = normalizedX >= 0 ? 1 : -1;
+        targetSpeed = direction * (0.0015 + Math.abs(normalizedX * 0.004));
+      });
+
+      document.addEventListener('mouseleave', () => { targetSpeed = 0.0015; });
+
+      function animateCarousel() {
+        let actualTargetSpeed = targetSpeed;
+
+        if (hoveredIndex !== null) {
+          const baseAngle = (hoveredIndex * Math.PI * 2) / cards.length;
+          const desiredAngle = -baseAngle;
+          const diff = Math.atan2(Math.sin(desiredAngle - currentAngle), Math.cos(desiredAngle - currentAngle));
+          actualTargetSpeed = Math.max(-0.008, Math.min(0.008, diff * 0.015));
+        }
+
+        currentSpeed += (actualTargetSpeed - currentSpeed) * 0.035;
+        currentAngle += currentSpeed;
+
+        const isMobile = window.innerWidth < 768;
+        const radiusX = isMobile ? window.innerWidth * 0.38 : 460;
+        const radiusZ = isMobile ? 100 : 200;
+        const baseScale = isMobile ? 0.72 : 1;
+
+        cards.forEach((card, index) => {
+          const angle = currentAngle + (index * (Math.PI * 2) / cards.length);
+          const x = Math.sin(angle) * radiusX;
+          const z = Math.cos(angle) * radiusZ;
+          const normalizedZ = (z + radiusZ) / (radiusZ * 2);
+          const scale = (0.35 + normalizedZ * 0.65) * baseScale;
+          const blurAmount = (1 - normalizedZ) * 8;
+          const opacity = 0.25 + normalizedZ * 0.75;
+          const zIndex = Math.round(normalizedZ * 100);
+
+          card.style.transform = `translate(-50%, -50%) translateX(${x}px) scale(${scale})`;
+          card.style.filter = `blur(${blurAmount}px)`;
+          card.style.opacity = opacity;
+          card.style.zIndex = zIndex;
+        });
+
+        requestAnimationFrame(animateCarousel);
+      }
+
+      animateCarousel();
+
+      // Spotlight effect por card
+      cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+          card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.setProperty('--mouse-x', '-999px');
+          card.style.setProperty('--mouse-y', '-999px');
+        });
+      });
+
+      // Red neuronal de partículas en el canvas de fondo
+      const canvas = document.getElementById('cv-particle-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      const maxParticles = 100;
+      let cw, ch;
+
+      function resizeCanvas() {
+        const parent = canvas.parentElement;
+        cw = canvas.width = parent.offsetWidth;
+        ch = canvas.height = parent.offsetHeight;
+      }
+
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+
+      const mouse = { x: null, y: null, radius: 120 };
+      window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+      window.addEventListener('mouseleave', () => { mouse.x = null; mouse.y = null; });
+
+      function Particle() {
+        this.x = Math.random() * cw;
+        this.y = Math.random() * ch;
+        this.vx = (Math.random() - 0.5) * 0.3;
+        this.vy = (Math.random() - 0.5) * 0.3;
+        this.r = Math.random() * 1.5 + 0.5;
+      }
+
+      Particle.prototype.draw = function () {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(46, 139, 255, 0.4)';
+        ctx.fill();
+      };
+
+      Particle.prototype.update = function () {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0 || this.x > cw) this.vx *= -1;
+        if (this.y < 0 || this.y > ch) this.vy *= -1;
+        if (mouse.x != null) {
+          const dx = this.x - mouse.x, dy = this.y - mouse.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < mouse.radius) {
+            const force = (mouse.radius - dist) / mouse.radius;
+            const angle = Math.atan2(dy, dx);
+            this.x += Math.cos(angle) * force * 2;
+            this.y += Math.sin(angle) * force * 2;
+          }
+        }
+      };
+
+      for (let i = 0; i < maxParticles; i++) particles.push(new Particle());
+
+      function animateParticles() {
+        ctx.clearRect(0, 0, cw, ch);
+        particles.forEach(p => { p.update(); p.draw(); });
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 110) {
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = `rgba(46, 139, 255, ${0.12 * (1 - dist / 110)})`;
+              ctx.lineWidth = 0.8;
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(animateParticles);
+      }
+
+      animateParticles();
+    })();
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // kx-hero uses CSS-only animations
+    });
+
+    /**
+     * Modal Who We Are
+     */
+    function openWhoModal() {
+      const modal = document.getElementById('whoModal');
+      modal.classList.add('active');
+      if (typeof anime !== 'undefined') {
+        anime({
+          targets: '#whoModal',
+          opacity: [0, 1],
+          duration: 400,
+          easing: 'easeOutQuad'
+        });
+        anime({
+          targets: '#whoModal .modal-box',
+          scale: [0.9, 1],
+          opacity: [0, 1],
+          duration: 500,
+          easing: 'easeOutExpo'
+        });
+      }
+    }
+
+    function closeWhoModal() {
+      const modal = document.getElementById('whoModal');
+      if (typeof anime !== 'undefined') {
+        anime({
+          targets: '#whoModal .modal-box',
+          scale: [1, 0.9],
+          opacity: [1, 0],
+          duration: 300,
+          easing: 'easeInExpo',
+          complete: () => {
+            modal.classList.remove('active');
+          }
+        });
+        anime({
+          targets: '#whoModal',
+          opacity: [1, 0],
+          duration: 300,
+          easing: 'easeOutQuad'
+        });
+      } else {
+        modal.classList.remove('active');
+      }
+    }
+
+    // Close modal on click outside
+    document.getElementById('whoModal').addEventListener('click', (e) => {
+      if (e.target.id === 'whoModal') closeWhoModal();
+    });
+
+    /**
+     * Modal Capabilities
+     */
+    function openCapModal() {
+      const modal = document.getElementById('capModal');
+      modal.classList.add('active');
+      if (typeof anime !== 'undefined') {
+        anime({ targets: '#capModal', opacity: [0, 1], duration: 400, easing: 'easeOutQuad' });
+        anime({ targets: '#capModal .modal-box', scale: [0.9, 1], opacity: [0, 1], duration: 500, easing: 'easeOutExpo' });
+      }
+    }
+
+    function closeCapModal() {
+      const modal = document.getElementById('capModal');
+      if (typeof anime !== 'undefined') {
+        anime({
+          targets: '#capModal .modal-box',
+          scale: [1, 0.9],
+          opacity: [1, 0],
+          duration: 300,
+          easing: 'easeInExpo',
+          complete: () => {
+            modal.classList.remove('active');
+          }
+        });
+        anime({ targets: '#capModal', opacity: [1, 0], duration: 300, easing: 'easeOutQuad' });
+      } else {
+        modal.classList.remove('active');
+      }
+    }
+
+    document.getElementById('capModal').addEventListener('click', (e) => {
+      if (e.target.id === 'capModal') closeCapModal();
+    });
+
+    function toggleKcCard(card) {
+      const isOpen = card.classList.contains('kc-open');
+      document.querySelectorAll('.kc-card').forEach(c => c.classList.remove('kc-open'));
+      if (!isOpen) card.classList.add('kc-open');
+    }
+
+    // Accordion removed for core capabilities
+
+    // Force autoplay for background videos
+    document.addEventListener('DOMContentLoaded', () => {
+      const bgVideos = document.querySelectorAll('.hero-bg-video, .hero-bg-video-main');
+      bgVideos.forEach(video => {
+        video.muted = true;
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {
+            // If failed, try again on first move/click
+            const forcePlay = () => {
+              video.play();
+              document.removeEventListener('click', forcePlay);
+              document.removeEventListener('touchstart', forcePlay);
+            };
+            document.addEventListener('click', forcePlay);
+            document.addEventListener('touchstart', forcePlay);
+          });
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
