@@ -556,15 +556,16 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
 .mobile-nav.open li:nth-child(5) { transition-delay: 0.3s; }
 .mobile-nav.open li:nth-child(6) { transition-delay: 0.35s; }
 
-/* K bullet */
+/* K isotipo bullet */
 .mobile-nav li::before {
-    content: 'K';
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 900;
-    font-size: 1rem;
-    color: var(--primary-red);
+    content: '';
+    width: 18px;
+    height: 18px;
+    background-image: url('../assets/iso_k/svg/k_iso_circular_red.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     flex-shrink: 0;
-    line-height: 1;
 }
 
 .mobile-nav .nav-link {
