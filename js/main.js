@@ -363,11 +363,11 @@ function initHighTechAnimations() {
 }
 
 /* ─── DOMContentLoaded Init ────────────────────────────────── */
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener('DOMContentLoaded', () => {
     // 1. Cargar header y footer globales (async)
     //    setActiveNav, initMobileMenu e initScrollSocials se ejecutan
     //    dentro de loadComponents() después del fetch.
-    await loadComponents();
+    loadComponents();
 
     // 2. Resto de funcionalidades de la página
     initModal();
