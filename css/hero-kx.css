@@ -384,11 +384,22 @@
   }
 
   .kx-hero .logo-strip .marks {
-    gap: 20px;
+    gap: 16px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .kx-hero .logo-strip .marks::-webkit-scrollbar {
+    display: none;
   }
 
   .kx-hero .logo-strip .mark {
-    font-size: 13px;
+    font-size: 12px;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 }
 

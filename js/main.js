@@ -362,6 +362,65 @@ function initHighTechAnimations() {
     if (cTimer) io.observe(cTimer);
 }
 
+/* ─── Page Transitions (Fallback: Firefox / Safari) ─────────── */
+function initPageTransitions() {
+    // 'onpagereveal' is present in browsers that support cross-document
+    // View Transitions (@view-transition navigation: auto). Those browsers
+    // are handled entirely by CSS — no JS needed there.
+    if ('onpagereveal' in window) return;
+
+    // Entry animation: fade + slide up from below
+    const body = document.body;
+    body.style.opacity = '0';
+    body.style.transform = 'translateY(14px)';
+
+    function runEntry() {
+        body.style.transition = 'opacity 0.36s cubic-bezier(0.4,0,0.2,1), transform 0.36s cubic-bezier(0.4,0,0.2,1)';
+        body.style.opacity = '1';
+        body.style.transform = 'translateY(0)';
+        setTimeout(() => {
+            body.style.transition = '';
+            body.style.opacity = '';
+            body.style.transform = '';
+        }, 400);
+    }
+
+    // Trigger entry after components finish loading (is-ready class added)
+    const mo = new MutationObserver(() => {
+        if (body.classList.contains('is-ready')) {
+            mo.disconnect();
+            runEntry();
+        }
+    });
+    mo.observe(body, { attributes: true, attributeFilter: ['class'] });
+    // Safety fallback if is-ready never fires
+    setTimeout(() => { mo.disconnect(); runEntry(); }, 800);
+
+    // Exit animation: fade + slide up, then navigate
+    document.addEventListener('click', (e) => {
+        const a = e.target.closest('a[href]');
+        if (!a) return;
+        const href = a.getAttribute('href');
+        if (!href
+            || href.startsWith('#')
+            || href.startsWith('mailto:')
+            || href.startsWith('tel:')
+            || href.startsWith('javascript:')) return;
+        if (a.target === '_blank' || a.hasAttribute('download')) return;
+        try {
+            const url = new URL(href, location.href);
+            if (url.origin !== location.origin) return;
+            if (url.pathname === location.pathname && !url.search) return;
+        } catch { return; }
+
+        e.preventDefault();
+        body.style.transition = 'opacity 0.2s cubic-bezier(0.4,0,0.2,1), transform 0.2s cubic-bezier(0.4,0,0.2,1)';
+        body.style.opacity = '0';
+        body.style.transform = 'translateY(-10px)';
+        setTimeout(() => { location.href = href; }, 220);
+    }, true);
+}
+
 /* ─── DOMContentLoaded Init ────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Cargar header y footer globales (async)
@@ -376,5 +435,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initValuesWheel();
     initCountdown();
     initHighTechAnimations();
+    initPageTransitions();
     // initScrollEffects(); // se llama dentro de loadComponents()
 });
