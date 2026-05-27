@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
 
 /* ============================================================
    KAYROS AI TECHNOLOGIES — Shared Stylesheet
@@ -8,7 +8,7 @@
 /* Títulos: Century Gothic | Subtítulos y texto: Avenir */
 @font-face {
     font-family: 'Century Gothic';
-    src: url('../assets/century_gothic/centurygothic.ttf') format('truetype');
+    src: url('../assets/fonts/century_gothic/centurygothic.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -16,7 +16,7 @@
 
 @font-face {
     font-family: 'Century Gothic';
-    src: url('../assets/century_gothic/centurygothic_bold.ttf') format('truetype');
+    src: url('../assets/fonts/century_gothic/centurygothic_bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -24,7 +24,7 @@
 
 @font-face {
     font-family: 'Avenir';
-    src: url('../assets/avenir/avenir_light.ttf') format('truetype');
+    src: url('../assets/fonts/avenir/avenir_light.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -32,7 +32,7 @@
 
 @font-face {
     font-family: 'Avenir';
-    src: url('../assets/avenir/avenir_regular.ttf') format('truetype');
+    src: url('../assets/fonts/avenir/avenir_regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -40,7 +40,7 @@
 
 @font-face {
     font-family: 'Avenir';
-    src: url('../assets/avenir/avenir_heavy.ttf') format('truetype');
+    src: url('../assets/fonts/avenir/avenir_heavy.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -556,7 +556,7 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
     content: '';
     width: 18px;
     height: 18px;
-    background-image: url('../assets/iso_k/svg/k_iso_circular_red.svg');
+    background-image: url('../assets/logos/iso/iso-red.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -2713,9 +2713,9 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
     position: absolute;
     top: 0;
     left: 0;
-    width: 6px;
+    width: 2px;
     height: 100%;
-    background: var(--primary-red);
+    background: linear-gradient(180deg, transparent, var(--primary-red), transparent);
     border-radius: 0;
     z-index: -1;
 }
@@ -2802,7 +2802,7 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url('../assets/iso_k/svg/k_iso_circular_w_bg_blue.svg');
+    background-image: url('../assets/logos/iso/iso-blue.svg');
     background-size: 100px;
     background-repeat: no-repeat;
     background-position: center;
@@ -4320,3 +4320,4 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
         font-size: 1.3rem !important;
     }
 }
+

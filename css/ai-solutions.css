@@ -260,13 +260,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(250, 66, 56, 0.1);
+    background: transparent;
+    border: none;
     border-radius: 14px;
 }
 
 .impact-card__icon-img {
-    width: 28px;
-    height: 28px;
+    width: 40px;
+    height: 40px;
 }
 
 .impact-card__title {
@@ -380,4 +381,16 @@
 /* ─── Designed For section subtitle ────────────────────────── */
 .section-subtitle--brand {
     color: var(--primary-red);
+}
+
+/* ─── Card icon with image (transparent, no border) ────────── */
+.card-icon--img {
+    background: transparent;
+    border: none;
+}
+
+.card-icon--img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }

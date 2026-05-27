@@ -1,9 +1,9 @@
-const newsArticles = {
+﻿const newsArticles = {
     'healthcare-admin': {
         title: 'AI in Healthcare: Reducing Administrative Burden in Clinical Settings',
         tag: 'Healthcare Tech',
         date: 'Weekly • Healthcare AI',
-        image: 'assets/AI%20in%20Healthcare_%20Reducing%20Administrative%20Burden.png',
+        image: 'assets/news/ai-healthcare-administrative-burden.png',
         gradient: 'linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%)',
         icon: '<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>',
         content: `
@@ -21,7 +21,7 @@ const newsArticles = {
         title: 'Physical AI Adoption Boosts Customer Service ROI',
         tag: 'Artificial Intelligence',
         date: 'March 2026 • AI News',
-        image: 'assets/Industry%20news%20-%20Physical%20AI%20Adoption%20Boosts%20Customer%20Service%20ROI.png',
+        image: 'assets/news/physical-ai-customer-service.png',
         gradient: 'linear-gradient(135deg, #100249 0%, #1A0580 100%)',
         icon: '<path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>',
         content: `
@@ -105,3 +105,4 @@ const newsArticles = {
         `
     }
 };
+

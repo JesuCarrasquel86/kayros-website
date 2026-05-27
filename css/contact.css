@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    CONTACT PAGE — css/contact.css
    Extracted inline styles from contact.html
    ============================================================ */
@@ -15,7 +15,7 @@
     right: -50px;
     width: 600px;
     height: 600px;
-    background: url('../assets/iso_k/svg/k_iso_circular_gray.svg') center/contain no-repeat;
+    background: url('../assets/logos/iso/iso-gray.svg') center/contain no-repeat;
     opacity: 0.05;
     pointer-events: none;
     z-index: 0;
@@ -174,7 +174,7 @@
     right: -20px;
     width: 200px;
     height: 200px;
-    background: url('../assets/iso_k/svg/k_iso_circular_gray.svg') center/contain no-repeat;
+    background: url('../assets/logos/iso/iso-gray.svg') center/contain no-repeat;
     opacity: 0.03;
     pointer-events: none;
     z-index: 0;
@@ -283,3 +283,4 @@
         border-radius: 20px;
     }
 }
+

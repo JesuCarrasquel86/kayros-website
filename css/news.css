@@ -9,8 +9,15 @@
     cursor: pointer;
 }
 
-/* ─── News Card Images (background-image stays inline for
-   dynamic content, but gradient backgrounds get classes) ──── */
+/* ─── News Card Images ─────────────────────────────────────── */
+.news-card-img--healthcare {
+    background: url('../assets/AI%20in%20Healthcare_%20Reducing%20Administrative%20Burden.png') center/cover no-repeat;
+}
+
+.news-card-img--physical-ai {
+    background: url('../assets/Industry%20news%20-%20Physical%20AI%20Adoption%20Boosts%20Customer%20Service%20ROI.png') center/cover no-repeat;
+}
+
 .news-card-img--red-gradient {
     background: linear-gradient(135deg, #FA4238 0%, #FF6B5B 100%);
 }

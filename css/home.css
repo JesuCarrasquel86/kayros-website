@@ -984,6 +984,65 @@
     }
 }
 
+/* ─── ICO color variants (hero patient card) ───────────────── */
+.ico--red   { background: rgba(250,66,56,0.10);  color: #FA4238; }
+.ico--blue  { background: rgba(74,122,255,0.10); color: #3D7BF7; }
+.ico--green { background: rgba(34,211,160,0.12); color: #10A674; }
+
+/* ─── Hero chip 2: Kayros Assist title row ─────────────────── */
+.hero-chip-2 .t {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* ─── Chrome dots (macOS window decoration) ────────────────── */
+.kx-chrome-dot:nth-child(1) { background: #FF5F57; }
+.kx-chrome-dot:nth-child(2) { background: #FEBC2E; }
+.kx-chrome-dot:nth-child(3) { background: #28C840; }
+
+/* ─── Tech dots: unique top + animation-delay per element ──── */
+.kc-tech-dot:nth-child(1)  { top: 50px;   animation-delay: 0s;   }
+.kc-tech-dot:nth-child(2)  { top: 100px;  animation-delay: 3s;   }
+.kc-tech-dot:nth-child(3)  { top: 150px;  animation-delay: 1s;   }
+.kc-tech-dot:nth-child(4)  { top: 200px;  animation-delay: 5s;   }
+.kc-tech-dot:nth-child(5)  { top: 250px;  animation-delay: 0.5s; }
+.kc-tech-dot:nth-child(6)  { top: 300px;  animation-delay: 4s;   }
+.kc-tech-dot:nth-child(7)  { top: 350px;  animation-delay: 1.5s; }
+.kc-tech-dot:nth-child(8)  { top: 400px;  animation-delay: 6s;   }
+.kc-tech-dot:nth-child(9)  { top: 450px;  animation-delay: 2s;   }
+.kc-tech-dot:nth-child(10) { top: 500px;  animation-delay: 5.5s; }
+.kc-tech-dot:nth-child(11) { top: 550px;  animation-delay: 0.8s; }
+.kc-tech-dot:nth-child(12) { top: 600px;  animation-delay: 4.5s; }
+.kc-tech-dot:nth-child(13) { top: 650px;  animation-delay: 1.2s; }
+.kc-tech-dot:nth-child(14) { top: 700px;  animation-delay: 3.5s; }
+.kc-tech-dot:nth-child(15) { top: 750px;  animation-delay: 0.3s; }
+.kc-tech-dot:nth-child(16) { top: 800px;  animation-delay: 6.5s; }
+.kc-tech-dot:nth-child(17) { top: 850px;  animation-delay: 2.2s; }
+.kc-tech-dot:nth-child(18) { top: 900px;  animation-delay: 4.8s; }
+.kc-tech-dot:nth-child(19) { top: 950px;  animation-delay: 1.8s; }
+.kc-tech-dot:nth-child(20) { top: 1000px; animation-delay: 7s;   }
+.kc-tech-dot:nth-child(21) { top: 1050px; animation-delay: 3.2s; }
+.kc-tech-dot:nth-child(22) { top: 1100px; animation-delay: 0.6s; }
+.kc-tech-dot:nth-child(23) { top: 1150px; animation-delay: 5.2s; }
+.kc-tech-dot:nth-child(24) { top: 1200px; animation-delay: 2.7s; }
+.kc-tech-dot:nth-child(25) { top: 1250px; animation-delay: 4.1s; }
+.kc-tech-dot:nth-child(26) { top: 1300px; animation-delay: 1.4s; }
+.kc-tech-dot:nth-child(27) { top: 1350px; animation-delay: 6.2s; }
+.kc-tech-dot:nth-child(28) { top: 1400px; animation-delay: 3.8s; }
+
+/* ─── Core Values card icon with image ─────────────────────── */
+.cv-card__icon--img {
+    background: transparent;
+    border: none;
+}
+
+.cv-card__icon--img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
 .modal-mosaic-faint {
     opacity: 0.3;
 }
