@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap');
 
 /* ============================================================
    KAYROS AI TECHNOLOGIES — Shared Stylesheet
@@ -2823,9 +2823,9 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
 
 .leader-photo-wrap img {
     max-width: 80%;
-    max-height: 100%; /* Added to prevent clipping */
+    max-height: 100%;
     height: auto;
-    object-fit: contain; /* Ensure it fits */
+    object-fit: contain;
     filter: drop-shadow(0 15px 30px rgba(0,0,0,0.2));
     transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
@@ -4320,4 +4320,5 @@ body.home-transparent-header .site-header.scrolled .mobile-menu-btn span {
         font-size: 1.3rem !important;
     }
 }
+
 

@@ -1,0 +1,291 @@
+/* ── Shared animation (used by kx-*, km-*, who-kx-*) ── */
+@keyframes ks-blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+
+/* ════════════════════════════════════════════════
+   Core Capabilities Cascade (kc-*)
+════════════════════════════════════════════════ */
+.kc-section {
+  background: #0A0919;
+  background-image:
+    linear-gradient(rgba(46,139,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(46,139,255,0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  padding: 100px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.kc-tech-dot {
+  position: absolute;
+  background: #2E8BFF;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: kc-move-dot linear infinite;
+}
+.kc-tech-dot.slow   { width: 4px; height: 4px; animation-duration: 10s; box-shadow: 0 0 8px rgba(46,139,255,0.8); }
+.kc-tech-dot.medium { width: 3px; height: 3px; animation-duration: 7s;  box-shadow: 0 0 6px rgba(46,139,255,0.8); }
+.kc-tech-dot.fast   { width: 2px; height: 2px; animation-duration: 4s;  box-shadow: 0 0 4px rgba(46,139,255,0.8); }
+@keyframes kc-move-dot {
+  0%   { left: -20px; opacity: 0; }
+  5%   { opacity: 1; }
+  95%  { opacity: 1; }
+  100% { left: calc(100% + 20px); opacity: 0; }
+}
+.kc-view-label { text-align: center; margin-bottom: 60px; }
+.kc-view-badge { display: inline-flex; align-items: center; gap: 7px; background: rgba(250,66,56,0.1); border: 1px solid rgba(250,66,56,0.22); color: #FF6B5B; border-radius: 999px; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; padding: 5px 14px; margin-bottom: 16px; font-family: 'Montserrat', sans-serif; }
+.kc-view-title { font-size: 2.2rem; font-weight: 900; color: #ffffff; margin-bottom: 12px; letter-spacing: -0.025em; }
+.kc-view-title span { color: #FA4238; }
+.kc-view-sub { font-size: 0.95rem; color: rgba(255,255,255,0.5); max-width: 580px; margin: 0 auto; line-height: 1.7; }
+.kc-inner { max-width: 900px; margin: 0 auto; }
+.kc-cascade { position: relative; display: flex; flex-direction: column; }
+.kc-card { position: relative; width: 78%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 2rem 2.5rem; margin-top: 1.25rem; cursor: pointer; backdrop-filter: blur(20px); transition: all 0.45s cubic-bezier(0.2,0.8,0.2,1); }
+.kc-card:first-child { margin-top: 0; }
+.kc-card.kc-left  { align-self: flex-start; }
+.kc-card.kc-right { align-self: flex-end; }
+.kc-card:hover { transform: translateY(-3px); border-color: rgba(250,66,56,0.2); box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
+.kc-card:hover .kc-icon { border-color: rgba(250,66,56,0.5); box-shadow: 0 0 20px rgba(250,66,56,0.25); }
+.kc-card:hover .kc-icon svg { stroke: #FA4238; transform: scale(1.1); }
+.kc-card.kc-open { border-color: rgba(46,139,255,0.35); box-shadow: 0 0 0 1px rgba(46,139,255,0.2), 0 8px 32px rgba(0,0,0,0.4); }
+.kc-card.kc-open .kc-extra { max-height: 400px; opacity: 1; margin-top: 1.4rem; padding-top: 1.4rem; border-top: 1px solid rgba(255,255,255,0.08); }
+.kc-cbody { display: flex; align-items: flex-start; gap: 1.4rem; position: relative; z-index: 2; }
+.kc-card.kc-right .kc-cbody { flex-direction: row-reverse; }
+.kc-icon { width: 52px; height: 52px; min-width: 52px; border-radius: 14px; border: 1px solid rgba(46,139,255,0.25); background: rgba(46,139,255,0.06); display: flex; align-items: center; justify-content: center; transition: all 0.4s; }
+.kc-icon svg { width: 22px; height: 22px; stroke: #2E8BFF; fill: none; stroke-width: 1.8; transition: all 0.4s; filter: drop-shadow(0 0 6px rgba(46,139,255,0.4)); }
+.kc-ctext { flex: 1; }
+.kc-card.kc-right .kc-ctext { text-align: right; }
+.kc-cname { font-size: 0.95rem; font-weight: 800; color: rgba(255,255,255,0.92); line-height: 1.3; margin-bottom: 6px; letter-spacing: 0.02em; font-family: 'Montserrat', sans-serif; }
+.kc-cdesc { font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.65; }
+.kc-extra { max-height: 0; opacity: 0; overflow: hidden; transition: all 450ms ease-in-out; }
+.kc-etitle { font-size: 0.92rem; font-weight: 700; color: #2E8BFF; margin-bottom: 10px; }
+.kc-etext { font-size: 0.88rem; color: rgba(255,255,255,0.72); line-height: 1.75; margin-bottom: 10px; }
+.kc-etext:last-child { margin-bottom: 0; }
+.kc-conclusion { text-align: center; font-size: 0.95rem; line-height: 1.75; color: rgba(255,255,255,0.45); max-width: 580px; margin: 4rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08); }
+.kc-section .btn-secondary { color: #fff; border-color: rgba(255,255,255,0.28); }
+.kc-section .btn-secondary:hover { background: rgba(255,255,255,0.09); border-color: rgba(255,255,255,0.6); color: #fff; }
+
+/* ── who-kx-* (About section inline elements) ── */
+.who-kx-pill { display: inline-flex; align-items: center; gap: 6px; background: rgba(250,66,56,0.06); border: 1px solid rgba(250,66,56,0.18); color: #FA4238; font-size: 10px; font-weight: 700; padding: 5px 14px; border-radius: 999px; letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 18px; }
+.who-kx-dot { width: 6px; height: 6px; border-radius: 50%; background: #FA4238; animation: ks-blink 2s infinite; }
+.who-kx-feats { display: flex; flex-direction: column; gap: 11px; margin-bottom: 28px; }
+.who-kx-feat { display: flex; align-items: center; gap: 10px; font-size: 13.5px; color: #334155; }
+.who-kx-check { width: 20px; height: 20px; flex-shrink: 0; border-radius: 50%; background: rgba(250,66,56,0.07); border: 1px solid rgba(250,66,56,0.15); display: flex; align-items: center; justify-content: center; }
+.who-kx-check svg { width: 11px; height: 11px; stroke: #FA4238; fill: none; stroke-width: 2.5; stroke-linecap: round; }
+
+/* ════════════════════════════════════════════════
+   kx-about — 01 ABOUT KAYROS
+════════════════════════════════════════════════ */
+.kx-about {
+  background: #ffffff;
+  padding: 100px 40px;
+  position: relative; overflow: hidden;
+}
+.kx-about::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(16,2,73,0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16,2,73,0.028) 1px, transparent 1px);
+  background-size: 64px 64px;
+  pointer-events: none;
+}
+.kx-about-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 420px;
+  gap: 80px; align-items: center;
+  position: relative; z-index: 1;
+}
+.kx-heading { font-size: 3.2rem; font-weight: 900; color: #0B1120; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 20px; }
+.kx-heading em { color: #FA4238; font-style: normal; }
+.kx-body { font-size: 0.97rem; line-height: 1.9; color: #475569; margin-bottom: 36px; max-width: 500px; }
+.kx-stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-bottom: 36px; }
+.kx-stat-box { background: #F8FAFC; border: 1px solid rgba(0,0,0,0.07); border-radius: 14px; padding: 18px 14px; position: relative; overflow: hidden; }
+.kx-stat-box::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,#FA4238,#FF6B5B); border-radius:0 0 14px 14px; }
+.kx-stat-box__val { font-size: 1.55rem; font-weight: 900; color: #0B1120; line-height: 1; margin-bottom: 6px; }
+.kx-stat-box__val em { color: #FA4238; font-style: normal; }
+.kx-stat-box__lab { font-size: 9.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: #94A3B8; }
+
+/* Tech system card (right visual) */
+.kx-sys-card {
+  background: #0B1120; border-radius: 20px; padding: 28px;
+  border: 1px solid rgba(255,255,255,0.07);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.18), 0 0 0 1px rgba(255,255,255,0.04);
+  position: relative; overflow: hidden;
+}
+.kx-sys-card::before {
+  content:''; position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(250,66,56,0.09) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 50% at 100% 100%, rgba(26,5,128,0.5) 0%, transparent 60%);
+  pointer-events:none;
+}
+.kx-sys-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; padding-bottom:16px; border-bottom:1px solid rgba(255,255,255,0.06); position:relative; }
+.kx-sys-brand { display:flex; align-items:center; gap:9px; }
+.kx-sys-brand img { width:26px; height:26px; }
+.kx-sys-brand span { font-size:11px; font-weight:700; letter-spacing:0.08em; color:white; }
+.kx-sys-status { display:flex; align-items:center; gap:6px; font-size:9px; font-weight:700; letter-spacing:0.1em; color:rgba(255,255,255,0.35); font-family:'Courier New',monospace; }
+.kx-sys-led { width:6px; height:6px; border-radius:50%; background:#22C55E; box-shadow:0 0 8px rgba(34,197,94,0.7); animation:ks-blink 2.5s infinite; }
+.kx-sys-logo-wrap { display:flex; align-items:center; justify-content:center; margin:20px 0; position:relative; height:100px; }
+.kx-sys-logo { width:72px; height:72px; position:relative; z-index:2; }
+.kx-sys-ring { position:absolute; border-radius:50%; }
+.kx-sys-ring:nth-child(1) { inset:4px; border:1px solid rgba(250,66,56,0.22); animation:kx-spin 18s linear infinite; }
+.kx-sys-ring:nth-child(2) { inset:-16px; border:1px solid rgba(46,139,255,0.14); animation:kx-spin 26s linear infinite reverse; }
+.kx-sys-ring:nth-child(3) { inset:-36px; border:1px solid rgba(250,66,56,0.08); animation:kx-spin 35s linear infinite; }
+@keyframes kx-spin { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+.kx-sys-list { display:flex; flex-direction:column; gap:8px; position:relative; }
+.kx-sys-item { display:flex; align-items:center; justify-content:space-between; padding:9px 12px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.05); border-radius:9px; }
+.kx-sys-item-left { display:flex; align-items:center; gap:9px; }
+.kx-sys-dot { width:5px; height:5px; border-radius:50%; background:#2E8BFF; box-shadow:0 0 6px rgba(46,139,255,0.6); }
+.kx-sys-name { font-size:10.5px; font-weight:600; color:rgba(255,255,255,0.72); font-family:'Montserrat',sans-serif; }
+.kx-sys-badge { font-size:8.5px; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; color:#22C55E; background:rgba(34,197,94,0.09); border:1px solid rgba(34,197,94,0.22); padding:2px 8px; border-radius:999px; font-family:'Courier New',monospace; }
+.kx-sys-footer { margin-top:18px; padding-top:14px; border-top:1px solid rgba(255,255,255,0.05); display:flex; align-items:center; justify-content:space-between; position:relative; }
+.kx-sys-footer span { font-size:9px; color:rgba(255,255,255,0.28); font-family:'Courier New',monospace; letter-spacing:0.06em; }
+.kx-sys-footer strong { color:rgba(255,255,255,0.5); font-weight:600; }
+
+/* ════════════════════════════════════════════════
+   kx-product — 02 KAYROS ASSIST
+════════════════════════════════════════════════ */
+.kx-product {
+  background-color: #080a20;
+  background-image:
+    linear-gradient(rgba(0,168,255,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,168,255,0.08) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: center center;
+  padding: 100px 40px;
+  position: relative; overflow: hidden;
+}
+.kx-product::before {
+  content:''; position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse 55% 70% at 0% 50%, rgba(0,80,200,0.35) 0%, transparent 60%),
+    radial-gradient(ellipse 45% 55% at 100% 100%, rgba(250,66,56,0.1) 0%, transparent 52%);
+  pointer-events:none;
+}
+.kx-product::after { content: none; }
+.kx-product-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center;
+  position: relative; z-index: 1;
+}
+.kx-product-badge { display:inline-flex; align-items:center; gap:7px; background:rgba(250,66,56,0.1); border:1px solid rgba(250,66,56,0.25); color:#FF6B5B; font-size:10px; font-weight:700; padding:5px 14px; border-radius:999px; letter-spacing:0.07em; text-transform:uppercase; margin-bottom:18px; }
+.kx-product-badge svg { width:12px; height:12px; flex-shrink:0; }
+.kx-product-heading { font-size: 2.8rem; font-weight: 900; color: white; line-height: 1.08; letter-spacing: -0.025em; margin: 0 0 16px; }
+.kx-product-heading em { color: #FA4238; font-style: normal; }
+.kx-product-lead { font-size: 0.96rem; line-height: 1.85; color: rgba(255,255,255,0.58); margin-bottom: 28px; max-width: 460px; }
+.kx-product-feats { display:flex; flex-direction:column; gap:10px; margin-bottom:32px; }
+.kx-product-feat { display:flex; align-items:center; gap:10px; font-size:13.5px; color:rgba(255,255,255,0.78); }
+.kx-product-check { width:20px; height:20px; flex-shrink:0; border-radius:50%; background:rgba(250,66,56,0.1); border:1px solid rgba(250,66,56,0.25); display:flex; align-items:center; justify-content:center; }
+.kx-product-check svg { width:10px; height:10px; stroke:#FA4238; fill:none; stroke-width:3; stroke-linecap:round; }
+.kx-video-wrap { border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 0 0 1px rgba(250,66,56,0.07), 0 32px 64px rgba(0,0,0,0.55); position: relative; }
+.kx-video-chrome { display:flex; align-items:center; gap:6px; padding:0 14px; height:34px; background:rgba(0,0,0,0.55); backdrop-filter:blur(8px); }
+.kx-chrome-dot { width:10px; height:10px; border-radius:50%; }
+.kx-video-wrap video { width:100%; display:block; max-height:420px; object-fit:cover; }
+
+@media (max-width: 1024px) {
+  .kx-about { padding: 72px 24px; }
+  .kx-product { padding: 72px 24px; }
+  .kx-about-inner { grid-template-columns: 1fr; gap: 48px; }
+  .kx-about-visual { display: none; }
+  .kx-product-inner { grid-template-columns: 1fr; gap: 48px; }
+  .kx-heading { font-size: 2.4rem; }
+  .kx-product-heading { font-size: 2.2rem; }
+  .kx-stats-grid { grid-template-columns: repeat(2,1fr); }
+}
+@media (max-width: 600px) {
+  .kx-stats-grid { grid-template-columns: repeat(2,1fr); }
+  .kx-heading { font-size: 2rem; }
+}
+
+/* ════════════════════════════════════════════════
+   Kayros Modal System (km-*)
+════════════════════════════════════════════════ */
+#whoModal .modal-box,
+#capModal .modal-box {
+  display: flex; flex-direction: column;
+  grid-template-columns: unset;
+  background: #0B1120;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 20px;
+  overflow: hidden;
+  max-height: 88vh;
+  width: 100%;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.04);
+}
+#whoModal .modal-box { max-width: 500px; }
+#capModal .modal-box { max-width: 540px; }
+#whoModal .modal-left,
+#whoModal .who-modal-tooltip-body,
+#capModal .modal-left,
+#capModal .modal-right { display: none !important; }
+#capModal .bg-mosaic-strong,
+#whoModal .bg-mosaic-strong { display: none; }
+.km-modal { display: flex; flex-direction: column; height: 100%; }
+.km-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.06);
+  flex-shrink: 0;
+}
+.km-brand { display: flex; align-items: center; gap: 9px; }
+.km-brand img { width: 26px; height: 26px; }
+.km-brand span { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; color: white; font-family: 'Montserrat', sans-serif; }
+.km-status { display: flex; align-items: center; gap: 6px; font-size: 9px; font-weight: 700; letter-spacing: 0.1em; color: rgba(255,255,255,0.35); font-family: 'Courier New', monospace; }
+.km-led { width: 6px; height: 6px; border-radius: 50%; background: #22C55E; box-shadow: 0 0 8px rgba(34,197,94,0.7); animation: ks-blink 2.5s infinite; }
+.km-logo-wrap {
+  display: flex; align-items: center; justify-content: center;
+  position: relative; height: 110px; margin: 20px 0 12px; flex-shrink: 0;
+}
+.km-logo { width: 68px; height: 68px; position: relative; z-index: 2; }
+.km-ring { position: absolute; border-radius: 50%; }
+.km-ring:nth-child(1) { inset: 4px; border: 1px solid rgba(250,66,56,0.22); animation: kx-spin 18s linear infinite; }
+.km-ring:nth-child(2) { inset: -16px; border: 1px solid rgba(46,139,255,0.14); animation: kx-spin 26s linear infinite reverse; }
+.km-ring:nth-child(3) { inset: -36px; border: 1px solid rgba(250,66,56,0.08); animation: kx-spin 35s linear infinite; }
+.km-body { flex: 1; overflow-y: auto; padding: 4px 20px 8px; }
+.km-body::-webkit-scrollbar { width: 3px; }
+.km-body::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+.km-list { display: flex; flex-direction: column; gap: 8px; }
+.km-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 11px 14px;
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 10px; transition: border-color 0.2s;
+}
+.km-item:hover { border-color: rgba(250,66,56,0.18); }
+.km-dot { width: 5px; height: 5px; border-radius: 50%; background: #2E8BFF; box-shadow: 0 0 6px rgba(46,139,255,0.6); flex-shrink: 0; margin-top: 5px; }
+.km-item-body { flex: 1; min-width: 0; }
+.km-item-name { font-size: 10.5px; font-weight: 700; color: white; font-family: 'Montserrat', sans-serif; line-height: 1.3; }
+.km-item-desc { font-size: 10.5px; color: rgba(255,255,255,0.88); line-height: 1.6; margin-top: 4px; font-family: 'Montserrat', sans-serif; }
+.km-item-note { font-size: 10px; color: rgba(46,139,255,0.85); line-height: 1.5; margin-top: 7px; padding: 6px 10px; background: rgba(46,139,255,0.06); border-left: 2px solid rgba(46,139,255,0.28); border-radius: 0 5px 5px 0; font-family: 'Montserrat', sans-serif; }
+.km-body strong { color: #FA4238; }
+.km-badge { font-size: 8px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: #22C55E; background: rgba(34,197,94,0.09); border: 1px solid rgba(34,197,94,0.22); padding: 3px 9px; border-radius: 999px; font-family: 'Courier New', monospace; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+.km-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 13px 20px; border-top: 1px solid rgba(255,255,255,0.05); flex-shrink: 0;
+}
+.km-footer span { font-size: 9px; color: rgba(255,255,255,0.28); font-family: 'Courier New', monospace; letter-spacing: 0.06em; }
+.km-footer strong { font-size: 9px; color: rgba(255,255,255,0.5); font-weight: 600; font-family: 'Courier New', monospace; }
+#whoModal .modal-close,
+#capModal .modal-close { top: 12px; right: 14px; }
+#whoModal .km-header,
+#capModal .km-header { padding-right: 44px; }
+
+@media (max-width: 900px) {
+  .kc-card, .kc-card.kc-right { width: 100%; }
+  .kc-card.kc-right .kc-cbody { flex-direction: row; }
+  .kc-card.kc-right .kc-ctext { text-align: left; }
+  .kc-section { padding: 72px 24px; }
+}
+@media (max-width: 540px) {
+  .kc-section { padding: 52px 16px; }
+  .kc-view-label { margin-bottom: 36px; }
+  .kc-view-title { font-size: 1.75rem; }
+  .kc-view-sub { font-size: 0.88rem; }
+  .kc-card { padding: 1.1rem 1.15rem; margin-top: 0.65rem; border-radius: 14px; }
+  .kc-cbody { gap: 0.9rem; }
+  .kc-icon { width: 42px; height: 42px; min-width: 42px; border-radius: 11px; }
+  .kc-icon svg { width: 18px; height: 18px; }
+  .kc-cname { font-size: 0.82rem; margin-bottom: 4px; }
+  .kc-cdesc { font-size: 0.8rem; line-height: 1.55; }
+  .kc-card.kc-open .kc-extra { margin-top: 1rem; padding-top: 1rem; }
+  .kc-etitle { font-size: 0.84rem; margin-bottom: 8px; }
+  .kc-etext { font-size: 0.82rem; line-height: 1.65; }
+  .kc-conclusion { font-size: 0.85rem; margin-top: 2.5rem; padding-top: 1.5rem; }
+}
