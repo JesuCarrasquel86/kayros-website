@@ -21,25 +21,25 @@
 .news-card-img--human-loop {
     background:
         linear-gradient(135deg, rgba(180, 30, 20, 0.55) 0%, rgba(220, 60, 50, 0.45) 100%),
-        url('https://images.pexels.com/photos/18069856/pexels-photo-18069856.png?auto=compress&cs=tinysrgb&w=800') center/cover no-repeat;
+        url('../assets/news/human-in-the-loop.png') center/cover no-repeat;
 }
 
 .news-card-img--robots-mfg {
     background:
         linear-gradient(135deg, rgba(8, 80, 75, 0.55) 0%, rgba(15, 118, 110, 0.45) 100%),
-        url('https://images.pexels.com/photos/34207359/pexels-photo-34207359.jpeg?auto=compress&cs=tinysrgb&w=800') center/cover no-repeat;
+        url('../assets/news/robots-manufacturing.jpg') center/cover no-repeat;
 }
 
 .news-card-img--ai-trends {
     background:
         linear-gradient(135deg, rgba(20, 40, 130, 0.55) 0%, rgba(30, 64, 175, 0.45) 100%),
-        url('https://images.pexels.com/photos/17483874/pexels-photo-17483874.png?auto=compress&cs=tinysrgb&w=800') center/cover no-repeat;
+        url('../assets/news/ai-trends.png') center/cover no-repeat;
 }
 
 .news-card-img--orchestration {
     background:
         linear-gradient(135deg, rgba(130, 60, 0, 0.55) 0%, rgba(180, 83, 9, 0.45) 100%),
-        url('https://images.pexels.com/photos/8386437/pexels-photo-8386437.jpeg?auto=compress&cs=tinysrgb&w=800') center/cover no-repeat;
+        url('../assets/news/intelligent-orchestration.jpg') center/cover no-repeat;
 }
 
 /* ─── Load More Section ────────────────────────────────────── */
