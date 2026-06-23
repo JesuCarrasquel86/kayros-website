@@ -161,7 +161,7 @@
 
 /* ── RIGHT: product showcase ─────────────────────────────────── */
 .kx-hero .showcase {
-  position: relative; aspect-ratio: 4/5; max-height: 520px; min-height: 400px;
+  position: relative;
   display: flex; align-items: center; justify-content: center;
 }
 .kx-hero .showcase::before {
@@ -171,10 +171,10 @@
 }
 .kx-hero .hero-mockup-img {
   position: relative; z-index: 3;
-  height: 100%; width: auto; max-height: 560px;
+  width: 100%; max-width: 320px; height: auto;
   display: block;
   border-radius: 48px;
-  filter: drop-shadow(0 40px 60px rgba(0,0,0,0.55)) drop-shadow(0 0 40px rgba(74,122,255,0.22));
+  filter: drop-shadow(0 32px 56px rgba(0,0,0,0.55)) drop-shadow(0 0 36px rgba(74,122,255,0.22));
 }
 
 /* Floating chips around phone */
