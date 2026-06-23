@@ -40,6 +40,7 @@
         title: 'AI Workflows Need Human-in-the-Loop, Say Datatonic',
         tag: 'Operations',
         date: 'March 2026 • AI News',
+        image: 'assets/news/human-in-the-loop.png',
         gradient: 'linear-gradient(135deg, #FA4238 0%, #FF6B5B 100%)',
         icon: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path>',
         content: `
@@ -57,6 +58,7 @@
         title: 'Physical AI: The Global Race for Robots in Manufacturing 2026',
         tag: 'Artificial Intelligence',
         date: 'March 2026 • AI News',
+        image: 'assets/news/robots-manufacturing.jpg',
         gradient: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)',
         icon: '<rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line>',
         content: `
@@ -74,6 +76,7 @@
         title: 'The Latest in Artificial Intelligence: Trends Shaping 2026',
         tag: 'Artificial Intelligence',
         date: 'March 2026 • AI News',
+        image: 'assets/news/ai-trends.png',
         gradient: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)',
         icon: '<circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path>',
         content: `
@@ -91,6 +94,7 @@
         title: 'Intelligent Orchestration: How AI is Reshaping Business Workflows',
         tag: 'Operations',
         date: 'Weekly • AI Operations',
+        image: 'assets/news/intelligent-orchestration.jpg',
         gradient: 'linear-gradient(135deg, #b45309 0%, #f59e0b 100%)',
         icon: '<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>',
         content: `
