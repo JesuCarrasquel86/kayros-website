@@ -1,0 +1,886 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kayros Assist — Intelligent Patient Operations Platform</title>
+  <meta name="description" content="AI-driven patient engagement platform designed to optimize communication, reduce administrative burden, and improve operational efficiency." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" type="image/svg+xml" href="assets/logos/iso/iso-blue.svg" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── TOKENS ── */
+    :root {
+      --red:    #FA4238;
+      --red-dk: #E13129;
+      --navy:   #100249;
+      --blue:   #6E9CFF;
+      --blue-dk:#4A7AFF;
+      --green:  #22D3A0;
+      --yellow: #F59E0B;
+      --bg:     #07070E;
+      --bg-2:   #0A0A14;
+      --bg-3:   #0D0D1A;
+      --border: rgba(255,255,255,0.08);
+      --fg:     #fff;
+      --fg-dim: rgba(255,255,255,0.55);
+      --fg-mute:rgba(255,255,255,0.30);
+      --font-d: 'Century Gothic', system-ui, sans-serif;
+      --font-b: 'Avenir', system-ui, sans-serif;
+      --ease:   cubic-bezier(.2,.7,.2,1);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-b);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── HEADER ── */
+    .ka-header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 40px;
+      background: rgba(7,7,14,0.75);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+    .ka-header-logo {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .ka-header-logo img { height: 28px; }
+    .ka-header-logo .sep {
+      width: 1px; height: 18px; background: var(--border);
+    }
+    .ka-header-logo .product {
+      font-family: var(--font-d); font-weight: 700; font-size: 13px;
+      letter-spacing: 0.12em; color: var(--red);
+    }
+    .ka-header-nav {
+      display: flex; align-items: center; gap: 28px;
+    }
+    .ka-header-nav a {
+      font-size: 13px; font-weight: 500; color: var(--fg-dim);
+      text-decoration: none; transition: color 200ms;
+    }
+    .ka-header-nav a:hover { color: var(--fg); }
+    .ka-header-cta {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .ka-btn {
+      font-family: var(--font-b); font-weight: 700; font-size: 13px;
+      padding: 10px 22px; border-radius: 999px; border: 0; cursor: pointer;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+      transition: all 180ms var(--ease);
+    }
+    .ka-btn--ghost {
+      background: transparent; color: var(--fg-dim);
+      border: 1px solid var(--border);
+    }
+    .ka-btn--ghost:hover { color: var(--fg); border-color: rgba(255,255,255,0.25); }
+    .ka-btn--primary { background: var(--red); color: #fff; }
+    .ka-btn--primary:hover { background: var(--red-dk); box-shadow: 0 0 0 5px rgba(250,66,56,0.18); }
+
+    /* ── HERO ── */
+    .ka-hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 120px 40px 80px;
+      position: relative; overflow: hidden;
+    }
+
+    /* Background glows */
+    .ka-hero::before {
+      content: "";
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 0%,   rgba(74,122,255,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 35% at 15% 60%,  rgba(120,80,255,0.10) 0%, transparent 60%),
+        radial-gradient(ellipse 35% 30% at 85% 70%,  rgba(250,66,56,0.08)  0%, transparent 60%);
+    }
+
+    /* Holographic grid */
+    .ka-hero::after {
+      content: "";
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      opacity: 0.04;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, #000 0%, transparent 80%);
+    }
+
+    .ka-hero-inner {
+      position: relative; z-index: 2;
+      max-width: 1100px; width: 100%;
+      display: flex; flex-direction: column; align-items: center; gap: 56px;
+    }
+
+    /* Copy block */
+    .ka-hero-copy { text-align: center; max-width: 680px; }
+
+    .ka-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      padding: 7px 14px 7px 10px; border-radius: 999px;
+      margin-bottom: 24px;
+    }
+    .ka-eyebrow .dot {
+      width: 7px; height: 7px; border-radius: 50%; background: var(--red);
+      box-shadow: 0 0 10px rgba(250,66,56,0.7);
+      animation: ka-pulse 2s ease-in-out infinite;
+    }
+    @keyframes ka-pulse { 0%,100%{opacity:.5;transform:scale(.85)} 50%{opacity:1;transform:scale(1.1)} }
+
+    .ka-hero h1 {
+      font-family: var(--font-d); font-weight: 700;
+      font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.08;
+      letter-spacing: -0.03em; color: #fff; margin-bottom: 20px;
+    }
+    .ka-hero h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, #FF8A70 0%, var(--red) 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .ka-hero-desc {
+      font-size: 17px; line-height: 1.6; color: var(--fg-dim); margin-bottom: 36px;
+    }
+    .ka-hero-ctas {
+      display: flex; align-items: center; justify-content: center; gap: 14px;
+      flex-wrap: wrap;
+    }
+    .ka-btn--lg { font-size: 15px; padding: 14px 30px; }
+
+    /* Stats strip */
+    .ka-stats {
+      display: flex; gap: 0; justify-content: center;
+      border-top: 1px solid rgba(255,255,255,0.08); padding-top: 28px; margin-top: 8px;
+    }
+    .ka-stat { padding: 0 32px; position: relative; }
+    .ka-stat:first-child { padding-left: 0; }
+    .ka-stat + .ka-stat::before {
+      content:""; position:absolute; left:0; top:15%; bottom:15%; width:1px; background:var(--red);
+    }
+    .ka-stat-v {
+      font-family: var(--font-d); font-weight: 700; font-size: 26px;
+      color: #fff; letter-spacing: -0.02em; line-height: 1;
+    }
+    .ka-stat-v em { font-style: normal; color: var(--red); }
+    .ka-stat-l { font-size: 11px; color: var(--fg-mute); margin-top: 5px; letter-spacing: 0.04em; }
+
+    /* ── DASHBOARD MOCKUP ── */
+    .ka-dashboard-wrap {
+      width: 100%;
+      display: flex; align-items: flex-start; justify-content: center;
+      position: relative;
+    }
+
+    /* Glow behind dashboard */
+    .ka-dashboard-wrap::before {
+      content: "";
+      position: absolute; inset: -5% -3%;
+      background: radial-gradient(ellipse 60% 60% at 50% 45%, rgba(74,122,255,0.28) 0%, transparent 65%);
+      filter: blur(32px); z-index: 0; pointer-events: none;
+    }
+
+    .ka-dashboard {
+      position: relative; z-index: 1;
+      width: 100%; max-width: 900px;
+      background: var(--bg-2);
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow:
+        0 0 0 1px rgba(110,156,255,0.14),
+        0 60px 120px rgba(0,0,0,0.6),
+        0 0 80px rgba(74,122,255,0.18);
+      overflow: hidden;
+    }
+
+    /* Browser chrome */
+    .ka-chrome {
+      display: flex; align-items: center; gap: 7px;
+      padding: 11px 18px;
+      background: #060610;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .ka-chrome-dot { width: 11px; height: 11px; border-radius: 50%; }
+    .ka-chrome-dot:nth-child(1) { background: #FF5F57; }
+    .ka-chrome-dot:nth-child(2) { background: #FFBD2E; }
+    .ka-chrome-dot:nth-child(3) { background: #28CA41; }
+    .ka-chrome-url {
+      flex: 1; margin-left: 12px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 6px; padding: 4px 14px;
+      font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 0.02em;
+    }
+    .ka-chrome-user {
+      width: 26px; height: 26px; border-radius: 50%; background: var(--navy);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-d); font-weight: 700; font-size: 10px; color: #fff;
+      flex-shrink: 0;
+    }
+
+    /* App body */
+    .ka-app-body { display: flex; height: 440px; }
+
+    /* Sidebar */
+    .ka-sidebar {
+      width: 180px; flex-shrink: 0;
+      background: #060610;
+      border-right: 1px solid rgba(255,255,255,0.06);
+      padding: 20px 12px;
+      display: flex; flex-direction: column; gap: 20px;
+    }
+    .ka-sb-brand {
+      display: flex; flex-direction: column; gap: 4px;
+      padding: 0 6px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .ka-sb-brand img { height: 24px; align-self: flex-start; }
+    .ka-sb-brand span {
+      font-family: var(--font-d); font-weight: 700; font-size: 8px;
+      color: var(--red); letter-spacing: 0.22em;
+    }
+
+    .ka-sb-section { display: flex; flex-direction: column; gap: 2px; }
+    .ka-sb-label {
+      font-size: 9px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--fg-mute); padding: 0 8px; margin-bottom: 4px;
+    }
+    .ka-nav-item {
+      display: flex; align-items: center; gap: 9px;
+      padding: 8px 10px; border-radius: 8px;
+      font-size: 12px; font-weight: 500; color: var(--fg-dim);
+      cursor: default; border: 1px solid transparent;
+      transition: all 150ms;
+    }
+    .ka-nav-item svg { width: 14px; height: 14px; flex-shrink: 0; opacity: .7; }
+    .ka-nav-item.active {
+      background: rgba(74,122,255,0.13);
+      color: #8BBCFF;
+      border-color: rgba(74,122,255,0.22);
+    }
+    .ka-nav-item.active svg { opacity: 1; }
+    .ka-nav-badge {
+      margin-left: auto; font-size: 9px; font-weight: 700;
+      background: var(--red); color: #fff;
+      padding: 1px 6px; border-radius: 999px;
+    }
+
+    .ka-sb-footer {
+      margin-top: auto; padding: 10px 8px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .ka-sb-status {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 10px; color: var(--fg-mute);
+    }
+    .ka-sb-led {
+      width: 7px; height: 7px; border-radius: 50%; background: var(--green);
+      box-shadow: 0 0 7px rgba(34,211,160,0.7);
+      animation: ka-pulse 2s ease-in-out infinite;
+    }
+
+    /* Main panel */
+    .ka-main {
+      flex: 1; min-width: 0;
+      display: flex; flex-direction: column;
+      background: var(--bg-3);
+    }
+
+    /* Top bar */
+    .ka-topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      flex-shrink: 0;
+    }
+    .ka-topbar-left { display: flex; flex-direction: column; gap: 2px; }
+    .ka-topbar-title {
+      font-family: var(--font-d); font-weight: 700; font-size: 16px; color: #fff;
+    }
+    .ka-topbar-sub { font-size: 11px; color: var(--fg-mute); }
+    .ka-topbar-right { display: flex; align-items: center; gap: 10px; }
+    .ka-topbar-tabs {
+      display: flex; gap: 2px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 8px; padding: 3px;
+    }
+    .ka-tab {
+      font-size: 11px; font-weight: 500;
+      padding: 5px 12px; border-radius: 6px; cursor: default;
+      color: var(--fg-mute);
+    }
+    .ka-tab.active { background: rgba(74,122,255,0.18); color: #8BBCFF; }
+
+    /* Scroll area */
+    .ka-scroll { flex: 1; overflow: hidden; padding: 20px 24px; display: flex; flex-direction: column; gap: 18px; }
+
+    /* Stats cards */
+    .ka-stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .ka-stat-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px; padding: 14px 14px 12px;
+    }
+    .ka-stat-card-label {
+      font-size: 10px; color: var(--fg-mute); letter-spacing: 0.04em; margin-bottom: 8px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .ka-stat-card-label svg { width: 12px; height: 12px; opacity: .5; }
+    .ka-stat-card-val {
+      font-family: var(--font-d); font-weight: 700; font-size: 22px;
+      color: #fff; letter-spacing: -0.02em; line-height: 1;
+    }
+    .ka-stat-card-val.green { color: var(--green); }
+    .ka-stat-card-val.red   { color: var(--red); }
+    .ka-stat-card-delta {
+      font-size: 10px; color: var(--fg-mute); margin-top: 4px;
+    }
+    .ka-stat-card-delta .up   { color: var(--green); }
+    .ka-stat-card-delta .down { color: var(--red); }
+
+    /* Two-col layout */
+    .ka-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; flex: 1; min-height: 0; }
+
+    /* Activity feed */
+    .ka-panel {
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px; padding: 14px;
+      display: flex; flex-direction: column; gap: 10px; overflow: hidden;
+    }
+    .ka-panel-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 2px;
+    }
+    .ka-panel-title { font-size: 11px; font-weight: 700; color: #fff; letter-spacing: 0.02em; }
+    .ka-panel-action { font-size: 10px; color: var(--blue); cursor: default; }
+
+    .ka-activity-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 8px 10px; border-radius: 9px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .ka-act-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    .ka-act-dot.green  { background: var(--green);  box-shadow: 0 0 6px rgba(34,211,160,.5); }
+    .ka-act-dot.yellow { background: var(--yellow); box-shadow: 0 0 6px rgba(245,158,11,.5); }
+    .ka-act-dot.blue   { background: var(--blue);   box-shadow: 0 0 6px rgba(110,156,255,.5); }
+    .ka-act-dot.red    { background: var(--red);    box-shadow: 0 0 6px rgba(250,66,56,.5); }
+    .ka-act-info { flex: 1; min-width: 0; }
+    .ka-act-name { font-size: 11px; font-weight: 600; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .ka-act-sub  { font-size: 10px; color: var(--fg-mute); margin-top: 1px; }
+    .ka-act-badge {
+      font-size: 8.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 2px 8px; border-radius: 999px; white-space: nowrap; flex-shrink: 0;
+    }
+    .ka-act-badge.ok   { background: rgba(34,211,160,.10); color: var(--green); border: 1px solid rgba(34,211,160,.2); }
+    .ka-act-badge.pend { background: rgba(245,158,11,.10); color: var(--yellow); border: 1px solid rgba(245,158,11,.2); }
+    .ka-act-badge.ai   { background: rgba(110,156,255,.10); color: var(--blue);  border: 1px solid rgba(110,156,255,.2); }
+    .ka-act-badge.new  { background: rgba(250,66,56,.10);  color: var(--red);   border: 1px solid rgba(250,66,56,.2); }
+    .ka-act-time { font-size: 9.5px; color: var(--fg-mute); flex-shrink: 0; }
+
+    /* AI chat panel */
+    .ka-chat {
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .ka-chat-bubble {
+      padding: 9px 12px; border-radius: 10px; font-size: 11px; line-height: 1.5;
+      max-width: 92%;
+    }
+    .ka-chat-bubble.ai {
+      background: rgba(74,122,255,0.10);
+      border: 1px solid rgba(74,122,255,0.18);
+      color: rgba(255,255,255,0.82); align-self: flex-start;
+    }
+    .ka-chat-bubble.user {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--fg-dim); align-self: flex-end;
+    }
+    .ka-chat-typing {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 10px; color: var(--fg-mute);
+      padding: 6px 0;
+    }
+    .ka-typing-dots { display: flex; gap: 3px; align-items: center; }
+    .ka-typing-dots span {
+      width: 4px; height: 4px; border-radius: 50%; background: var(--blue);
+      animation: ka-typing 1.2s ease-in-out infinite;
+    }
+    .ka-typing-dots span:nth-child(2) { animation-delay: .2s; }
+    .ka-typing-dots span:nth-child(3) { animation-delay: .4s; }
+    @keyframes ka-typing { 0%,80%,100%{opacity:.3;transform:scale(.8)} 40%{opacity:1;transform:scale(1)} }
+
+    /* Bottom AI bar */
+    .ka-ai-bar {
+      display: flex; align-items: center; gap: 8px;
+      padding: 10px 16px;
+      background: rgba(250,66,56,0.05);
+      border-top: 1px solid rgba(250,66,56,0.15);
+      flex-shrink: 0;
+    }
+    .ka-ai-icon {
+      width: 24px; height: 24px; border-radius: 7px;
+      background: rgba(250,66,56,0.15); border: 1px solid rgba(250,66,56,0.25);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .ka-ai-icon svg { width: 13px; height: 13px; color: var(--red); }
+    .ka-ai-text { font-size: 11px; color: rgba(255,200,195,0.80); }
+    .ka-ai-dots { margin-left: auto; display: flex; gap: 3px; align-items: flex-end; }
+    .ka-ai-dots span {
+      width: 3px; border-radius: 2px; background: var(--red); opacity: .7;
+      animation: ka-wave 1s ease-in-out infinite alternate;
+    }
+    .ka-ai-dots span:nth-child(1) { height: 10px; animation-delay:0s; }
+    .ka-ai-dots span:nth-child(2) { height: 6px;  animation-delay:.15s; }
+    .ka-ai-dots span:nth-child(3) { height: 12px; animation-delay:.3s; }
+    .ka-ai-dots span:nth-child(4) { height: 7px;  animation-delay:.45s; }
+    @keyframes ka-wave { from{transform:scaleY(.35)} to{transform:scaleY(1)} }
+
+    /* ── FLOATING CHIPS ── */
+    .ka-chip {
+      position: absolute; z-index: 2;
+      background: rgba(10,10,20,0.88);
+      border: 1px solid rgba(255,255,255,0.10);
+      backdrop-filter: blur(16px);
+      border-radius: 16px; padding: 12px 16px;
+      display: flex; align-items: center; gap: 12px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+    }
+    .ka-chip-ico {
+      width: 36px; height: 36px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .ka-chip-ico svg { width: 18px; height: 18px; }
+    .ka-chip-t { font-weight: 700; font-size: 12px; color: #fff; }
+    .ka-chip-d { font-size: 10px; color: var(--fg-dim); margin-top: 2px; }
+    .ka-chip-1 { bottom: -24px; left: -48px; }
+    .ka-chip-1 .ka-chip-ico { background: rgba(34,211,160,0.18); color: var(--green); }
+    .ka-chip-2 { top: 28px; right: -48px; }
+    .ka-chip-2 .ka-chip-ico { background: rgba(74,122,255,0.18); color: var(--blue); }
+
+    /* ── FEATURES STRIP ── */
+    .ka-features {
+      padding: 80px 40px;
+      max-width: 1100px; margin: 0 auto; width: 100%;
+    }
+    .ka-features-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+    }
+    .ka-feat {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 14px; padding: 24px 20px;
+      transition: border-color 200ms, background 200ms;
+    }
+    .ka-feat:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.15);
+    }
+    .ka-feat-ico {
+      width: 40px; height: 40px; border-radius: 11px;
+      background: rgba(74,122,255,0.12);
+      border: 1px solid rgba(74,122,255,0.20);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+    }
+    .ka-feat-ico svg { width: 20px; height: 20px; color: var(--blue); }
+    .ka-feat-ico.red { background: rgba(250,66,56,0.10); border-color: rgba(250,66,56,0.20); }
+    .ka-feat-ico.red svg { color: var(--red); }
+    .ka-feat-ico.green { background: rgba(34,211,160,0.10); border-color: rgba(34,211,160,0.20); }
+    .ka-feat-ico.green svg { color: var(--green); }
+    .ka-feat-ico.yellow { background: rgba(245,158,11,0.10); border-color: rgba(245,158,11,0.20); }
+    .ka-feat-ico.yellow svg { color: var(--yellow); }
+    .ka-feat-title { font-family: var(--font-d); font-weight: 700; font-size: 14px; color: #fff; margin-bottom: 8px; }
+    .ka-feat-desc  { font-size: 13px; line-height: 1.55; color: var(--fg-dim); }
+
+    /* ── FOOTER BAR ── */
+    .ka-footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .ka-footer-logo { display: flex; align-items: center; gap: 10px; }
+    .ka-footer-logo img { height: 22px; opacity: .6; }
+    .ka-footer-copy { font-size: 12px; color: var(--fg-mute); }
+    .ka-footer-back {
+      font-size: 13px; color: var(--fg-dim); text-decoration: none;
+      display: flex; align-items: center; gap: 6px;
+      transition: color 200ms;
+    }
+    .ka-footer-back:hover { color: #fff; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .ka-header-nav { display: none; }
+      .ka-stat-row { grid-template-columns: repeat(2,1fr); }
+      .ka-two-col  { grid-template-columns: 1fr; }
+      .ka-features-grid { grid-template-columns: repeat(2,1fr); }
+      .ka-chip-1, .ka-chip-2 { display: none; }
+      .ka-hero { padding: 110px 24px 60px; }
+      .ka-features { padding: 48px 24px; }
+      .ka-header { padding: 16px 24px; }
+    }
+    @media (max-width: 600px) {
+      .ka-sidebar { width: 130px; }
+      .ka-stat-row { grid-template-columns: repeat(2,1fr); }
+      .ka-features-grid { grid-template-columns: 1fr; }
+      .ka-app-body { height: 380px; }
+      .ka-stats { flex-direction: column; gap: 16px; border-top: none; padding-top: 8px; }
+      .ka-stat + .ka-stat::before { display: none; }
+      .ka-stat { padding: 0; }
+    }
+    @media (max-width: 480px) {
+      .ka-sidebar { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="ka-header">
+    <div class="ka-header-logo">
+      <img src="assets/logos/brand/logo-color.svg" alt="Kayros AI Technologies">
+      <div class="sep"></div>
+      <span class="product">ASSIST</span>
+    </div>
+    <nav class="ka-header-nav">
+      <a href="index.html">Home</a>
+      <a href="#">Features</a>
+      <a href="#">Pricing</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="ka-header-cta">
+      <a href="index.html" class="ka-btn ka-btn--ghost">← Back</a>
+      <a href="contact.html" class="ka-btn ka-btn--primary">Request Access →</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="ka-hero">
+    <div class="ka-hero-inner">
+
+      <!-- Copy -->
+      <div class="ka-hero-copy">
+        <div class="ka-eyebrow">
+          <span class="dot"></span>
+          Now in private beta · Kayros Assist
+        </div>
+        <h1>Intelligent Patient<br>Operations <em>Platform</em></h1>
+        <p class="ka-hero-desc">
+          AI-driven engagement platform that automates scheduling, reduces no-shows by 42%, and delivers 24/7 patient coverage — all from a single operational dashboard.
+        </p>
+        <div class="ka-hero-ctas">
+          <a href="contact.html" class="ka-btn ka-btn--primary ka-btn--lg">Request Early Access →</a>
+          <a href="index.html" class="ka-btn ka-btn--ghost ka-btn--lg">Learn More</a>
+        </div>
+        <div class="ka-stats">
+          <div class="ka-stat">
+            <div class="ka-stat-v">-42<em>%</em></div>
+            <div class="ka-stat-l">No-show rate</div>
+          </div>
+          <div class="ka-stat">
+            <div class="ka-stat-v">24/7</div>
+            <div class="ka-stat-l">AI patient coverage</div>
+          </div>
+          <div class="ka-stat">
+            <div class="ka-stat-v">12<em>×</em></div>
+            <div class="ka-stat-l">Faster first response</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dashboard mockup -->
+      <div class="ka-dashboard-wrap">
+        <div class="ka-dashboard">
+          <!-- Browser chrome -->
+          <div class="ka-chrome">
+            <span class="ka-chrome-dot"></span>
+            <span class="ka-chrome-dot"></span>
+            <span class="ka-chrome-dot"></span>
+            <div class="ka-chrome-url">app.kayros.ai / dashboard · overview</div>
+            <div class="ka-chrome-user">A</div>
+          </div>
+
+          <!-- App body -->
+          <div class="ka-app-body">
+
+            <!-- Sidebar -->
+            <div class="ka-sidebar">
+              <div class="ka-sb-brand">
+                <img src="assets/logos/brand/logo-color.svg" alt="Kayros">
+                <span>ASSIST</span>
+              </div>
+
+              <div class="ka-sb-section">
+                <div class="ka-sb-label">Main</div>
+                <div class="ka-nav-item active">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                  Overview
+                </div>
+                <div class="ka-nav-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                  Patients
+                  <span class="ka-nav-badge">3</span>
+                </div>
+                <div class="ka-nav-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="14" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  Appointments
+                </div>
+                <div class="ka-nav-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                  Messages
+                  <span class="ka-nav-badge">7</span>
+                </div>
+              </div>
+
+              <div class="ka-sb-section">
+                <div class="ka-sb-label">Insights</div>
+                <div class="ka-nav-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                  Analytics
+                </div>
+                <div class="ka-nav-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4"/></svg>
+                  AI Desk
+                </div>
+              </div>
+
+              <div class="ka-sb-footer">
+                <div class="ka-sb-status">
+                  <span class="ka-sb-led"></span>
+                  All systems live
+                </div>
+              </div>
+            </div>
+
+            <!-- Main -->
+            <div class="ka-main">
+              <!-- Top bar -->
+              <div class="ka-topbar">
+                <div class="ka-topbar-left">
+                  <div class="ka-topbar-title">Overview</div>
+                  <div class="ka-topbar-sub">Monday, Jun 23 · Clínica Aurora</div>
+                </div>
+                <div class="ka-topbar-right">
+                  <div class="ka-topbar-tabs">
+                    <span class="ka-tab active">Today</span>
+                    <span class="ka-tab">Week</span>
+                    <span class="ka-tab">Month</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Scrollable content -->
+              <div class="ka-scroll">
+                <!-- Stat cards -->
+                <div class="ka-stat-row">
+                  <div class="ka-stat-card">
+                    <div class="ka-stat-card-label">
+                      Appointments
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="14" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    </div>
+                    <div class="ka-stat-card-val">24</div>
+                    <div class="ka-stat-card-delta"><span class="up">↑ 3</span> vs yesterday</div>
+                  </div>
+                  <div class="ka-stat-card">
+                    <div class="ka-stat-card-label">
+                      No-show Rate
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                    </div>
+                    <div class="ka-stat-card-val green">-42%</div>
+                    <div class="ka-stat-card-delta"><span class="up">↓ 12pp</span> vs last month</div>
+                  </div>
+                  <div class="ka-stat-card">
+                    <div class="ka-stat-card-label">
+                      Avg Response
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                    </div>
+                    <div class="ka-stat-card-val">8s</div>
+                    <div class="ka-stat-card-delta"><span class="up">↑ 12×</span> faster than manual</div>
+                  </div>
+                  <div class="ka-stat-card">
+                    <div class="ka-stat-card-label">
+                      AI Coverage
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <div class="ka-stat-card-val">24/7</div>
+                    <div class="ka-stat-card-delta"><span class="up">95%</span> satisfaction</div>
+                  </div>
+                </div>
+
+                <!-- Two columns: Activity + AI Chat -->
+                <div class="ka-two-col">
+                  <!-- Activity feed -->
+                  <div class="ka-panel">
+                    <div class="ka-panel-header">
+                      <div class="ka-panel-title">Recent Activity</div>
+                      <div class="ka-panel-action">View all →</div>
+                    </div>
+                    <div class="ka-activity-item">
+                      <span class="ka-act-dot green"></span>
+                      <div class="ka-act-info">
+                        <div class="ka-act-name">Maria Rodriguez</div>
+                        <div class="ka-act-sub">Annual check-up · 10:30 AM</div>
+                      </div>
+                      <span class="ka-act-badge ok">Confirmed</span>
+                      <span class="ka-act-time">9:14 AM</span>
+                    </div>
+                    <div class="ka-activity-item">
+                      <span class="ka-act-dot yellow"></span>
+                      <div class="ka-act-info">
+                        <div class="ka-act-name">James Thornton</div>
+                        <div class="ka-act-sub">Lab results review · 11:00 AM</div>
+                      </div>
+                      <span class="ka-act-badge pend">Pending</span>
+                      <span class="ka-act-time">9:02 AM</span>
+                    </div>
+                    <div class="ka-activity-item">
+                      <span class="ka-act-dot blue"></span>
+                      <div class="ka-act-info">
+                        <div class="ka-act-name">Sofia Chen</div>
+                        <div class="ka-act-sub">AI follow-up sent automatically</div>
+                      </div>
+                      <span class="ka-act-badge ai">AI</span>
+                      <span class="ka-act-time">8:47 AM</span>
+                    </div>
+                    <div class="ka-activity-item">
+                      <span class="ka-act-dot red"></span>
+                      <div class="ka-act-info">
+                        <div class="ka-act-name">Carlos Mendez</div>
+                        <div class="ka-act-sub">New appointment request</div>
+                      </div>
+                      <span class="ka-act-badge new">New</span>
+                      <span class="ka-act-time">8:31 AM</span>
+                    </div>
+                  </div>
+
+                  <!-- AI Chat panel -->
+                  <div class="ka-panel">
+                    <div class="ka-panel-header">
+                      <div class="ka-panel-title">Kayros AI · Patient Chat</div>
+                      <div class="ka-panel-action">Full view →</div>
+                    </div>
+                    <div class="ka-chat">
+                      <div class="ka-chat-bubble ai">
+                        Hi Maria! This is a reminder for your annual check-up tomorrow at 10:30 AM with Dr. Martinez. Reply YES to confirm.
+                      </div>
+                      <div class="ka-chat-bubble user">
+                        Yes, I'll be there. Thank you!
+                      </div>
+                      <div class="ka-chat-bubble ai">
+                        Confirmed! We'll send you directions and prep instructions one hour before. See you tomorrow!
+                      </div>
+                      <div class="ka-chat-typing">
+                        <span>Kayros AI responding</span>
+                        <div class="ka-typing-dots">
+                          <span></span><span></span><span></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- AI status bar -->
+              <div class="ka-ai-bar">
+                <div class="ka-ai-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <span class="ka-ai-text">Kayros AI — processing 3 pending interactions · 8s avg response time</span>
+                <div class="ka-ai-dots">
+                  <span></span><span></span><span></span><span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating chips -->
+        <div class="ka-chip ka-chip-1">
+          <div class="ka-chip-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 7"/></svg>
+          </div>
+          <div>
+            <div class="ka-chip-t">Appointment confirmed</div>
+            <div class="ka-chip-d">Maria R. · 10:30 AM · Dr. Martinez</div>
+          </div>
+        </div>
+
+        <div class="ka-chip ka-chip-2">
+          <div class="ka-chip-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 12h2M8 8v8M12 6v12M16 9v6M20 12h2"/></svg>
+          </div>
+          <div>
+            <div class="ka-chip-t">Kayros AI · Live</div>
+            <div class="ka-chip-d">Online · responding in 8s</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FEATURE HIGHLIGHTS -->
+  <section style="background: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06);">
+    <div class="ka-features">
+      <div class="ka-features-grid">
+        <div class="ka-feat">
+          <div class="ka-feat-ico red">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="14" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div class="ka-feat-title">Automated Scheduling</div>
+          <div class="ka-feat-desc">AI handles confirmations, reminders, and rescheduling — reducing no-shows by up to 42%.</div>
+        </div>
+        <div class="ka-feat">
+          <div class="ka-feat-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="ka-feat-title">Omnichannel Communication</div>
+          <div class="ka-feat-desc">Reach patients via SMS, WhatsApp, and email from a unified operational inbox.</div>
+        </div>
+        <div class="ka-feat">
+          <div class="ka-feat-ico green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4"/></svg>
+          </div>
+          <div class="ka-feat-title">Live Operational Desk</div>
+          <div class="ka-feat-desc">Real-time dashboard with AI-assisted triage and escalation for your coordination team.</div>
+        </div>
+        <div class="ka-feat">
+          <div class="ka-feat-ico yellow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          <div class="ka-feat-title">Data-Driven Insights</div>
+          <div class="ka-feat-desc">Performance metrics, patient behavior patterns, and operational analytics in one view.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER BAR -->
+  <footer class="ka-footer">
+    <div class="ka-footer-logo">
+      <img src="assets/logos/brand/logo-color.svg" alt="Kayros">
+    </div>
+    <div class="ka-footer-copy">© 2026 Kayros AI Technologies. All rights reserved.</div>
+    <a href="index.html" class="ka-footer-back">
+      ← Back to main site
+    </a>
+  </footer>
+
+</body>
+</html>
